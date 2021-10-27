@@ -1,14 +1,16 @@
-import NavBar from './NavBar';
-import SelBar from './SelBar';
-import Content from './Content';
+import NavBar from './Bar/NavBar';
+import SelBar from './Bar/SelBar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import TableTab from './Content/TableTab';
 
 function App() {
   return (
-    <div className="App">
-      <NavBar Title = "Receptionist View"/>
-      <SelBar option1="Reservation" option2="Table"/>
-      <Content/>
-    </div>
+    <Router>
+      <div className="App">
+        <NavBar Title = "Receptionist View"/>
+        <TableTab/>
+      </div>
+    </Router>
   );
 }
 

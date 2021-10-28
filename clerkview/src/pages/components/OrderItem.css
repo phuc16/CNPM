@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    font-family: "Quicksand";
+    background-color: #F1F8F5;
+}
+
+.orderItem {
+    margin: 20px 3vw;
+    height: 75px;
+    display: grid;
+    grid-template-columns: 15% 25% 20% 40%;
+    background-color: #EAEAEB;
+}
+
+.orderItem img {
+    margin: 10px 2vw;
+    width: 55px;
+}
+
+.orderItem>span {
+    margin: auto 0;
+    background-color: #EAEAEB;
+}
+
+.orderItem>span:last-child {
+    margin-right: 4.5vw;
+}
+
+@media only screen and (max-width: 991px) {
+    .orderItem>span:last-child {
+        margin-right: 5.5vw;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .orderItem {
+        grid-template-columns: 45% 10% 45%;
+    }
+    .orderItem .name {
+        margin: auto 2vw;
+    }
+    .orderItem img {
+        display: none;
+    }
+    .orderItem>span:last-child {
+        margin-right: 3vw;
+    }
+}

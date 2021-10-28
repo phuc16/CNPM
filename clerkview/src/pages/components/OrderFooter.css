@@ -41,6 +41,10 @@ button:focus {
 }
 
 @media only screen and (max-width: 991px) {
+    .order-footer .total-cost {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
     .order-footer .total-cost>span:last-child {
         margin-right: 8.5vw;
     }

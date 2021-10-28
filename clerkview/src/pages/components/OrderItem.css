@@ -14,7 +14,7 @@
 }
 
 .orderItem img {
-    margin: 10px 2vw;
+    margin: auto 2vw;
     width: 55px;
 }
 
@@ -35,13 +35,17 @@
 
 @media only screen and (max-width: 575px) {
     .orderItem {
-        grid-template-columns: 45% 10% 45%;
+        grid-template-columns: 15% 30% 10% 45%;
+        height: 65px;
+        font-size: small;
     }
     .orderItem .name {
-        margin: auto 2vw;
+        margin: auto 3vw;
     }
     .orderItem img {
-        display: none;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 45px;
     }
     .orderItem>span:last-child {
         margin-right: 3vw;

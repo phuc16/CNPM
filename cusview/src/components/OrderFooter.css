@@ -11,9 +11,15 @@ button:focus {
 
 .order-footer .total-cost {
     display: grid;
-    grid-template-columns: 30% 40% 30%;
+    display: grid;
+    margin: auto 3vw;
+    grid-template-columns: 40% 20% 33% 7%;
     margin-top: 40px;
     margin-bottom: 30px;
+}
+
+.order-footer .total-cost>span:first-child {
+    margin-left: 2vw;
 }
 
 .order-footer .total-cost>span:last-child {
@@ -30,7 +36,7 @@ button:focus {
 
 .order-footer .confirm button {
     height: 46px;
-    width: 300px;
+    width: 200px;
     background-color: #0EB062;
     border-radius: 10px;
     border: 1px solid #0AAF60;
@@ -41,22 +47,31 @@ button:focus {
 }
 
 @media only screen and (max-width: 991px) {
+    .order-footer .total-cost {
+        grid-template-columns: 40% 20% 31% 9%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
     .order-footer .total-cost>span:last-child {
         margin-right: 8.5vw;
     }
     .order-footer .confirm button {
-        width: 250px;
+        width: 180px;
         height: 40px;
         font-size: large;
     }
 }
 
 @media only screen and (max-width: 575px) {
+    .order-footer .total-cost {
+        grid-template-columns: 45% 10% 34% 11%;
+        margin-top: 0;
+    }
     .order-footer .total-cost>span:last-child {
         margin-right: 6vw;
     }
     .order-footer .confirm button {
-        width: 200px;
+        width: 120px;
         height: 36px;
         font-size: small;
     }

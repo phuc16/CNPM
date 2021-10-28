@@ -9,12 +9,13 @@
     margin: 20px 3vw;
     height: 75px;
     display: grid;
-    grid-template-columns: 15% 25% 20% 40%;
+    grid-template-columns: 15% 25% 20% 33% 7%;
     background-color: #EAEAEB;
+    border-radius: 20px;
 }
 
 .orderItem img {
-    margin: 10px 2vw;
+    margin: auto 2vw;
     width: 55px;
 }
 
@@ -27,7 +28,21 @@
     margin-right: 4.5vw;
 }
 
+.orderItem .remove {
+    width: 25px;
+    background-color: #EAEAEB;
+    opacity: 0.3;
+}
+
+.orderItem .remove:hover,
+.orderItem .remove:active {
+    opacity: 1;
+}
+
 @media only screen and (max-width: 991px) {
+    .orderItem {
+        grid-template-columns: 15% 25% 20% 31% 9%;
+    }
     .orderItem>span:last-child {
         margin-right: 5.5vw;
     }
@@ -35,15 +50,22 @@
 
 @media only screen and (max-width: 575px) {
     .orderItem {
-        grid-template-columns: 45% 10% 45%;
+        grid-template-columns: 15% 30% 10% 34% 11%;
+        height: 65px;
+        font-size: small;
     }
     .orderItem .name {
         margin: auto 2vw;
     }
     .orderItem img {
-        display: none;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 45px;
     }
     .orderItem>span:last-child {
         margin-right: 3vw;
+    }
+    .orderItem .remove {
+        width: 20px;
     }
 }

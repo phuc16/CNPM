@@ -1,18 +1,19 @@
 import './OrderFooter.css';
 
 export default function OrderFooter(props){
-    function comfirmClick(){
-        alert('Comfirm clicked');
+    function submitClick(){
+        alert('SUBMIT clicked');
     }
     return(
         <div className="order-footer">
             <div className="total-cost">
-                <span></span>
-                <span style={{textAlign: 'center'}}>Total Cost:</span>
+                <span style={{textAlign: 'left'}}>Total Cost:</span>
+                <span style={{textAlign: 'center'}}>{props.totalQuantity}</span>
                 <span style={{textAlign: 'right'}}>{props.totalCost}$</span>
+                <span></span>
             </div>
             <div className="confirm">
-                <button onClick={() => comfirmClick()}>Confirm Customer Order</button>
+                <button onClick={() => submitClick()}>SUBMIT ORDER</button>
             </div>
         </div>
     );

@@ -1,0 +1,38 @@
+.data-container {
+    display: grid;
+    grid-gap: 10px 0px;
+    grid-template-columns: auto auto auto;
+    background-color: #C4EBD8;
+    width: 100vh;
+    height: 50vh;
+    margin: auto;
+    margin-top: 40px;
+    padding: 8px 10px;
+    padding-bottom: 100px;
+  }
+  
+
+  .data-title{
+    background-color: orange;
+    font-weight: bold;
+    padding: 10px;
+    height: 30px;
+    text-align: center;
+  }
+
+  .data-item {
+    background-color: #FEF5DA;
+    padding: 10px;
+    height: 30px;
+    text-align: center;
+  }
+
+
+
+  .nav-link {
+    margin: 6px 6px auto auto;
+  }
+
+  a {
+    text-decoration: none;
+  }

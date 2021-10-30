@@ -1,0 +1,26 @@
+.header-bar{
+    background-color: #C4EBD8;
+    padding: 15px;
+    font-size: 20px;
+    font-style: bold;
+}
+
+.btn-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+button {
+    width: 70vh;
+    height: 7vh;;
+    border-radius: 15px;
+    margin-left: 40px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #C4EBD8;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+}

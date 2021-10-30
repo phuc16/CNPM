@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import './Bar.css';
 
 function SelBar({option1, option2}) {
     function handleClickLeft(e) {

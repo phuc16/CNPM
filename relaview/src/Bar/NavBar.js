@@ -1,3 +1,5 @@
+import './Bar.css';
+
 function NavBar({Title}) {
     function handleClick(e) {
         e.preventDefault();

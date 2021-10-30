@@ -7,19 +7,12 @@
   background-color: #F1F8F5;
 }
 
-.navbar {
-  padding: 10px 10px 10px 10px;
-  align-items: center;
-  margin: 10px 40px 5px;
-  background-color: white;
-  border-radius: 10px;
-}
 
-.navbar h1 {
+.insidetext{
   color: #000000;
   background-color: inherit;
-  text-align: center;
   font-size: larger;
+  text-align: center;
 }
 
 .noselect{
@@ -29,39 +22,6 @@
   -moz-user-select: none; 
   -ms-user-select: none;
   user-select: none;
-}
-
-.select-bar-container{
-  display: flex;
-}
-
-.select-bar-container a{
-  flex: 50%;
-  margin: 5px 40px 10px;
-  text-decoration: none;
-}
-
-.otheroption{
-  align-items: center;
-  padding: 10px 10px 10px 10px;
-  background-color: #EDEDED;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.currentoption{
-  align-items: center;
-  padding: 10px 10px 10px 10px;
-  background-color: white;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.insidetext{
-  color: #000000;
-  background-color: inherit;
-  font-size: larger;
-  text-align: center;
 }
 
 .content{
@@ -93,7 +53,7 @@
   grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
 }
 
-.card {
+.table {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -113,15 +73,16 @@
   background-repeat: no-repeat;
 }
 
-.card h2{
+.table h2{
   background: inherit;
   font-size: 20px;
   color: #000000;
 }
 
-.card .button{
+.table .button{
   background: #353535;
   text-align: center;
+  border-radius: 5px;
   margin-left: 20px;
   margin-right: 20px;
   padding: 10px 20px 10px 20px;

@@ -1,0 +1,33 @@
+.navbar {
+    padding: 10px 10px 10px 10px;
+    align-items: center;
+    margin: 10px 40px 5px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.select-bar-container{
+    display: flex;
+}
+  
+.select-bar-container a{
+    flex: 50%;
+    margin: 5px 40px 10px;
+    text-decoration: none;
+}
+  
+.otheroption{
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+    background-color: #EDEDED;
+    border-radius: 10px;
+    text-align: center;
+}
+  
+.currentoption{
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+}

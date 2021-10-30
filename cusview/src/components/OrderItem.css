@@ -28,6 +28,32 @@
     margin-right: 4.5vw;
 }
 
+.orderItem .quantity {
+    background-color: #EAEAEB;
+}
+
+.orderItem .quantity span {
+    background-color: #EAEAEB;
+}
+
+.orderItem .quantity img {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 10px;
+    background-color: #EAEAEB;
+    opacity: 0.3;
+}
+
+.orderItem .quantity img:hover,
+.orderItem .quantity img:active {
+    opacity: 1;
+}
+
+.orderItem .quantity>span {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 .orderItem .remove {
     width: 25px;
     background-color: #EAEAEB;

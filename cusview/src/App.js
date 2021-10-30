@@ -42,6 +42,22 @@ class App extends Component {
     return this.state.productItem.reduce((sum, product) => sum + product.quantity, 0);
   }
 
+  changeQuantity(item, change){
+    return () => {
+      const quantity = change === 'add' ? item.quantity + 1 : (item.quantity === 1 ? 1 : item.quantity - 1)
+      const { productItem } = this.state;
+      const index = productItem.indexOf(item);
+      this.setState({
+        productItem: [
+          ...productItem.slice(0 , index),
+          {...item, quantity : quantity},
+          ...productItem.slice(index + 1)
+        ]
+      });
+    };
+  }
+
+
   removeProduct(item){
     return () => {
       const { productItem } = this.state;
@@ -79,6 +95,8 @@ class App extends Component {
                           quantity={product.quantity}
                           pricePU={product.pricePU.toFixed(2)}
                           removeProduct={this.removeProduct(product)}
+                          minusQuantity = {this.changeQuantity(product, 'minus')}
+                          addQuantity = {this.changeQuantity(product, 'add')}
                       />
                   ))
               }
@@ -90,7 +108,7 @@ class App extends Component {
             />
           }
           {
-            totalQuantity === 0 && <h4>Nothing here</h4>
+            totalQuantity === 0 && <h4>Please place your order</h4>
           }
         </div>
       </div>

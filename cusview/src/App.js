@@ -57,7 +57,6 @@ class App extends Component {
     };
   }
 
-
   removeProduct(item){
     return () => {
       const { productItem } = this.state;

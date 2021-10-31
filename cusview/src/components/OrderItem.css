@@ -76,7 +76,7 @@
 
 @media only screen and (max-width: 575px) {
     .orderItem {
-        grid-template-columns: 15% 30% 10% 34% 11%;
+        grid-template-columns: 15% 25% 20% 29% 11%;
         height: 65px;
         font-size: small;
     }
@@ -87,6 +87,9 @@
         margin-top: auto;
         margin-bottom: auto;
         width: 45px;
+    }
+    .orderItem .quantity img {
+        width: 8px;
     }
     .orderItem>span:last-child {
         margin-right: 3vw;

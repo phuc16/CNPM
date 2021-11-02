@@ -1,0 +1,49 @@
+.header-bar{
+    background-color: #C4EBD8;
+    padding: 15px;
+    font-size: 20px;
+    font-style: bold;
+}
+
+.btn-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.tab {
+    background-color: antiquewhite;
+    display: inline-block;
+    margin-left: 100px;
+    width: 400px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 15px;
+    position: relative;
+    border: none;
+    cursor: pointer;
+}
+
+.tab:hover{
+    background-color: #C4EBD8;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tab-ative{
+    background-color: grey;
+}
+
+.btn{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+button:hover {
+    background-color: #C4EBD8;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+}

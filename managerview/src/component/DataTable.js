@@ -1,7 +1,10 @@
+import React from 'react'
 import './DataTable.css'
+import Pagnition from './Pagnition'
 
 export default function DataTable() {
     return (
+      <div className="table">
       <div className="data-container"> 
 
       <div className="data-title">Code</div>
@@ -31,15 +34,9 @@ export default function DataTable() {
       <div className="data-item">mno</div>
       <div className="data-item">mno</div>
       <div className="data-item">mno</div>
-
-      <div></div>
-      <div></div>
-      <div className="nav-link">
-      <a href="#"> Previous </a>
-      <span style={{margin: 'auto 4px'}}>2</span>
-      <a href="#"> Next </a>
+      
       </div>
-
+      <Pagnition />
       </div>
     );
   }

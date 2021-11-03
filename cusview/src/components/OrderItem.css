@@ -44,8 +44,7 @@
     opacity: 0.3;
 }
 
-.orderItem .quantity img:hover,
-.orderItem .quantity img:active {
+.orderItem .quantity img:hover {
     opacity: 1;
 }
 
@@ -60,8 +59,7 @@
     opacity: 0.3;
 }
 
-.orderItem .remove:hover,
-.orderItem .remove:active {
+.orderItem .remove:hover {
     opacity: 1;
 }
 

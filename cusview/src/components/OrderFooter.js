@@ -1,9 +1,6 @@
 import './OrderFooter.css';
 
 export default function OrderFooter(props){
-    function submitClick(){
-        alert('SUBMIT clicked');
-    }
     return(
         <div className="order-footer">
             <div className="total-cost">
@@ -13,7 +10,7 @@ export default function OrderFooter(props){
                 <span></span>
             </div>
             <div className="confirm">
-                <button onClick={() => submitClick()}>SUBMIT ORDER</button>
+                <button onClick={props.submit}>SUBMIT ORDER</button>
             </div>
         </div>
     );

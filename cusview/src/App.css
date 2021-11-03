@@ -1,38 +1,56 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    font-family: "Quicksand";
+    background-color: #F1F8F5;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App .select-bar {
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App .select-bar .option {
+    padding: 10px 10px 10px 10px;
+    align-items: center;
+    margin: 5px 40px 10px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #353535;
+    text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App .select-bar .option:hover {
+    background-color: #EDEDED;
 }
 
-.App-link {
-  color: #61dafb;
+.App .select-bar .option:active {
+    background-color: #969696;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App .select-bar .option h1 {
+    color: #000000;
+    background-color: inherit;
+    font-size: larger;
+    text-align: center;
+}
+
+.App .select-bar .option.grey {
+    background-color: #EDEDED;
+}
+
+@media only screen and (max-width: 991px) {
+    .App .select-bar .option h1 {
+        font-size: large;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .App .select-bar {
+        display: grid;
+        grid-template-columns: 100%;
+    }
+    .App .select-bar .option h1 {
+        font-size: small;
+    }
 }

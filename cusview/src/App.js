@@ -1,14 +1,23 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header>
-        <h2> Welcome to CustomerView </h2>
-      </header>
-    </div>
-  );
+import NavBar from "./components/NavBar";
+import Payment from './pages/Payment'
+
+
+class App extends Component {
+
+  render(){
+    return (
+        <div className="App">        
+          <NavBar Title = "Payment" />
+          
+          <Payment />
+        </div>
+    );
+  }
+
 }
 
 export default App;

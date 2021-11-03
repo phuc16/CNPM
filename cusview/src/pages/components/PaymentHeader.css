@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    font-family: "Quicksand";
+    background-color: #F1F8F5;
+}
+
+.Payment-header {
+    margin: 50px 0px 0px; 
+    text-align: center;
+}
+.info{
+    display: inline-block;
+}
+
+.info h4{
+    display: inline;
+    padding: 0px 10px;
+    padding-right: 140px;
+    font-size: 25px;
+    margin-left: 5px;
+}
+
+.sub_info h4{
+    padding: 50px;
+    display: block;
+    margin-top: 25px;
+    text-align: center;
+}

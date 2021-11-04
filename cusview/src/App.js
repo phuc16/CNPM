@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MyNavbar from './component/MyNavbar';
 import Slide from './component/slide';
 import MenuPage from './pages/menupage';
-
+import Category from './component/category';
 import CartPage from './pages/CartPage';
 
 //import NavBar from './NavBar';
@@ -17,7 +17,8 @@ function App() {
             <Route exact path="/">
               <React.Fragment>
                 <MyNavbar />   
-                <Slide />        
+                <Slide />
+                <Category />        
                 <MenuPage/>                             
               </React.Fragment>
             </Route>

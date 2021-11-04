@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@atlaskit/textfield": "^5.1.3"
+  }
+}

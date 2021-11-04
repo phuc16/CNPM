@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: "Quicksand";
+    background-color: #F1F8F5;
+}
+
+.TransactionBody {
+    padding: 25px 100px 400px;
+    margin: 50px 50px 50px;
+    border: 1px solid #4CAF50;
+    background-color: #FFFFFF;
+}
+
+.TransactionBody h2 {
+    font-family: "Quicksand";
+    padding: 150px 0px 0px;
+    text-align: center;
+    margin: 20px 0px 0px ;
+    background-color: #FFFFFF;
+}
+
+
+
+/* @media only screen and (max-width: 991px) {
+    .TransactionBody>span:last-child {
+        margin-right: 5.5vw;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .TransactionBody {
+        grid-template-columns: 15% 30% 10% 45%;
+        height: 65px;
+        font-size: small;
+    }
+    .TransactionBody .name {
+        margin: auto 3vw;
+    }
+} */

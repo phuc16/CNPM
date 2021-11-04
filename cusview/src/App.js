@@ -68,7 +68,6 @@ class App extends Component {
             products={this.state.productItem}
             totalCost={totalCost}
           />
-          <BillFooter />
         </div>
       </div>
     );

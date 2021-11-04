@@ -72,7 +72,9 @@ export class CartProvider extends Component {
         this.state.cartItems.map((item) => console.log(item));
     }
 
-    // addItemToCart()
+    // addItemToCart(item){
+    //     bla bla
+    // }
 
     render(){
         return(

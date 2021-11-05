@@ -1,30 +1,30 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import './category.css'
-import NavCategory from './Navcategory';
-//import DataCategory from './Datacategory';
+import { Nav, Navbar, NavDropdown, Col } from "react-bootstrap";
+import "./Category.css"
+import { Link } from 'react-router-dom';
 
-
-Category.propTypes = {
-
-};
-
-function Category(props) {
-
-    const [category, setCategory] = useState('pizza')
-
-    const ChangeCategory = (value) => {
-        console.log("Category: ", value)
-
-        setCategory(value)
-    }
+const Category = () => {
 
     return (
-        <div className="container-fluid wrapper_Category">
-            <div>
-                <NavCategory Click={ChangeCategory} category={category}/>
-                
-                
+        <div >
+            <div align="center">
+                <Link to='/'>
+                <button type="button" class="bt "> ALL</button>
+                </Link>
+                <Link to='/pizza'>
+                <button type="button" class="bt margin-left"><img style={{'height':"20px" }} src={'img/pizza.png'} /> PIZZA</button>
+                </Link>
+                <Link to='/bugger'>
+                <button type="button" class="bt margin-left"><img style={{'height':"25px"}}  src={'img/hambuger.png'} /> BUGGER</button>
+                </Link>
+                <Link to='/soup'>
+                <button type="button" class="bt margin-left"><img style={{'height':"30px"}}  src={'img/soup.jpg'} /> SOUP</button>
+                </Link>
+                <Link to='/drink'>
+                <button type="button" class="bt margin-left"><img style={{'height':"25px"}}  src={'img/drink.png'} /> DRINK</button>
+                </Link>
+                <Link to='/other'>
+                <button type="button" class="bt margin-left"><img style={{'height':"25px"}}  src={'img/other.png'} /> OTHER</button>
+                </Link>
             </div>
         </div>
     );

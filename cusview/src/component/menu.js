@@ -24,7 +24,6 @@ export default function Menu(props){
                         </div>
                     </div>
         </li>
-        
       </div>
 
     );

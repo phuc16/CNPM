@@ -4,7 +4,13 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MyNavbar from './component/MyNavbar';
 import Slide from './component/slide';
 import MenuPage from './pages/menupage';
-import Category from './component/category';
+import PizzaPage from './pages/pizzapage';
+import BuggerPage from './pages/buggerpage';
+import SoupPage from './pages/souppage';
+import DrinkPage from './pages/drinkpage';
+import OtherPage from './pages/otherpage';
+
+import Category from './component/Category';
 import CartPage from './pages/CartPage';
 
 //import NavBar from './NavBar';
@@ -14,13 +20,23 @@ function App() {
       return (
         <Router>
           <Switch>
-            <Route exact path="/">
-              <React.Fragment>
-                <MyNavbar />   
-                <Slide />
-                <Category />        
+            <Route exact path="/"> 
                 <MenuPage/>                             
-              </React.Fragment>
+            </Route>
+            <Route exact path="/pizza"> 
+                <PizzaPage/>                             
+            </Route>
+            <Route exact path="/bugger"> 
+                <BuggerPage/>                             
+            </Route>
+            <Route exact path="/soup"> 
+                <SoupPage/>                             
+            </Route>
+            <Route exact path="/drink"> 
+                <DrinkPage/>                             
+            </Route>
+            <Route exact path="/other"> 
+                <OtherPage/>                             
             </Route>
             <Route exact path="/cart">
               <CartPage />

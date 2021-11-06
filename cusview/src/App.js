@@ -11,23 +11,22 @@ import CartPage from './pages/CartPage';
 import './App.css';
 
 function App() {
-      return (
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <React.Fragment>
-                <MyNavbar />   
-                <Slide />        
-                <MenuPage/>                             
-              </React.Fragment>
-            </Route>
-            <Route exact path="/cart">
-              <CartPage />
-            </Route>
-          </Switch>
-        </Router>
-      );
-    
-  }
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <React.Fragment>
+            <MyNavbar />   
+            <Slide />        
+            <MenuPage/>                             
+          </React.Fragment>
+        </Route>
+        <Route exact path="/cart">
+          <CartPage />
+        </Route>
+      </Switch>
+    </Router>
+  );
+}
 
 export default App;

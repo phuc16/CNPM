@@ -10,19 +10,25 @@
     text-align: center;
 }
 .info{
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .info h4{
-    display: inline;
-    padding: 0px 10px;
-    padding-right: 140px;
+    flex: 1 0 21%; /* explanation below */
+    margin: 5px;
+    height: 100px;
     font-size: 25px;
-    margin-left: 5px;
+}
+
+.sub_info{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }
 
 .sub_info h4{
-    padding: 50px;
     display: block;
     margin-top: 25px;
     text-align: center;

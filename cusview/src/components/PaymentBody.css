@@ -66,43 +66,6 @@
     margin: 37px;
 }
 
-.online_payment_body {
-    float: left;
-    width: 40%;
-    border: 1px solid black;
-    border-radius: 15px;
-    margin: 30px auto;
-}
-
-.online_confirm {
-    float: right;
-    width: 21%;
-    margin: 112px auto;
-    background-color: white;
-    margin: 137px 40px;
-}
-
-.online_item input {
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid;
-}
-
-.online_item {
-    width: 70%;
-    margin: auto;
-    margin-bottom: 20px;
-}
-
-.online_item:first-child {
-    margin-top: 20px;
-}
-
-.online_item p {
-    margin: 0;
-    text-align: left;
-}
-
 .PaymentBody .cash_confirm button {
     height: 46px;
     width: 240px;

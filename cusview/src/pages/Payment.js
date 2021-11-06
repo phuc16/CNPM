@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+
 import PaymentHeader from '../components/PaymentHeader';
 import PaymentBody from '../components/PaymentBody';
 import OnlineModal from '../modal/OnlineModal';
+
 
 function getDay(){
     let newDate = new Date()
@@ -57,7 +59,9 @@ class Payment extends Component {
                     paymentId={this.state.paymentId}
                     totalCost={this.state.totalCost}
                 />
+
                 <PaymentBody openModal={this.handleOpen.bind(this)}/>
+
             </div>
         );
     };

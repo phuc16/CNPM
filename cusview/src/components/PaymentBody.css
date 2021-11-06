@@ -24,15 +24,13 @@
 }
 
 .cash_confirm button {
-    margin: 26px 90px;
+    margin: 32px 90px;
     float: right;
 }
 
 .cash_confirm {
     width: 93%;
-    margin-left: 45px;
-    margin-top: 20px;
-    padding: 0px 0px 10px 0px;
+    margin: 20px 0px 0px 45px;
     background-color: white;
     height: 100px;
     display: inline-block;
@@ -42,9 +40,9 @@
 
 .online_payment {
     background-color: white;
-    margin: 50px 0px 10px 45px;
+    margin: 20px 0px 30px 45px;
     border-radius: 20px;
-    height: 320px;
+    height: 100px;
     border: 1px solid black;
     width: 93%;
 }
@@ -53,19 +51,21 @@
     width: 30%;
     float: left;
     background-color: white;
-    margin: 42px auto;
+    margin: 35px auto;
 }
 
 .online_payment_title h2 {
-    padding: 100px 0px 0px 20px;
+    padding-left: 60px;
     background-color: white;
 }
 
 .cash_confirm h2 {
     float: left;
     background-color: white;
-    margin: 37px;
+    margin: 10px;
+    padding: 30px 0px 0px 50px;
 }
+
 
 .PaymentBody .cash_confirm button {
     height: 46px;
@@ -77,7 +77,6 @@
     font-size: larger;
     text-align: center;
     font-weight: bold;
-    margin: 32px 40px;
 }
 
 .PaymentBody .online_confirm button {
@@ -90,5 +89,60 @@
     font-size: larger;
     text-align: center;
     font-weight: bold;
-    margin: 0px 40px;
+
+}
+
+@media only screen and (max-width: 992px) {
+    .PaymentBody .online_confirm button {
+        margin: 0px 40px 15px -60px;
+    }
+
+    .cash_confirm h2 {
+        padding: 30px 0px 0px 20px;
+    }
+
+    .PaymentBody .cash_confirm button {
+        margin: 27px 45px;
+    }
+
+    .online_payment_title h2 {
+        padding-left: 30px;
+    }
+
+}
+  
+@media only screen and (max-width: 575px) {
+    .cash_confirm h2 {
+        margin: 9px 0px 0px 5px;
+        font-size: 19px;
+    }
+
+    .PaymentBody .cash_confirm button {
+        height: 40px;
+        width: 180px;
+    }
+    
+    .online_confirm {
+        margin: 27px 90px;
+    }
+    
+    .PaymentBody .online_confirm button {
+        height: 40px;
+        width: 180px;
+    
+    }
+    
+    .online_payment_title h2 {
+        padding-left: 25px;
+        font-size: 19px;
+        width: 100%;
+    }
+
+    .online_payment {
+        width: 90%;
+    }
+
+    .cash_confirm {
+        width: 90%;
+    }
 }

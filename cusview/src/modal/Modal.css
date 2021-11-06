@@ -64,7 +64,7 @@
     width: 21%;
     margin: 112px auto;
     background-color: white;
-    margin: 137px 40px;
+    margin: 27px 30px;
 }
 
 .online_item input {
@@ -86,4 +86,17 @@
 .online_item p {
     margin: 0;
     text-align: left;
+}
+
+
+@media only screen and (max-width: 992px) {
+
+}
+
+@media only screen and (max-width: 575px) {
+    .online_confirm {
+        margin: 27px 90px;
+        width: 14%;
+    }
+    
 }

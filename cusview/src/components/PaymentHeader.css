@@ -9,27 +9,63 @@
     margin: 50px 0px 0px; 
     text-align: center;
 }
-.info{
-    display: flex;
-    flex-wrap: wrap;
+
+.info {
+    display: grid;
+    margin: 20px 3vw;
+    grid-template-columns: 50% 50%;
+    text-align: left;
+    padding-left: 300px;
 }
 
 .info h4{
-    flex: 1 0 31%; /* explanation below */
-    margin: 5px;
-    height: 100px;
+    padding: 0px 10px;
+    padding-right: 140px;
     font-size: 25px;
+    margin-left: 5px;
 }
 
-.sub_info{
+.sub_info h5{
+    padding: 5px 0px 30px 0px;  
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-}
-
-.sub_info h4{
-    display: block;
-    margin-top: 10px;
+    margin-top: 25px;
     text-align: center;
 }
+
+.sub_info {
+    width: 100%;
+    text-align: center;
+    font-size: 35px;
+}
+
+
+@media only screen and (max-width: 992px) {
+    .info {
+        padding-left: 130px;
+    }
+
+    .info h4 {
+        font-size: 20px;
+        margin-left: 5px;
+        padding: 0px;
+    }
+
+    .sub_info {
+        font-size: 30px;
+    }
+}
+  
+@media only screen and (max-width: 575px) {
+    .info {
+        padding-left: 20px;
+    }
+    .info h4 {
+        font-size: 15px;
+        margin-left: 40px;
+    }
+
+    .sub_info {
+        font-size: 24px;
+    }
+}
+

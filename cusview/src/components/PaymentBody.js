@@ -1,5 +1,4 @@
 import './PaymentBody.css';
-import Textfield from '@atlaskit/textfield';
 
 export default function PaymentBody({openModal}){
 
@@ -18,9 +17,14 @@ export default function PaymentBody({openModal}){
                 <button onClick={() => PhysicalMethodClick()}>Confirm</button>
             </div>
 
-            <div className="cash_confirm">
-                <h2>Online Payment</h2>
-                <button onClick={() => OnlineMethodClick()}>Confirm</button>
+            <div class="online_payment">
+                <div class="online_payment_title">
+                    <h2>Online Payment</h2>
+                </div>
+
+                <div class="online_confirm">
+                    <button onClick={() => OnlineMethodClick()}>Confirm</button>
+                </div>
             </div>
         </div>
     );

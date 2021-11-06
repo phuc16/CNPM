@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import ItemsList from "./common/ItemsList";
 import HeaderList from "./common/HeaderList";
+import Pagination from "./common/Pagination";
+import { paginate } from "../utils/paginate";
 
 class OrdersList extends React.Component {
   columns = [
     { path: "orderId", name: "ORDER ID" },
     { path: "tableId", name: "TABLE ID" },
-    { path: "datetime", name: "Date And Time" },
-    { path: "totalCost", name: "Total Cost" },
     {
       key: "confirm",
       content: (item) => (
-        <div className="item-btn item-btn-confirm">
+        <div className="item-btn item-btn-confirm item-btn-cell">
           <div className="detail">
             <button
               onClick={() => {
@@ -25,10 +25,12 @@ class OrdersList extends React.Component {
         </div>
       ),
     },
+    { path: "datetime", name: "DateTime" },
+    { path: "totalCost", name: "Total Cost" },
     {
       key: "detail",
       content: (item) => (
-        <div className="item-btn item-btn-details">
+        <div className="item-btn item-btn-details item-btn-cell">
           <div className="detail">
             <button
               onClick={() => {
@@ -44,11 +46,21 @@ class OrdersList extends React.Component {
   ];
 
   render() {
-    const { ordersList, onOrderConfirm } = this.props;
+    let { ordersList, onOrderConfirm, currentPage, pageSize, onPageChange } =
+      this.props;
+
+    ordersList = paginate(ordersList, currentPage, pageSize);
+
     return (
       <div>
         <HeaderList title="Orders List" />
         <ItemsList items={ordersList} columns={this.columns} />
+        <Pagination
+          itemsCount={ordersList.length}
+          currentPage={currentPage}
+          pageSize={pageSize}
+          onPageChange={onPageChange}
+        />
       </div>
     );
   }

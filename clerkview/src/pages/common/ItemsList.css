@@ -12,21 +12,29 @@
   flex-wrap: wrap;
 }
 
-.items-list-container-grid-info {
-  width: 60%;
+.item-info-cell {
+  width: 40%;
+}
+
+.item-btn-cell {
+  width: 20%;
+}
+
+.items-list-container-grid {
+  width: 100%;
   /* border: 1px solid black; */
 }
 
-.items-list-container-grid-btn {
+/* .items-list-container-grid-btn {
   width: 39%;
-  /* border: 1px solid black; */
-}
+  border: 1px solid black;
+} */
 
 .item-list {
   border: 1px solid black;
   border-radius: 20px;
   padding: 20px;
-  width: 80%;
+  width: 90%;
   margin: 20px;
   display: flex;
   flex-wrap: wrap;

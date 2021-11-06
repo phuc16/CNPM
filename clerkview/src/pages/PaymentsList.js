@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import ItemsList from "./common/ItemsList";
 import HeaderList from "./common/HeaderList";
+import Pagination from "./common/Pagination";
+import { paginate } from "../utils/paginate";
 
 class PaymentsList extends React.Component {
   columns = [
     { path: "paymentId", name: "PAYMENT ID" },
     { path: "type", name: "Type" },
-    { path: "datetime", name: "Date And Time" },
-    { path: "totalCost", name: "Total Cost" },
     {
       key: "confirm",
       content: (item) => (
-        <div className="item-btn item-btn-confirm">
+        <div className="item-btn item-btn-confirm item-btn-cell">
           <div className="detail">
             <button
               onClick={() => {
@@ -25,10 +25,12 @@ class PaymentsList extends React.Component {
         </div>
       ),
     },
+    { path: "datetime", name: "DateTime" },
+    { path: "totalCost", name: "Total Cost" },
     {
       key: "detail",
       content: (item) => (
-        <div className="item-btn item-btn-details">
+        <div className="item-btn item-btn-details item-btn-cell">
           <div className="detail">
             <button
               onClick={() => {
@@ -51,14 +53,28 @@ class PaymentsList extends React.Component {
   };
 
   render() {
-    let { paymentsList, onPaymentConfirm } = this.props;
+    let {
+      paymentsList,
+      onPaymentConfirm,
+      currentPage,
+      pageSize,
+      onPageChange,
+    } = this.props;
 
     paymentsList = this.filterDirectPaymentsList(paymentsList);
+
+    // paymentsList = paginate(paymentsList, currentPage, pageSize);
 
     return (
       <div>
         <HeaderList title="Payments List" />
         <ItemsList items={paymentsList} columns={this.columns} />
+        <Pagination
+          itemsCount={paymentsList.length}
+          currentPage={currentPage}
+          pageSize={pageSize}
+          onPageChange={onPageChange}
+        />
       </div>
     );
   }

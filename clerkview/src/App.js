@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Pagination from "./pages/common/Pagination";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import classNames from "classnames";
 
@@ -15,10 +15,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentOrderPage: 1,
+      currentPaymentPage: 1,
       isOrders: false,
       isPayments: false,
       ordersList: [],
       paymentsList: [],
+      pageSize: 4,
     };
   }
 
@@ -39,6 +42,42 @@ class App extends Component {
       },
       {
         orderId: "OD123458",
+        tableId: "Table 3",
+        datetime: "2021-09-25 16:54:32",
+        totalCost: 119,
+      },
+      {
+        orderId: "OD123459",
+        tableId: "Table 3",
+        datetime: "2021-09-25 16:54:32",
+        totalCost: 119,
+      },
+      {
+        orderId: "OD123460",
+        tableId: "Table 3",
+        datetime: "2021-09-25 16:54:32",
+        totalCost: 119,
+      },
+      {
+        orderId: "OD123461",
+        tableId: "Table 3",
+        datetime: "2021-09-25 16:54:32",
+        totalCost: 119,
+      },
+      {
+        orderId: "OD123462",
+        tableId: "Table 3",
+        datetime: "2021-09-25 16:54:32",
+        totalCost: 119,
+      },
+      {
+        orderId: "OD123463",
+        tableId: "Table 3",
+        datetime: "2021-09-25 16:54:32",
+        totalCost: 119,
+      },
+      {
+        orderId: "OD123464",
         tableId: "Table 3",
         datetime: "2021-09-25 16:54:32",
         totalCost: 119,
@@ -64,7 +103,49 @@ class App extends Component {
         totalCost: 119,
       },
       {
-        paymentId: "PM1234569",
+        paymentId: "PM123458",
+        type: "Direct",
+        datetime: "2021-09-25 17:54:32",
+        totalCost: 119,
+      },
+      {
+        paymentId: "PM123459",
+        type: "Direct",
+        datetime: "2021-09-25 17:54:32",
+        totalCost: 119,
+      },
+      {
+        paymentId: "PM1234560",
+        type: "Direct",
+        datetime: "2021-09-25 17:54:32",
+        totalCost: 119,
+      },
+      {
+        paymentId: "PM1234561",
+        type: "Direct",
+        datetime: "2021-09-25 17:54:32",
+        totalCost: 119,
+      },
+      {
+        paymentId: "PM1234562",
+        type: "Direct",
+        datetime: "2021-09-25 17:54:32",
+        totalCost: 119,
+      },
+      {
+        paymentId: "PM1234563",
+        type: "Direct",
+        datetime: "2021-09-25 17:54:32",
+        totalCost: 119,
+      },
+      {
+        paymentId: "PM1234564",
+        type: "Direct",
+        datetime: "2021-09-25 17:54:32",
+        totalCost: 119,
+      },
+      {
+        paymentId: "PM1234565",
         type: "Direct",
         datetime: "2021-09-25 17:54:32",
         totalCost: 119,
@@ -113,11 +194,21 @@ class App extends Component {
     // axios send post update payment to accept
   };
 
+  handleOrderPageChange = (page) => {
+    console.log(page);
+    this.setState({ currentOrderPage: page });
+  };
+
+  handlePaymentPageChange = (page) => {
+    console.log(page);
+    this.setState({ currentPaymentPage: page });
+  };
+
   render() {
     return (
       <Router>
         <div className="App">
-          <NavBar Title="Clerks Tabs" />
+          <NavBar className="clerk-tabs" Title="Clerks Tabs" />
           <div className="select-bar">
             <Link
               onClick={() => this.changeToOrders()}
@@ -161,8 +252,11 @@ class App extends Component {
               path="/orders"
               render={(props) => (
                 <OrdersList
+                  currentPage={this.state.currentOrderPage}
                   onOrderConfirm={this.handleConfirmOrder}
                   ordersList={this.state.ordersList}
+                  onPageChange={this.handleOrderPageChange}
+                  pageSize={this.state.pageSize}
                   {...props}
                 />
               )}
@@ -172,8 +266,11 @@ class App extends Component {
               path="/payments"
               render={(props) => (
                 <PaymentsList
+                  currentPage={this.state.currentPaymentPage}
                   onPaymentConfirm={this.handleConfirmPayment}
                   paymentsList={this.state.paymentsList}
+                  onPageChange={this.handlePaymentPageChange}
+                  pageSize={this.state.pageSize}
                   {...props}
                 />
               )}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Slide from '../component/slide';
 import MyNavbar from '../component/MyNavbar';
 import Category from '../component/Category';

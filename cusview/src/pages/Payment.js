@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import PaymentHeader from './components/PaymentHeader';
-import PaymentBody from './components/PaymentBody';
+import PaymentHeader from '../components/PaymentHeader';
+import PaymentBody from '../components/PaymentBody';
 
 
 class Payment extends Component {

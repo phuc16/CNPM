@@ -15,7 +15,7 @@
 }
 
 .info h4{
-    flex: 1 0 21%; /* explanation below */
+    flex: 1 0 31%; /* explanation below */
     margin: 5px;
     height: 100px;
     font-size: 25px;
@@ -30,6 +30,6 @@
 
 .sub_info h4{
     display: block;
-    margin-top: 25px;
+    margin-top: 10px;
     text-align: center;
 }

@@ -3,7 +3,7 @@ import Textfield from '@atlaskit/textfield';
 
 export default function PaymentBody({openModal}){
 
-    function CashMethodClick(){
+    function PhysicalMethodClick(){
         alert('Cash method Clicked');
     }
 
@@ -15,7 +15,7 @@ export default function PaymentBody({openModal}){
         <div className="PaymentBody">
             <div className="cash_confirm">
                 <h2>Physical Payment</h2>
-                <button onClick={() => CashMethodClick()}>Confirm</button>
+                <button onClick={() => PhysicalMethodClick()}>Confirm</button>
             </div>
 
             <div className="cash_confirm">

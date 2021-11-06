@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MenuPage from './pages/menupage';
@@ -10,8 +9,10 @@ import OtherPage from './pages/otherpage';
 
 import CartPage from './pages/CartPage';
 
+import BillPage from './pages/BillPage';
+
 //import NavBar from './NavBar';
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <Route exact path="/cart">
                 <CartPage />
+            </Route>
+            <Route exact path="/cart/payment/bill">
+                <BillPage /> 
             </Route>
         </Switch>
     </Router>

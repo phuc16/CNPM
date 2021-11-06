@@ -8,7 +8,7 @@ class ItemsList extends React.Component {
   renderInfoCell = (item, column) => {
     if (column.path) {
       return (
-        <span key={column.path}>
+        <span key={column.path || column.key}>
           <h2>
             {column.name}: {item[column.path]}
           </h2>

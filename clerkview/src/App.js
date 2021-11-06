@@ -7,18 +7,18 @@ import "./App.css";
 
 import NavBar from "./components/NavBar";
 import Orders from "./pages/Orders";
-import Transactions from "./pages/Transactions";
+import Payments from "./pages/Payments";
 import OrdersList from "./pages/OrdersList";
-import TransactionsList from "./pages/TransactionsList";
+import PaymentsList from "./pages/PaymentsList";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isOrders: false,
-      isTransactions: false,
+      isPayments: false,
       ordersList: [],
-      transactionsList: [],
+      paymentsList: [],
     };
   }
 
@@ -44,7 +44,7 @@ class App extends Component {
         totalCost: 119,
       },
     ];
-    let transactionsList = [
+    let paymentsList = [
       {
         paymentId: "PM123456",
         type: "Direct",
@@ -72,31 +72,45 @@ class App extends Component {
     ];
 
     this.setState({ ordersList });
-    this.setState({ transactionsList });
+    this.setState({ paymentsList });
   }
 
   changeToOrders() {
     this.setState({
       isOrders: true,
-      isTransactions: false,
+      isPayments: false,
     });
   }
 
-  changeToTransactions() {
+  changeToPayments() {
     this.setState({
       isOrders: false,
-      isTransactions: true,
+      isPayments: true,
     });
   }
 
   handleConfirmOrder = (item) => {
     alert(`Confirm order ${item.orderId}`);
-    // this.setState({...});
+    const newOrdersList = this.state.ordersList;
+    const index = newOrdersList.findIndex(
+      (order) => order.orderId === item.orderId
+    );
+    newOrdersList.splice(index, 1);
+    this.setState({ ordersList: newOrdersList });
+
+    // axios send post update order to accept
   };
 
-  handleConfirmTransaction = (item) => {
-    alert(`Confirm transaction ${item.paymentId}`);
-    // this.setState({...});
+  handleConfirmPayment = (item) => {
+    alert(`Confirm payment ${item.paymentId}`);
+    const newPaymentsList = this.state.paymentsList;
+    const index = newPaymentsList.findIndex(
+      (payment) => payment.paymentId === item.paymentId
+    );
+    newPaymentsList.splice(index, 1);
+    this.setState({ paymentsList: newPaymentsList });
+
+    // axios send post update payment to accept
   };
 
   render() {
@@ -108,20 +122,20 @@ class App extends Component {
             <Link
               onClick={() => this.changeToOrders()}
               className={classNames("option", {
-                grey: this.state.isOrders && !this.state.isTransactions,
+                grey: this.state.isOrders && !this.state.isPayments,
               })}
               to="/orders"
             >
               <h1>Pending Orders</h1>
             </Link>
             <Link
-              onClick={() => this.changeToTransactions()}
+              onClick={() => this.changeToPayments()}
               className={classNames("option", {
-                grey: !this.state.isOrders && this.state.isTransactions,
+                grey: !this.state.isOrders && this.state.isPayments,
               })}
-              to="/transactions"
+              to="/payments"
             >
-              <h1>Pending Transactions</h1>
+              <h1>Pending Payments</h1>
             </Link>
           </div>
           <Switch>
@@ -137,12 +151,9 @@ class App extends Component {
             />
             <Route
               exact
-              path="/transactions/:id"
+              path="/payments/:id"
               render={(props) => (
-                <Transactions
-                  onConfirm={this.handleConfirmTransaction}
-                  {...props}
-                />
+                <Payments onConfirm={this.handleConfirmPayment} {...props} />
               )}
             />
             <Route
@@ -158,11 +169,11 @@ class App extends Component {
             />
             <Route
               exact
-              path="/transactions"
+              path="/payments"
               render={(props) => (
-                <TransactionsList
-                  onTransactionConfirm={this.handleConfirmTransaction}
-                  transactionsList={this.state.transactionsList}
+                <PaymentsList
+                  onPaymentConfirm={this.handleConfirmPayment}
+                  paymentsList={this.state.paymentsList}
                   {...props}
                 />
               )}

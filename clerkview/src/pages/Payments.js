@@ -1,28 +1,29 @@
 import React, { Component } from "react";
+import BillHeader from "./components/BillHeader";
+import PaymentHeader from "./components/PaymentHeader";
+import PaymentFooter from "./components/PaymentFooter";
 
-import OrderHeader from "./components/OrderHeader";
-import OrderItem from "./components/OrderItem";
-import OrderFooter from "./components/OrderFooter";
-
-class Orders extends Component {
+class Payments extends Component {
   constructor(props) {
     super(props);
     this.state = {
       tableId: -1,
-      orderId: "",
+      paymentId: "",
+      type: "Direct",
       datetime: "",
       productItem: [],
     };
   }
 
   componentDidMount = () => {
-    let orderId = this.props.match.params.id;
-    // axios query ?id=orderId
+    let paymentId = this.props.match.params.id;
+    // axios query ?id=paymentId
 
     let state = {
       tableId: 1,
-      orderId: orderId,
+      paymentId: paymentId,
       datetime: "2021-09-25 14:54:32",
+      type: "Direct",
       productItem: [
         {
           id: 1,
@@ -60,8 +61,9 @@ class Orders extends Component {
     };
     this.setState({
       tableId: state.tableId,
-      orderId: state.orderId,
+      paymentId: state.paymentId,
       datetime: state.datetime,
+      type: state.type,
       productItem: state.productItem,
     });
   };
@@ -76,36 +78,39 @@ class Orders extends Component {
   }
 
   render() {
+    return <h2>Payments Pages</h2>;
+  }
+
+  render() {
     const { onConfirm } = this.props;
 
     const totalCost = this.getTotalCost();
+
     return (
-      <div className="content">
-        <OrderHeader
-          tableId={this.state.tableId}
-          orderId={this.state.orderId}
-          datetime={this.state.datetime}
-        />
-        <div className="product-list">
-          {this.state.productItem.map((product) => (
-            <OrderItem
-              key={product.id}
-              imgUrl={product.imgUrl}
-              name={product.name}
-              quantity={product.quantity}
-              pricePU={product.pricePU}
-            />
-          ))}
+      <div className="App">
+        <div className="content">
+          <PaymentHeader
+            paymentId={this.props.paymentId}
+            tableId={this.props.tableId}
+            datetime={this.props.datetime}
+          />
+          <BillHeader
+            tableId={this.state.tableId}
+            paymentId={this.state.paymentId}
+            datetime={this.state.datetime}
+            productQuantity={this.state.productItem.length}
+            products={this.state.productItem}
+            totalCost={totalCost}
+          />
+          <PaymentFooter
+            item={this.state}
+            onConfirm={this.props.onConfirm}
+            history={this.props.history}
+          />
         </div>
-        <OrderFooter
-          item={this.state}
-          onConfirm={this.props.onConfirm}
-          totalCost={totalCost}
-          history={this.props.history}
-        />
       </div>
     );
   }
 }
 
-export default Orders;
+export default Payments;

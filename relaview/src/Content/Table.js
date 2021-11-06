@@ -1,12 +1,14 @@
 import { useState } from "react";
 
-function Table({tableNo, tableStatus}) {
+function Table({tableNo, tableStatus, callBack}) {
     const[status,setStatus] = useState(tableStatus)
 
     const handleToggle = () => {
         console.log(tableNo);
+        callBack();
         if(status === "unoccupied") setStatus("occupied");
         else setStatus("unoccupied");
+        
     };
 
     return (

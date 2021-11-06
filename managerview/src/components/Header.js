@@ -1,22 +1,8 @@
-import './Header.css'
-import { NavLink } from 'react-router-dom';
-import React from 'react';
-import {TabName} from './HeaderElements';
+import styled from 'styled-components';
 
-export default function Header(props) {
-        return (
-          <React.Fragment>
-          <TabName>{props.tab}</TabName>
-          <div className="btn-container">
-          <div className="tab">
-          <NavLink to='/' activeClassName='tab-active' className='btn'>Order History</NavLink>
-          </div>
-          <div className="tab">
-          <NavLink to='/statistics/transaction' activeClassName='tab-active' className='btn'>Transaction History</NavLink>
-          </div>
-          </div>
-          
-          </React.Fragment>
-       
-        );
-}
+export const TabName = styled.h1`
+    background-color: #C4EBD8;
+    padding: 20px 100px;
+    font-size: 20px;
+    font-style: bold;
+`

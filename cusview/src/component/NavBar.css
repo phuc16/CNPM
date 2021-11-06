@@ -6,7 +6,7 @@
     border-radius: 20px;
     border-style: groove;
     border-color: #0AA85C;
-    margin: 20px 120px 0px;
+    margin: 20px 45px 0px;
 }
 .header >* >*{
     padding: 0 15px;
@@ -28,7 +28,7 @@
     display: none;
     z-index: 2;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 468px) {
     .header-transparent{
         background-color: rgba(0, 0, 0, 0.1);
         /* opacity: 0.2; */

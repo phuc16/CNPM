@@ -63,7 +63,7 @@ class PaymentsList extends React.Component {
 
     paymentsList = this.filterDirectPaymentsList(paymentsList);
 
-    // paymentsList = paginate(paymentsList, currentPage, pageSize);
+    paymentsList = paginate(paymentsList, currentPage, pageSize);
 
     return (
       <div>

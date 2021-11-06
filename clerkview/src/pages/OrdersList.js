@@ -6,8 +6,6 @@ class OrdersList extends React.Component {
   columns = [
     { path: "orderId", name: "ORDER ID" },
     { path: "tableId", name: "TABLE ID" },
-    { path: "timePassed", name: "Time Passed" },
-    { path: "totalCost", name: "Total Cost" },
     {
       key: "confirm",
       content: (item) => (
@@ -25,6 +23,8 @@ class OrdersList extends React.Component {
         </div>
       ),
     },
+    { path: "datetime", name: "Date And Time" },
+    { path: "totalCost", name: "Total Cost" },
     {
       key: "detail",
       content: (item) => (

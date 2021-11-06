@@ -10,10 +10,7 @@ class ItemsList extends React.Component {
       return (
         <span key={column.path}>
           <h2>
-            {column.name}:{" "}
-            {column.path === "timePassed"
-              ? `${item[column.path]}m`
-              : item[column.path]}
+            {column.name}: {item[column.path]}
           </h2>
         </span>
       );

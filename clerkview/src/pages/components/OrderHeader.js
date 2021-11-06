@@ -5,7 +5,7 @@ export default function OrderHeader(props) {
     alert("Order Detail Clicked");
   }
 
-  const { tableId, orderId, timePassed } = props;
+  const { tableId, orderId, datetime } = props;
 
   return (
     <div className="order-header">
@@ -15,7 +15,7 @@ export default function OrderHeader(props) {
       <div className="info">
         <h1 style={{ textAlign: "left" }}>TABLE ID: {props.tableId}</h1>
         <h1 style={{ textAlign: "center" }}>ORDER ID: {props.orderId}</h1>
-        <h1 style={{ textAlign: "right" }}>Time Passed: {props.timePassed}</h1>
+        <h1 style={{ textAlign: "right" }}>Date Time: {props.datetime}</h1>
       </div>
       <h1>Cart Info</h1>
       <div className="attribute">

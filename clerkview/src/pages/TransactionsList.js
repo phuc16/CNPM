@@ -6,8 +6,6 @@ class TransactionsList extends React.Component {
   columns = [
     { path: "paymentId", name: "PAYMENT ID" },
     { path: "type", name: "Type" },
-    { path: "timePassed", name: "Time Passed" },
-    { path: "totalCost", name: "Total Cost" },
     {
       key: "confirm",
       content: (item) => (
@@ -25,6 +23,8 @@ class TransactionsList extends React.Component {
         </div>
       ),
     },
+    { path: "datetime", name: "Date And Time" },
+    { path: "totalCost", name: "Total Cost" },
     {
       key: "detail",
       content: (item) => (
@@ -43,8 +43,18 @@ class TransactionsList extends React.Component {
     },
   ];
 
+  filterDirectTransactionsList = (transactionList) => {
+    const directTransactionList = transactionList.filter(
+      (transaction) => transaction.type === "Direct"
+    );
+    return directTransactionList;
+  };
+
   render() {
-    const { transactionsList, onTransactionConfirm } = this.props;
+    let { transactionsList, onTransactionConfirm } = this.props;
+
+    transactionsList = this.filterDirectTransactionsList(transactionsList);
+
     return (
       <div>
         <HeaderList title="Transactions List" />

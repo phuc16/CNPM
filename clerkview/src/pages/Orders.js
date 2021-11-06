@@ -10,7 +10,7 @@ class Orders extends Component {
     this.state = {
       tableId: 1,
       orderId: "0D123456",
-      timePassed: "6m",
+      datetime: "2021-09-25 14:54:32",
       productItem: [
         {
           id: 1,
@@ -44,43 +44,14 @@ class Orders extends Component {
           quantity: 1,
           pricePU: 19.99,
         },
-        {
-          id: 5,
-          imgUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
-          name: "Spicey meatballs",
-          quantity: 1,
-          pricePU: 19.99,
-        },
-        {
-          id: 6,
-          imgUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
-          name: "Spicey meatballs",
-          quantity: 1,
-          pricePU: 19.99,
-        },
-        {
-          id: 7,
-          imgUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
-          name: "Spicey meatballs",
-          quantity: 1,
-          pricePU: 19.99,
-        },
-        {
-          id: 8,
-          imgUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
-          name: "Spicey meatballs",
-          quantity: 2,
-          pricePU: 19.99,
-        },
       ],
     };
   }
 
-  componentDidMount = () => {};
+  componentDidMount = () => {
+    // axios
+    // this.setState({productItem: productIem});
+  };
 
   getTotalCost() {
     let total = this.state.productItem.reduce(
@@ -100,7 +71,7 @@ class Orders extends Component {
         <OrderHeader
           tableId={this.state.tableId}
           orderId={this.state.orderId}
-          timePassed={this.state.timePassed}
+          datetime={this.state.datetime}
         />
         <div className="product-list">
           {this.state.productItem.map((product) => (

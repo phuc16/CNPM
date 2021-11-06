@@ -17,47 +17,62 @@ class App extends Component {
     this.state = {
       isOrders: false,
       isTransactions: false,
-      ordersList: [
-        {
-          orderId: "OD123456",
-          tableId: "Table 1",
-          timePassed: 6,
-          totalCost: 119,
-        },
-        {
-          orderId: "OD123457",
-          tableId: "Table 2",
-          timePassed: 4,
-          totalCost: 119,
-        },
-        {
-          orderId: "OD123458",
-          tableId: "Table 3",
-          timePassed: 2,
-          totalCost: 119,
-        },
-      ],
-      transactionsList: [
-        {
-          paymentId: "PM123456",
-          type: "Direct",
-          timePassed: 6,
-          totalCost: 119,
-        },
-        {
-          paymentId: "PM123457",
-          type: "Online",
-          timePassed: 4,
-          totalCost: 119,
-        },
-        {
-          paymentId: "PM123458",
-          type: "Online",
-          timePassed: 2,
-          totalCost: 119,
-        },
-      ],
+      ordersList: [],
+      transactionsList: [],
     };
+  }
+
+  componentDidMount() {
+    // axios return value
+    let ordersList = [
+      {
+        orderId: "OD123456",
+        tableId: "Table 1",
+        datetime: "2021-09-25 14:54:32",
+        totalCost: 119,
+      },
+      {
+        orderId: "OD123457",
+        tableId: "Table 2",
+        datetime: "2021-09-25 15:54:32",
+        totalCost: 119,
+      },
+      {
+        orderId: "OD123458",
+        tableId: "Table 3",
+        datetime: "2021-09-25 16:54:32",
+        totalCost: 119,
+      },
+    ];
+    let transactionsList = [
+      {
+        paymentId: "PM123456",
+        type: "Direct",
+        datetime: "2021-09-25 14:54:32",
+        totalCost: 119,
+      },
+      {
+        paymentId: "PM123457",
+        type: "Online",
+        datetime: "2021-09-25 15:54:32",
+        totalCost: 119,
+      },
+      {
+        paymentId: "PM123458",
+        type: "Direct",
+        datetime: "2021-09-25 16:54:32",
+        totalCost: 119,
+      },
+      {
+        paymentId: "PM1234569",
+        type: "Direct",
+        datetime: "2021-09-25 17:54:32",
+        totalCost: 119,
+      },
+    ];
+
+    this.setState({ ordersList });
+    this.setState({ transactionsList });
   }
 
   changeToOrders() {
@@ -113,6 +128,9 @@ class App extends Component {
             <Route
               exact
               path="/orders/:id"
+              /**
+               * props contain router object: history, location, params
+               */
               render={(props) => (
                 <Orders onConfirm={this.handleConfirmOrder} {...props} />
               )}

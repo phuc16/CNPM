@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import App from './App';
+import App from "./App";
 
-import { CartProvider } from './contexts/Cart';
+import { CartProvider } from "./contexts/Cart";
 
-import 'bootstrap/dist/css/bootstrap.min.css';   
+import "bootstrap/dist/css/bootstrap.min.css";
 
 document.title = "POS";
 ReactDOM.render(
@@ -14,6 +14,5 @@ ReactDOM.render(
       <App />
     </CartProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-

@@ -9,9 +9,8 @@ import OtherPage from './pages/otherpage';
 
 import CartPage from './pages/CartPage';
 
-import BillPage from './pages/BillPage';
+import BillPage from './pages/billPage';
 
-//import NavBar from './NavBar';
 import "./App.css";
 
 function App() {
@@ -39,7 +38,7 @@ function App() {
             <Route exact path="/cart">
                 <CartPage />
             </Route>
-            <Route exact path="/cart/payment/bill">
+            <Route exact path="/bill">
                 <BillPage /> 
             </Route>
         </Switch>

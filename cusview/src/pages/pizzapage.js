@@ -11,7 +11,7 @@ const pizzaItems = [
   {
     id: 1,
     imgUrl:
-      "https://media.ex-cdn.com/EXP/media.vntravellive.com/files/editor1/2018/12/07/5517-di-dau-de-tim-thay-pizza-ngon-nhat-105446.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4FcLA4E243tz95qfRgB1644sV4l5JQqstuT9_YQebG0Y4kcAKJxgFDA-HeQoGqQ_4Gvg&usqp=CAU",
     name: "PIZZA MIXED",
     description: "PIZZA",
     pricePU: 4.8,
@@ -19,7 +19,7 @@ const pizzaItems = [
   {
     id: 2,
     imgUrl:
-      "https://media.ex-cdn.com/EXP/media.vntravellive.com/files/editor1/2018/12/07/5517-di-dau-de-tim-thay-pizza-ngon-nhat-105446.jpg",
+      "https://top10tphcm.com/wp-content/uploads/2021/04/nhung-thuong-hieu-pizza-ngon-tphcm.jpg",
     name: "PIZZA MIXED",
     description: "PIZZA",
     pricePU: 4.8,
@@ -27,7 +27,7 @@ const pizzaItems = [
   {
     id: 3,
     imgUrl:
-      "https://media.ex-cdn.com/EXP/media.vntravellive.com/files/editor1/2018/12/07/5517-di-dau-de-tim-thay-pizza-ngon-nhat-105446.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg_6WoLKcvX1Yto0d1STn0TCFSdDJlXFynRfdhi9G9j8Ro4nOrGP8qP9HVh86-6InJT94&usqp=CAU",
     name: "PIZZA MIXED",
     description: "PIZZA",
     pricePU: 4.8,
@@ -35,7 +35,7 @@ const pizzaItems = [
   {
     id: 4,
     imgUrl:
-      "https://media.ex-cdn.com/EXP/media.vntravellive.com/files/editor1/2018/12/07/5517-di-dau-de-tim-thay-pizza-ngon-nhat-105446.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4FcLA4E243tz95qfRgB1644sV4l5JQqstuT9_YQebG0Y4kcAKJxgFDA-HeQoGqQ_4Gvg&usqp=CAU",
     name: "PIZZA MIXED",
     description: "PIZZA",
     pricePU: 4.8,
@@ -43,7 +43,7 @@ const pizzaItems = [
   {
     id: 5,
     imgUrl:
-      "https://media.ex-cdn.com/EXP/media.vntravellive.com/files/editor1/2018/12/07/5517-di-dau-de-tim-thay-pizza-ngon-nhat-105446.jpg",
+      "https://s1.img.yan.vn/YanNews/2167221/201607/20160707-042802-2_600x337.jpg",
     name: "PIZZA MIXED",
     description: "PIZZA",
     pricePU: 4.8,

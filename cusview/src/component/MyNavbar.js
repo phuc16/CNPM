@@ -8,7 +8,7 @@ const MyNavbar = () => {
 
     return (
         <div>
-            <div className="header">
+            <div className="header" >
                 <div className="header-left">
                     <h1>TODAY MENU</h1>
                 </div>

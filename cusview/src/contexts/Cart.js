@@ -10,27 +10,40 @@ export class CartProvider extends Component {
             tableId: 1,
             orderId: '0D123456',
             cartItems:
-            [
-                {id: 1, imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg',
-                 name: 'PIZZA MIXED', quantity: 1, pricePU: 4.8},
-                {id: 2, imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg',
-                 name: 'PIZZA MIXED', quantity: 2, pricePU: 4.8},
-                {id: 3, imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg',
-                 name: 'PIZZA MIXED', quantity: 2, pricePU: 4.8},
-                {id: 4, imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg',
-                 name: 'PIZZA MIXED', quantity: 3, pricePU: 4.8},
-                {id: 5, imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg',
-                 name: 'PIZZA MIXED', quantity: 4, pricePU: 4.8},
-                {id: 6, imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg',
-                 name: 'PIZZA MIXED', quantity: 5, pricePU: 4.8},
-                {id: 7, imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg',
-                 name: 'PIZZA MIXED', quantity: 1, pricePU: 4.8}
-            ],
+            [],
         };
 
+        this.addItemToCart = this.addItemToCart.bind(this);
         this.removeProduct = this.removeProduct.bind(this);
         this.changeQuantity = this.changeQuantity.bind(this);
         this.submit = this.submit.bind(this);
+    }
+
+    addItemToCart(item){
+        const { cartItems } = this.state;
+        let index = -1;
+
+        for (const i in cartItems){
+            if (cartItems[i].id === item.id){
+                index = i;
+            }
+        }
+
+        if (index === -1){
+            this.setState({
+                cartItems: this.state.cartItems.concat({...item, quantity: 1})
+            });
+        }
+        else{
+            const quantity = this.state.cartItems[index].quantity + 1;
+            this.setState({
+                cartItems: [
+                    ...cartItems.slice(0 , index),
+                    {...item, quantity : quantity},
+                    ...cartItems.slice(index + 1)
+                ]
+            });
+        }
     }
 
     getTotalCost(){
@@ -70,11 +83,10 @@ export class CartProvider extends Component {
     submit(){
         alert(`Product: ${this.state.cartItems.length}, quantity: ${this.getTotalQuantity()}. View console 4 detail`);
         this.state.cartItems.map((item) => console.log(item));
+        this.setState({
+            cartItems: []
+        })
     }
-
-    // addItemToCart(item){
-    //     bla bla
-    // }
 
     render(){
         return(
@@ -83,6 +95,7 @@ export class CartProvider extends Component {
                     tableId: this.state.tableId,
                     orderId: this.state.orderId,
                     cartItems: this.state.cartItems,
+                    addItemToCart: this.addItemToCart,
                     totalCost: this.getTotalCost(),
                     totalQuantity: this.getTotalQuantity(),
                     changeQuantity: this.changeQuantity,

@@ -38,7 +38,7 @@ function App() {
             <Route exact path="/cart">
                 <CartPage />
             </Route>
-            <Route exact path="/bill">
+            <Route exact path="/cart/payment/bill">
                 <BillPage /> 
             </Route>
         </Switch>

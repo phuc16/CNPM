@@ -90,9 +90,9 @@ class Payments extends Component {
       <div className="App">
         <div className="content">
           <PaymentHeader
-            paymentId={this.props.paymentId}
-            tableId={this.props.tableId}
-            datetime={this.props.datetime}
+            paymentId={this.state.paymentId}
+            tableId={this.state.tableId}
+            datetime={this.state.datetime}
           />
           <BillHeader
             tableId={this.state.tableId}

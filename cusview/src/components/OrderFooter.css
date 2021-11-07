@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    font-family: "Quicksand";
+    background-color: #F1F8F5;
+}
+
+button:focus {
+    outline: none;
+}
+
+.order-footer .total-cost {
+    display: grid;
+    display: grid;
+    margin: auto 3vw;
+    grid-template-columns: 40% 20% 33% 7%;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-family: nunito;
+    font-weight: bold;
+}
+
+.order-footer .total-cost>span:first-child {
+    margin-left: 2vw;
+    font-family: nunito;
+    font-weight: bold;
+}
+
+.order-footer .total-cost>span:last-child {
+    margin-right: 7.5vw;
+    font-family: nunito;
+    font-weight: bold;
+}
+
+.order-footer .confirm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.order-footer .confirm button {
+    height: 46px;
+    width: 200px;
+    background-color: #0EB062;
+    border-radius: 10px;
+    border: 1px solid #0AAF60;
+    color: #FFFFFF;
+    font-size: larger;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 991px) {
+    .order-footer .total-cost {
+        grid-template-columns: 40% 20% 31% 9%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .order-footer .total-cost>span:last-child {
+        margin-right: 8.5vw;
+    }
+    .order-footer .confirm button {
+        width: 180px;
+        height: 40px;
+        font-size: large;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .order-footer .total-cost {
+        grid-template-columns: 45% 10% 34% 11%;
+        margin-top: 0;
+    }
+    .order-footer .total-cost>span:last-child {
+        margin-right: 6vw;
+    }
+    .order-footer .confirm button {
+        width: 120px;
+        height: 36px;
+        font-size: small;
+    }
+}

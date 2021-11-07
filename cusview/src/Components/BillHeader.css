@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+.bill-header .info {
+  display: grid;
+  margin: 20px 3vw;
+  grid-template-columns: 50% 50%;
+}
+
+.bill-header .info h1 {
+  color: #000000;
+  background-color: inherit;
+  font-size: 20px;
+  font-family: nunito;
+    font-weight: bold;
+    align-items: center;
+}
+
+.bill-header .bill-list {
+  padding: 10px 10px 10px 10px;
+  align-items: center;
+  margin: 10px 3vw 5px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #353535;
+}
+
+.bill-header .bill-list .attribute {
+  display: grid;
+  margin: 20px 6vw;
+  grid-template-columns: 33% 34% 33%;
+}
+
+.bill-header .bill-list .attribute > span {
+  background-color: white;
+  font-family: nunito;
+    font-weight: bold;
+    align-items: center;
+}
+
+.bill-header .sub-total {
+  background-color: white;
+  display: grid;
+  margin: auto 3vw;
+  grid-template-columns: 88% 10%;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.bill-header .sub-total > span:first-child {
+  background-color: white;
+  margin-left: 2.5vw;
+  font-family: nunito;
+    font-weight: bold;
+    align-items: center;
+}
+
+.bill-header .sub-total > span:last-child {
+  background-color: white;
+  margin-right: 2vw;
+  font-family: nunito;
+    font-weight: bold;
+    align-items: center;
+}
+
+.bill-header .sale-tax {
+  background-color: white;
+  display: grid;
+  margin: auto 3vw;
+  grid-template-columns: 88% 10%;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.bill-header .sale-tax > span:first-child {
+  background-color: white;
+  margin-left: 2.5vw;
+}
+
+.bill-header .sale-tax > span:last-child {
+  background-color: white;
+  margin-right: 2vw;
+}
+
+.bill-header .total {
+  background-color: white;
+  display: grid;
+  margin: auto 3vw;
+  grid-template-columns: 88% 10%;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.bill-header .total > span:first-child {
+  background-color: white;
+  margin-left: 2.5vw;
+  font-family: nunito;
+  font-weight: bold;
+  align-items: center;
+}
+
+.bill-header .total > span:last-child {
+  background-color: white;
+  margin-right: 2vw;
+  font-family: nunito;
+  font-weight: bold;
+  align-items: center;
+}
+
+.bill-header .footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.bill-header .footer button {
+  height: 45px;
+  width: 80px;
+  background-color: #0EB062;
+  border-radius: 10px;
+  border: 1px solid #0AAF60;
+  color: #FFFFFF;
+  font-size: larger;
+  text-align: center;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 991px) {
+  .bill-header .detail button {
+    width: 21.5vw;
+    height: 40px;
+    font-size: large;
+  }
+  .bill-header .info h1 {
+    font-size: large;
+  }
+  .bill-header .footer button {
+    width: 80px;
+    height: 40px;
+    font-size: large;
+}
+}
+
+@media only screen and (max-width: 575px) {
+  .bill-header .info {
+    grid-template-columns: 50% 50%;
+  }
+  .bill-header h1 {
+    font-size: medium;
+  }
+  .bill-header .footer button {
+    width: 60px;
+    height: 40px;
+    font-size: large;
+  }
+}

@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    font-family: "Quicksand";
+    background-color: #F1F8F5;
+}
+
+.order-header .info {
+    display: grid;
+    margin: 20px 3vw;
+    grid-template-columns: 40% 60%;
+}
+
+.order-header .info {
+    display: grid;
+    margin: 20px 3vw;
+    grid-template-columns: 40% 60%;
+}
+
+.order-header .info h1 {
+    color: #000000;
+    background-color: inherit;
+    font-size: larger;
+    font-family: nunito;
+    font-weight: bold;
+}
+
+.order-header .info button {
+    height: 45px;
+    width: 80px;
+    background-color: #0EB062;
+    border-radius: 10px;
+    border: 1px solid #0AAF60;
+    color: #FFFFFF;
+    font-size: larger;
+    text-align: center;
+    font-weight: bold;
+}
+
+.order-header .attribute {
+    display: grid;
+    margin: 20px 6vw;
+    grid-template-columns: 33% 34% 33%;
+}
+
+.order-header .attribute span {
+    color: #000000;
+    background-color: inherit;
+    font-size: larger;
+    font-family: nunito;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 991px) {
+    .order-header .detail button {
+        width: 21.5vw;
+        height: 40px;
+        font-size: large;
+    }
+    .order-header .info h1 {
+        font-size: large;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .order-header h1 {
+        font-size: medium;
+    }
+    .order-header .attribute {
+        display: grid;
+        margin: 20px 3vw;
+        grid-template-columns: 33% 34% 33%;
+    }
+}

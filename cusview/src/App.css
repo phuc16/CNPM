@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  font-family: "Quicksand";
+  background-color: inherit;
+}
+
+.App .select-bar {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.App .select-bar .option {
+  padding: 10px 10px 10px 10px;
+  align-items: center;
+  margin: 5px 40px 10px;
+  background-color: inherit;
+  border-radius: 10px;
+  border: 1px solid #353535;
+  text-decoration: none;
+}
+
+.App .select-bar .option h1 {
+  color: #000000;
+  background-color: inherit;
+  font-size: larger;
+  text-align: center;
+}
+
+.App .select-bar .option.grey {
+  background-color: inherit;
+}
+
+.App .content h4 {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 991px) {
+  .App .select-bar .option h1 {
+    font-size: large;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .App .select-bar {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .App .select-bar .option h1 {
+    font-size: small;
+  }
+}

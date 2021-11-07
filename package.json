@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "eslint-plugin-react": "^7.26.1"
+  },
+  "dependencies": {
+    "@atlaskit/textfield": "^5.1.3"
   }
 }

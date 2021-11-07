@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import NavBar from "../components/NavBar";
-import BillHeader from "../components/BillHeader";
+import NavBar from "../Components/NavBar";
+import BillHeader from "../Components/BillHeader";
 import { CartContext } from "../contexts/Cart";
 
 class BillPage extends Component {

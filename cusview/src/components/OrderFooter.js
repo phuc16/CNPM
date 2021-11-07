@@ -11,7 +11,7 @@ export default function OrderFooter(props) {
         <span></span>
       </div>
       <div className="confirm">
-        <Link to="/cart/payment/bill">
+        <Link to="/cart/payment">
           <button onClick={props.submit}>SUBMIT ORDER</button>
         </Link>
       </div>

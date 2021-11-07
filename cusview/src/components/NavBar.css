@@ -10,24 +10,22 @@
   align-items: center;
   justify-content: center !important;
   margin: 10px 40px 5px;
-  background-color: #b3ffd9;
+  background-color: #F1F8F5;
   border-radius: 10px;
   font-size: larger;
+  border-radius: 20px;
+    border-style: groove;
+    border-color: #0AA85C;
 }
 
 .insidetext{
   color: #000000;
   background-color: inherit;
   font-size: larger;
+  align-items: center;
+  font-weight: bold;
+  font-family: nunito;
   text-align: center;
 }
 
-.noselect{
-  -webkit-touch-callout: none; 
-  -webkit-user-select: none; 
-  -khtml-user-select: none; 
-  -moz-user-select: none; 
-  -ms-user-select: none;
-  user-select: none;
-}
 

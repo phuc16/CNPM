@@ -11,6 +11,9 @@
 .bill-item > span {
   margin: 10px 3vw 7px 0px;
   background-color: white;
+  font-family: nunito;
+    font-weight: bold;
+    align-items: center;
 }
 
 .bill-item > span:last-child {

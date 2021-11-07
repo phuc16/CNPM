@@ -14,6 +14,8 @@
     float: left;
     margin: 0;
     padding: 10px 0px 0px 30px;
+    
+
 }
 
 .cash_payment {
@@ -26,6 +28,9 @@
 .cash_confirm button {
     margin: 32px 90px;
     float: right;
+    font-family: nunito;
+    font-weight: bold;
+    align-items: center;
 }
 
 .cash_confirm {
@@ -64,6 +69,9 @@
     background-color: white;
     margin: 10px;
     padding: 30px 0px 0px 50px;
+    font-family: nunito;
+    font-weight: bold;
+    align-items: center;
 }
 
 

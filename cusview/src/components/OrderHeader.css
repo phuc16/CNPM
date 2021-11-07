@@ -11,16 +11,44 @@
     grid-template-columns: 40% 60%;
 }
 
+.order-header .info {
+    display: grid;
+    margin: 20px 3vw;
+    grid-template-columns: 40% 60%;
+}
+
 .order-header .info h1 {
     color: #000000;
     background-color: inherit;
     font-size: larger;
+    font-family: nunito;
+    font-weight: bold;
+}
+
+.order-header .info button {
+    height: 45px;
+    width: 80px;
+    background-color: #0EB062;
+    border-radius: 10px;
+    border: 1px solid #0AAF60;
+    color: #FFFFFF;
+    font-size: larger;
+    text-align: center;
+    font-weight: bold;
 }
 
 .order-header .attribute {
     display: grid;
     margin: 20px 6vw;
     grid-template-columns: 33% 34% 33%;
+}
+
+.order-header .attribute span {
+    color: #000000;
+    background-color: inherit;
+    font-size: larger;
+    font-family: nunito;
+    font-weight: bold;
 }
 
 @media only screen and (max-width: 991px) {

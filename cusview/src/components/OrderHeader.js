@@ -7,10 +7,10 @@ export default function OrderHeader(props){
             <div className="info">
                 <Link to="/">
                 <button type="button">
-                    Return
+                    BACK
                 </button>
                 </Link>
-                <h1 style={{textAlign: 'center'}}>Table No: {props.tableId}</h1>
+                <h1 style={{textAlign: 'right'}}>Table No: {props.tableId}</h1>
                 
             </div>
             {

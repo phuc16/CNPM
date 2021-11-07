@@ -17,7 +17,6 @@ const MyNavbar = () => {
                     <Link to='/cart'>
                         <div><AiOutlineShoppingCart size={30} style={{marginRight: "5px"}}/></div>
                     </Link>
-                    <div><RiBillLine size={30} style={{marginRight: "5px"}}/></div>
                 </div>
             </div>
         </div>

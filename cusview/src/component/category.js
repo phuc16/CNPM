@@ -9,21 +9,19 @@ export default function Category (props) {
             ALL
           </button>
           <button type="button" class="bt margin-left" onClick={props.pizza}>
-            <img style={{ height: "20px" }} src={"img/pizza.png"} alt=''/> PIZZA
+            BREAKFAST
           </button>
           <button type="button" class="bt margin-left" onClick={props.burger}>
-            <img style={{ height: "25px" }} src={"img/hambuger.png"} alt=''/> BURGER
+             LUNCH
           </button>
 
           <button type="button" class="bt margin-left" onClick={props.soup}>
-            <img style={{ height: "30px" }} src={"img/soup.jpg"} alt=''/> SOUP
+             SWEET
           </button>
           <button type="button" class="bt margin-left" onClick={props.tea}>
-            <img style={{ height: "25px" }} src={"img/drink.png"} alt=''/> DRINK
+             DRINK
           </button>
-          <button type="button" class="bt margin-left" onClick={props.other}>
-            <img style={{ height: "25px" }} src={"img/other.png"} alt=''/> OTHER
-          </button>
+          
       </div>
     </div>
   );

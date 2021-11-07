@@ -1,9 +1,8 @@
 .header{
     display: flex;
     justify-content: space-between;
-    background-color: #F1F8F5;
     font-size: 0.8em;
-    border-radius: 20px;
+    border-radius: 10px;
     border-style: groove;
     border-color: #0AA85C;
     margin: 20px 45px 0px;

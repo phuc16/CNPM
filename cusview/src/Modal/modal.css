@@ -35,14 +35,16 @@
 }
 
 .BlueButton{
-    background: #24A0ED;
+    height: 46px;
+    width: 60px;
+    background-color: #0EB062;
+    border-radius: 10px;
+    border: 1px solid #0AAF60;
+    color: #FFFFFF;
+    font-size: medium;
     text-align: center;
-    margin-left: 20px;
-    margin-right: 40px;
-    font-size: 15px;
-    padding: 5px 10px 5px 10px;
-    color: white;
-    border-radius: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
   
 .display-block {

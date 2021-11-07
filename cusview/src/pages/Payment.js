@@ -53,7 +53,6 @@ class Payment extends Component {
               />
             )}
           </CartContext.Consumer>
-          <button onClick={this.handleOpen}> </button>
           <PaymentModal show={this.state.check} invalid={this.decline} valid={this.proceed}/>
           <CartContext.Consumer>
             {({ changeToOnline, changeToPhysical }) => (

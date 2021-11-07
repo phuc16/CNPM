@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MenuPage from "./pages/menupage";
 import PizzaPage from "./pages/pizzapage";
-import BuggerPage from "./pages/buggerpage";
+import BurgerPage from "./pages/burgerpage";
 import SoupPage from "./pages/souppage";
 import DrinkPage from "./pages/drinkpage";
 import OtherPage from "./pages/otherpage";
@@ -26,8 +26,8 @@ function App() {
         <Route exact path="/pizza">
           <PizzaPage />
         </Route>
-        <Route exact path="/bugger">
-          <BuggerPage />
+        <Route exact path="/burger">
+          <BurgerPage />
         </Route>
         <Route exact path="/soup">
           <SoupPage />

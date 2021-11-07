@@ -16,9 +16,9 @@ const Category = () => {
             <img style={{ height: "20px" }} src={"img/pizza.png"} alt=''/> PIZZA
           </button>
         </Link>
-        <Link to="/bugger">
+        <Link to="/burger">
           <button type="button" class="bt margin-left">
-            <img style={{ height: "25px" }} src={"img/hambuger.png"} alt=''/> BUGGER
+            <img style={{ height: "25px" }} src={"img/hambuger.png"} alt=''/> BURGER
           </button>
         </Link>
         <Link to="/soup">

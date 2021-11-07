@@ -7,45 +7,45 @@ import Menu from "../component/menu";
 
 import { CartContext } from "../contexts/Cart";
 
-const buggerItems = [
+const burgerItems = [
   {
     id: 6,
     imgUrl: "http://farm1.staticflickr.com/955/41117503084_128499c414.jpg",
-    name: "BUGGER MIXED",
-    description: "BUGGER",
+    name: "BURGER MIXED",
+    description: "BURGER",
     pricePU: 4.8,
   },
   {
     id: 7,
     imgUrl: "http://farm1.staticflickr.com/955/41117503084_128499c414.jpg",
-    name: "BUGGER MIXED",
-    description: "BUGGER",
+    name: "BURGER MIXED",
+    description: "BURGER",
     pricePU: 4.8,
   },
   {
     id: 8,
     imgUrl: "http://farm1.staticflickr.com/955/41117503084_128499c414.jpg",
-    name: "BUGGER MIXED",
-    description: "BUGGER",
+    name:  "BURGER MIXED",
+    description: "BURGER",
     pricePU: 4.8,
   },
   {
     id: 9,
     imgUrl: "http://farm1.staticflickr.com/955/41117503084_128499c414.jpg",
-    name: "BUGGER MIXED",
-    description: "BUGGER",
+    name: "BURGER MIXED",
+    description: "BURGER",
     pricePU: 4.8,
   },
   {
     id: 10,
     imgUrl: "http://farm1.staticflickr.com/955/41117503084_128499c414.jpg",
-    name: "BUGGER MIXED",
-    description: "BUGGER",
+    name: "BURGER MIXED",
+    description: "BURGER",
     pricePU: 4.8,
   },
 ];
 
-const BuggerPage = () => {
+const BurgerPage = () => {
   return (
     <div className="App">
       <MyNavbar />
@@ -55,7 +55,7 @@ const BuggerPage = () => {
         <div className="product-list">
           <CartContext.Consumer>
             {({ addItemToCart }) =>
-              buggerItems.map((item) => (
+              burgerItems.map((item) => (
                 <Menu
                   key={item.id}
                   imgUrl={item.imgUrl}
@@ -74,4 +74,4 @@ const BuggerPage = () => {
   );
 };
 
-export default BuggerPage;
+export default BurgerPage;

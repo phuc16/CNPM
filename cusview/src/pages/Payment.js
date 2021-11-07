@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 
 import PaymentHeader from "../Components/PaymentHeader";
 import PaymentBody from "../Components/PaymentBody";
@@ -20,12 +20,6 @@ class Payment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: getDay(),
-      time: "6:29:00 PM",
-      tableId: 1,
-      orderId: "OD123456",
-      paymentId: "0D123456",
-      totalCost: "119$",
       check: false,
     };
   }
@@ -48,7 +42,7 @@ class Payment extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <NavBar Title="Payment" />
         <div className="content">
           <OnlineModal
@@ -69,6 +63,7 @@ class Payment extends Component {
               />
             )}
           </CartContext.Consumer>
+          
           <PaymentBody openModal={this.handleOpen.bind(this)} />
         </div>
       </div>

@@ -2,13 +2,18 @@ import "./BillHeader.css";
 import BillItem from "./BillItem";
 
 export default function BillHeader(props) {
+  function paymentMethod(pmID){
+    if(pmID == 1) return "Physical";
+    if(pmID == 2) return "Online";
+  }
+
   return (
     <div className="bill-header">
       <div className="info">
-        <h1 style={{ textAlign: "center" }}>DATE: {props.date}</h1>
-        <h1 style={{ textAlign: "center" }}>TIME: {props.time}</h1>
-        <h1 style={{ textAlign: "center" }}>TABLE NO: {props.tableId}</h1>
-        <h1 style={{ textAlign: "center" }}>ORDER ID: {props.orderId}</h1>
+        <h1 style={{ textAlign: "center" }}>Date: {props.date}</h1>
+        <h1 style={{ textAlign: "center" }}>Time: {props.time}</h1>
+        <h1 style={{ textAlign: "center" }}>Table No: {props.tableId}</h1>
+        <h1 style={{ textAlign: "center" }}>Payment Method: {paymentMethod(props.PaymentMethod)}</h1>
       </div>
       <div className="bill-list">
         <div className="attribute">

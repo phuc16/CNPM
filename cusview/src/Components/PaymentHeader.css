@@ -10,18 +10,15 @@
     text-align: center;
 }
 
-.info {
-    display: grid;
+.payment-info {
+    display: flex;
     margin: 20px 3vw;
-    grid-template-columns: 50% 50%;
-    text-align: left;
-    padding-left: 300px;
 }
 
-.info h4{
-    padding: 0px 10px;
-    padding-right: 140px;
-    font-size: 25px;
+.payment-info h4{
+    text-align: center;
+    flex: 1 0 21%; 
+    font-size: 24px;
     margin-left: 5px;
 }
 
@@ -40,28 +37,31 @@
 
 
 @media only screen and (max-width: 992px) {
-    .info {
-        padding-left: 130px;
+    .payment-info {
+        display: flex;
+        margin: 20px 3vw;
     }
 
-    .info h4 {
-        font-size: 20px;
-        margin-left: 5px;
-        padding: 0px;
+    .payment-info h4 {
+        text-align: center;
+        flex: 1 0 21%; 
+        font-size: 15px;
     }
 
     .sub_info {
-        font-size: 30px;
+        font-size: px;
     }
 }
   
 @media only screen and (max-width: 575px) {
-    .info {
-        padding-left: 20px;
+    .payment-info {
+        display: flex;
+        margin: 20px 3vw;
     }
-    .info h4 {
-        font-size: 15px;
-        margin-left: 40px;
+    .payment-info h4 {
+        text-align: center;
+        flex: 1 0 21%; 
+        font-size: 10px;
     }
 
     .sub_info {

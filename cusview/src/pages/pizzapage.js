@@ -1,7 +1,7 @@
 import React from 'react';
 import Slide from '../component/slide';
 import MyNavbar from '../component/MyNavbar';
-import Category from '../component/category';
+import Category from '../component/Category';
 
 import Menu from "../component/menu";
 

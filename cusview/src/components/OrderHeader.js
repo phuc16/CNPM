@@ -1,11 +1,17 @@
 import './OrderHeader.css';
+import { Link } from 'react-router-dom';
 
 export default function OrderHeader(props){
     return(
         <div className="order-header">
             <div className="info">
-                <h1 style={{textAlign: 'left'}}>TABLE ID: {props.tableId}</h1>
-                <h1 style={{textAlign: 'right'}}>ORDER ID: {props.orderId}</h1>
+                <Link to="/">
+                <button type="button">
+                    Return
+                </button>
+                </Link>
+                <h1 style={{textAlign: 'left'}}>TABLE No: {props.tableId}</h1>
+                
             </div>
             {
                 props.productQuantity > 0 && <div className="attribute">

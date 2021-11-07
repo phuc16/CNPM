@@ -7,16 +7,18 @@ export class CartProvider extends Component {
     super(props);
     this.state = {
       tableId: 1,
-      orderId: "0D123456",
       date: new Date().toLocaleDateString(),
       time: new Date().toLocaleTimeString(),
       cartItems: [],
+      PaymentMethod: 0,
     };
 
     this.addItemToCart = this.addItemToCart.bind(this);
     this.removeProduct = this.removeProduct.bind(this);
     this.changeQuantity = this.changeQuantity.bind(this);
     this.submit = this.submit.bind(this);
+    this.changeToOnline = this.changeToOnline.bind(this);
+    this.changeToPhysical = this.changeToPhysical.bind(this);
   }
 
   addItemToCart(item) {
@@ -47,8 +49,7 @@ export class CartProvider extends Component {
 
   getTotalCost() {
     let total = this.state.cartItems.reduce(
-      (sum, item) => sum + item.pricePU * item.quantity,
-      0
+      (sum, item) => sum + item.pricePU * item.quantity, 0
     );
     total = total.toFixed(2);
     return total;
@@ -56,6 +57,18 @@ export class CartProvider extends Component {
 
   getTotalQuantity() {
     return this.state.cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  }
+
+  changeToPhysical(){
+    this.setState({
+      PaymentMethod: 1
+    });
+  }
+
+  changeToOnline(){
+    this.setState({
+      PaymentMethod: 2
+    });
   }
 
   changeQuantity(item, change) {
@@ -109,8 +122,11 @@ export class CartProvider extends Component {
           totalCost: this.getTotalCost(),
           totalQuantity: this.getTotalQuantity(),
           changeQuantity: this.changeQuantity,
+          changeToOnline: this.changeToOnline,
+          changeToPhysical: this.changeToPhysical,
           removeProduct: this.removeProduct,
           submit: this.submit,
+          PaymentMethod: this.state.PaymentMethod,
         }}
       >
         {this.props.children}

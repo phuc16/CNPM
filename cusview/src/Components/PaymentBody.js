@@ -1,32 +1,32 @@
 import "./PaymentBody.css";
 import { Link } from "react-router-dom";
 
-export default function PaymentBody({ openModal }) {
+export default function PaymentBody({handlePhysical, handleOnline}) {
   function PhysicalMethodClick() {
-    alert("Cash method Clicked");
+    handlePhysical();
+    alert("Physical Method Clicked");
   }
 
   function OnlineMethodClick() {
-    openModal();
+    handleOnline();
+    alert("Online Method Clicked");
   }
 
   return (
     <div className="PaymentBody">
       <div className="cash_confirm">
         <h2>Physical Payment</h2>
+        
         <Link to="/cart/payment/bill">
           <button onClick={() => PhysicalMethodClick()}>Confirm</button>
         </Link>
       </div>
 
-      <div class="online_payment">
-        <div class="online_payment_title">
-          <h2>Online Payment</h2>
-        </div>
-
-        <div class="online_confirm">
+      <div className="cash_confirm">
+        <h2>Online Payment</h2>
+        <Link to="/cart/payment/bill">
           <button onClick={() => OnlineMethodClick()}>Confirm</button>
-        </div>
+        </Link>
       </div>
     </div>
   );

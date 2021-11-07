@@ -15,10 +15,9 @@ class CartPage extends Component {
 
         <div className="content">
           <CartContext.Consumer>
-            {({ tableId, orderId, cartItems }) => (
+            {({ tableId, cartItems }) => (
               <OrderHeader
                 tableId={tableId}
-                orderId={orderId}
                 productQuantity={cartItems.length}
               />
             )}

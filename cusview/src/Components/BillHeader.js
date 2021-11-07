@@ -1,9 +1,16 @@
 import "./BillHeader.css";
 import BillItem from "./BillItem";
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'
 
 
 export default function BillHeader(props) {
+  const history = useHistory();
+
+  function handleReturnMenu(){
+    props.reset();
+    history.push(`/`);
+  }
+
   function paymentMethod(pmID){
     if(pmID === 1) return "Physical";
     if(pmID === 2) return "Online";
@@ -46,11 +53,7 @@ export default function BillHeader(props) {
         
       </div>
       <div className="footer">
-      <Link to="/">
-          <button type="button">
-            BACK
-          </button>
-      </Link>
+          <button type="button" onClick={handleReturnMenu}> BACK </button>
       </div>
     </div>
   );

@@ -19,6 +19,17 @@ export class CartProvider extends Component {
     this.submit = this.submit.bind(this);
     this.changeToOnline = this.changeToOnline.bind(this);
     this.changeToPhysical = this.changeToPhysical.bind(this);
+    this.reset = this.reset.bind(this);
+  }
+
+  reset(){
+    this.setState({
+      tableId: 1,
+      date: new Date().toLocaleDateString(),
+      time: new Date().toLocaleTimeString(),
+      cartItems: [],
+      PaymentMethod: 0,
+    });
   }
 
   addItemToCart(item) {
@@ -118,15 +129,16 @@ export class CartProvider extends Component {
           cartItems: this.state.cartItems,
           date: this.state.date,
           time: this.state.time,
-          addItemToCart: this.addItemToCart,
+          PaymentMethod: this.state.PaymentMethod,
           totalCost: this.getTotalCost(),
           totalQuantity: this.getTotalQuantity(),
+          addItemToCart: this.addItemToCart,
           changeQuantity: this.changeQuantity,
           changeToOnline: this.changeToOnline,
           changeToPhysical: this.changeToPhysical,
           removeProduct: this.removeProduct,
           submit: this.submit,
-          PaymentMethod: this.state.PaymentMethod,
+          reset: this.reset
         }}
       >
         {this.props.children}

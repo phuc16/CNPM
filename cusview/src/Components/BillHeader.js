@@ -3,8 +3,8 @@ import BillItem from "./BillItem";
 
 export default function BillHeader(props) {
   function paymentMethod(pmID){
-    if(pmID == 1) return "Physical";
-    if(pmID == 2) return "Online";
+    if(pmID === 1) return "Physical";
+    if(pmID === 2) return "Online";
   }
 
   return (

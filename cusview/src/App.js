@@ -1,11 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MenuPage from "./pages/menupage";
-import PizzaPage from "./pages/pizzapage";
-import BurgerPage from "./pages/burgerpage";
-import SoupPage from "./pages/souppage";
-import DrinkPage from "./pages/drinkpage";
-import OtherPage from "./pages/otherpage";
 
 import CartPage from "./pages/CartPage";
 
@@ -22,21 +17,6 @@ function App() {
       <Switch>
         <Route exact path="/">
           <MenuPage />
-        </Route>
-        <Route exact path="/pizza">
-          <PizzaPage />
-        </Route>
-        <Route exact path="/burger">
-          <BurgerPage />
-        </Route>
-        <Route exact path="/soup">
-          <SoupPage />
-        </Route>
-        <Route exact path="/drink">
-          <DrinkPage />
-        </Route>
-        <Route exact path="/other">
-          <OtherPage />
         </Route>
         <Route exact path="/cart">
           <CartPage />

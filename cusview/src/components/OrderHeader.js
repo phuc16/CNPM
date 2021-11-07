@@ -10,7 +10,7 @@ export default function OrderHeader(props){
                     Return
                 </button>
                 </Link>
-                <h1 style={{textAlign: 'left'}}>TABLE No: {props.tableId}</h1>
+                <h1 style={{textAlign: 'center'}}>Table No: {props.tableId}</h1>
                 
             </div>
             {

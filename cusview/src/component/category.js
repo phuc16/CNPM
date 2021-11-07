@@ -1,44 +1,31 @@
 import "./Category.css"
-import { Link } from 'react-router-dom';
 
-const Category = () => {
+export default function Category (props) {
   return (
     <div>
       <div align="center">
-        <Link to="/">
-          <button type="button" class="bt ">
+          <button type="button" class="bt " onClick={props.reset}>
             {" "}
             ALL
           </button>
-        </Link>
-        <Link to="/pizza">
-          <button type="button" class="bt margin-left">
+          <button type="button" class="bt margin-left" onClick={props.pizza}>
             <img style={{ height: "20px" }} src={"img/pizza.png"} alt=''/> PIZZA
           </button>
-        </Link>
-        <Link to="/burger">
-          <button type="button" class="bt margin-left">
+          <button type="button" class="bt margin-left" onClick={props.burger}>
             <img style={{ height: "25px" }} src={"img/hambuger.png"} alt=''/> BURGER
           </button>
-        </Link>
-        <Link to="/soup">
-          <button type="button" class="bt margin-left">
+
+          <button type="button" class="bt margin-left" onClick={props.soup}>
             <img style={{ height: "30px" }} src={"img/soup.jpg"} alt=''/> SOUP
           </button>
-        </Link>
-        <Link to="/drink">
-          <button type="button" class="bt margin-left">
+          <button type="button" class="bt margin-left" onClick={props.tea}>
             <img style={{ height: "25px" }} src={"img/drink.png"} alt=''/> DRINK
           </button>
-        </Link>
-        <Link to="/other">
-          <button type="button" class="bt margin-left">
+          <button type="button" class="bt margin-left" onClick={props.other}>
             <img style={{ height: "25px" }} src={"img/other.png"} alt=''/> OTHER
           </button>
-        </Link>
       </div>
     </div>
   );
 };
 
-export default Category;

@@ -1,6 +1,5 @@
 import "./NavBar.css"
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { RiBillLine } from "react-icons/ri";
 
 import { Link } from 'react-router-dom';
 

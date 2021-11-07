@@ -1,5 +1,7 @@
 import "./BillHeader.css";
 import BillItem from "./BillItem";
+import { Link } from 'react-router-dom';
+
 
 export default function BillHeader(props) {
   function paymentMethod(pmID){
@@ -10,6 +12,7 @@ export default function BillHeader(props) {
   return (
     <div className="bill-header">
       <div className="info">
+        
         <h1 style={{ textAlign: "center" }}>Date: {props.date}</h1>
         <h1 style={{ textAlign: "center" }}>Time: {props.time}</h1>
         <h1 style={{ textAlign: "center" }}>Table No: {props.tableId}</h1>
@@ -17,6 +20,7 @@ export default function BillHeader(props) {
       </div>
       <div className="bill-list">
         <div className="attribute">
+          
           <span style={{ textAlign: "left" }}>Food Names</span>
           <span style={{ textAlign: "center" }}>Quantities</span>
           <span style={{ textAlign: "right" }}>Price</span>
@@ -39,6 +43,14 @@ export default function BillHeader(props) {
           <span style={{ textAlign: "left" }}>Total</span>
           <span style={{ textAlign: "right" }}>{props.totalCost}$</span>
         </div>
+        
+      </div>
+      <div className="footer">
+      <Link to="/">
+          <button type="button">
+            BACK
+          </button>
+      </Link>
       </div>
     </div>
   );

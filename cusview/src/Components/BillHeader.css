@@ -6,6 +6,9 @@
   grid-template-columns: 50% 50%;
 }
 
+
+
+
 .bill-header .info h1 {
   color: #000000;
   background-color: inherit;
@@ -106,6 +109,26 @@
   align-items: center;
 }
 
+.bill-header .footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.bill-header .footer button {
+  height: 45px;
+  width: 80px;
+  background-color: #0EB062;
+  border-radius: 10px;
+  border: 1px solid #0AAF60;
+  color: #FFFFFF;
+  font-size: larger;
+  text-align: center;
+  font-weight: bold;
+}
+
 @media only screen and (max-width: 991px) {
   .bill-header .detail button {
     width: 21.5vw;
@@ -115,6 +138,11 @@
   .bill-header .info h1 {
     font-size: large;
   }
+  .bill-header .footer button {
+    width: 80px;
+    height: 40px;
+    font-size: large;
+}
 }
 
 @media only screen and (max-width: 575px) {
@@ -123,5 +151,10 @@
   }
   .bill-header h1 {
     font-size: medium;
+  }
+  .bill-header .footer button {
+    width: 60px;
+    height: 40px;
+    font-size: large;
   }
 }

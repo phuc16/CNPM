@@ -1,24 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, Component} from 'react';
 import './App.css';
 import { TabName } from './components/Header';
 import DataTable from './components/DataTable';
 import Pagination from './components/Paginition';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Data } from './data/data';
+// import { Data } from './data/data';
 import { FilterContainer, FilterElementContainer, FilterBtn } from './components/FilterElement';
+import Axios from "axios";
 
-
-var CurData = Data;
+var CurData = null;
 var CurDate = null;
 var CurType = null;
-
+var Data = null;
 function App() {
+
+  useEffect(() => {
+    getData();
+    console.log(Data)
+  }, [])
+
+  const getData = () => {
+    Axios.get("http://localhost:3001/statistics").then((response) => {
+      
+      Data = response.data;
+      CurData = Data;
+      setCurArray(Data.slice(0,6));
+      setIsloading(true);
+      console.log(response.data);
+    })
+  }
 
   const items_per_page = 6;
 
+  const [isloading, setIsloading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [CurArray, setCurArray] = useState(Data.slice(0,6));
+  const [CurArray, setCurArray] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [isSelectBoth, setIsSelectBoth] = useState(false);
   const [isSelectDate, setIsSelectDate] = useState(false);
@@ -90,7 +107,7 @@ function App() {
   }
 
   return (
-    <>
+    isloading? <>
       <TabName> Restaurant Statistic</TabName>
       <FilterContainer>
         <FilterElementContainer>
@@ -122,7 +139,7 @@ function App() {
       <DataTable data={CurArray} />
       <Pagination postsPerPage={6} totalPosts={Data.length} paginate={paginate}/>
 
-    </>
+    </> : ""
   );
 }
 

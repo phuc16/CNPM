@@ -3,7 +3,7 @@ import { Cell, Title, Row, Container } from './DataTableElement';
 import PopUp from './PopUp.js';
 
 function OneRow(props){
-  const {id, table, payment, total, date} = props.rowInfo;
+  const {id_order, table_num, payment, total, order_date} = props.rowInfo;
   const [PopUpState, setPopUpState] = useState(false);
   function handleClick(){
     setPopUpState(true);
@@ -11,13 +11,13 @@ function OneRow(props){
   return(
     <>
     <Row onClick = {handleClick}>
-      <Cell>{id}</Cell>
-      <Cell>{table}</Cell>
+      <Cell>{id_order}</Cell>
+      <Cell>{table_num}</Cell>
       <Cell>{payment}</Cell>
       <Cell>{total}</Cell>
-      <Cell>{date}</Cell>
+      <Cell>{order_date}</Cell>
     </Row>
-      <PopUp trigger={PopUpState} setTrigger={setPopUpState} id={id} />  
+      <PopUp trigger={PopUpState} setTrigger={setPopUpState} id={id_order} />  
     </>
 
   );
@@ -41,7 +41,7 @@ export default function DataTable(props) {
       <TitleRow />
       {props.data.map((item) => {
         return <OneRow
-        key = {item.id}
+        key = {item.id_order}
         rowInfo = {item}
         />
       })}

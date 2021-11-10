@@ -10,8 +10,8 @@ function PopUp(props) {
                 <ClosedBtn onClick={() => props.setTrigger(false)}>Close</ClosedBtn>
                 <h3>Thông tin chi tiết</h3>
                 <Container>
-                        <TitleCell> Món </TitleCell>
-                        <TitleCell> Số lượng </TitleCell>
+                        <TitleCell> Product </TitleCell>
+                        <TitleCell> Quantity </TitleCell>
                         <TitleCell> Total </TitleCell>
 
                 {DetailData[props.id - 1].order.map((item) => {

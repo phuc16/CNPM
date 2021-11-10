@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FilterContainer = styled.div`
-    width: 800px;
+    width: 650px;
     margin: auto;
     margin-top: 50px;
 `

@@ -26,10 +26,10 @@ function OneRow(props){
 function TitleRow(){
   return (
     <Row>
-      <Title>ID</Title>
+      <Title>ORDER ID</Title>
       <Title>Table</Title>
       <Title>Payment</Title>
-      <Title>Total</Title>
+      <Title>Total (USD)</Title>
       <Title>Date</Title>
     </Row>
   );

@@ -94,7 +94,7 @@ function App() {
       <TabName> Restaurant Statistic</TabName>
       <FilterContainer>
         <FilterElementContainer>
-          <div> Lọc theo phương thức thanh toán </div>
+          <div> Payment Type Filter </div>
           <select onChange={handleType}>
             <option value='all'>All</option>
             <option value='online'>Online</option>
@@ -103,7 +103,7 @@ function App() {
         </FilterElementContainer>
 
         <FilterElementContainer>
-          <div> Lọc theo ngày </div>
+          <div> Date Filter </div>
           <DatePicker
             selected={selectedDate}
             onChange={(date) => handleDate(date)}
@@ -113,10 +113,10 @@ function App() {
         
         <FilterElementContainer>
             <input type='checkbox' id='both' name='both' value='both' onChange={handleSelectBoth}/>
-            <label for='both'> Lọc theo cả hai</label>
+            <label for='both'> Filter Both</label>
         </FilterElementContainer>
 
-        <FilterBtn onClick={handleFilter}> Lọc </FilterBtn>
+        <FilterBtn onClick={handleFilter}> Filter </FilterBtn>
       </FilterContainer>
      
       <DataTable data={CurArray} />

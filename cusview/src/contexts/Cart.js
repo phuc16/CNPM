@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import axios from 'axios';
+
 export const CartContext = React.createContext();
 
 export class CartProvider extends Component {
@@ -113,11 +115,13 @@ export class CartProvider extends Component {
       `Product: ${
         this.state.cartItems.length
       }, quantity: ${this.getTotalQuantity()}. View console 4 detail`
-    );
-    this.state.cartItems.map((item) => console.log(item));
-    // this.setState({
-    //   cartItems: [],
-    // });
+    );  
+    const items = {
+      tableId: this.state.tableId,
+      cartItems: this.state.cartItems
+    };
+    axios.post('http://localhost:3001/post/order', { items }).then((response) => {
+    });
   }
 
   render() {

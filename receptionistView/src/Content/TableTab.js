@@ -3,34 +3,22 @@ import Table from "./Table";
 import Button from 'react-bootstrap/Button';
 import SaveModal from '../Modal/SaveModal.js';
 
-function TableTab({data}) {
+function TableTab({data, updateFunc}) {
     const [show, setShow] = useState(false);
     const [tables, setTables] = useState(data);
-    const [changes, setChanges] = useState([
-        false,false,false,false,false,
-        false,false,false,false,false,
-        false,false,false,false,false,
-        false,false,false,false,false,
-        false,false,false,false,false
-    ]);
+    const [changes, setChanges] = useState(Array(data.length).fill(false));
 
-    function pushChangetoDB(){
+    async function pushChangetoDB(){
         changes.forEach((change, index) => {
             if(change === true){
-                console.log(`Table ${index + 1} has been changed !`);
+                updateFunc(index + 1);
             }
         });
     }
 
-    function saveData(){
+    async function saveData(){
         pushChangetoDB();
-        setChanges([
-                false,false,false,false,false,
-                false,false,false,false,false,
-                false,false,false,false,false,
-                false,false,false,false,false,
-                false,false,false,false,false
-        ]);
+        setChanges(Array(data.length).fill(false));
         setShow(false);
     }
 

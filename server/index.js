@@ -33,5 +33,5 @@ app.put("/api/update", (req,res) => {
 });
 
 app.listen(3003, () =>{
-  console.log("running on port 3001");
+  console.log("running on port 3003");
 })

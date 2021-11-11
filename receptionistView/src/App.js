@@ -1,17 +1,28 @@
 import NavBar from './Bar/NavBar';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import TableTab from './Content/TableTab';
+import React, {useEffect, useState} from "react";
+import axios from 'axios';
 
+export default function App() {
+  const [tableData, setTD] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-function App() {
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      const result = await axios('http://localhost:3003/api/get');
+      setTD(result.data);
+      setIsLoading(false);
+    };
+ 
+    fetchData();
+  }, []);
+
   return (
-    <Router>
       <div className="App">
         <NavBar Title = "Receptionist View"/>
-        <TableTab/>
+        {isLoading ? <div>Loading...</div> : <TableTab data={tableData}/> }
       </div>
-    </Router>
   );
 }
 
-export default App;

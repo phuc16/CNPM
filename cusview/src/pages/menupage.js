@@ -248,20 +248,18 @@ const menuItems = [
 ];
 
 
-
-
 export default function MenuPage() {
   const [curMenu, setCurMenu] = useState(menuItems);
 
   useEffect(() => {
     axios.get('http://localhost:3001/get/products')
     .then(response => {
-      console.log(response.data);
-      setCurMenu(response.data);
+      // console.log(response.data.results);
+      setCurMenu(response.data.results);
     })
-    .catch(function (error) {
-      console.log(error);
-    })
+    .catch((error) => {
+        console.log(error);
+      })
   }, []);
 
   function reset(event){

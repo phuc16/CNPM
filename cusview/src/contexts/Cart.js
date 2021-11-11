@@ -8,6 +8,7 @@ export class CartProvider extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      orderId: null,
       tableId: 1,
       date: new Date().toLocaleDateString(),
       time: new Date().toLocaleTimeString(),
@@ -86,11 +87,7 @@ export class CartProvider extends Component {
 
   changeQuantity(item, change) {
     const quantity =
-      change === "add"
-        ? item.quantity + 1
-        : item.quantity <= 1
-        ? 1
-        : item.quantity - 1;
+      change === "add" ? item.quantity + 1 : item.quantity <= 1 ? 1 : item.quantity - 1;
     const { cartItems } = this.state;
     const index = cartItems.indexOf(item);
     this.setState({
@@ -112,16 +109,21 @@ export class CartProvider extends Component {
 
   submit() {
     alert(
-      `Product: ${
-        this.state.cartItems.length
-      }, quantity: ${this.getTotalQuantity()}. View console 4 detail`
+      `Product: ${this.state.cartItems.length}, quantity: ${this.getTotalQuantity()}. View console 4 detail`
     );  
     const items = {
       tableId: this.state.tableId,
       cartItems: this.state.cartItems
     };
-    axios.post('http://localhost:3001/post/order', { items }).then((response) => {
-    });
+    axios.post('http://localhost:3001/post/order', { items })
+    .then((response) => {
+      console.log(response.data.results);
+      this.setState({orderId: response.data.results});
+      console.log(this.state.orderId);
+    })
+    .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {

@@ -16,6 +16,7 @@ class PaymentsList extends React.Component {
             <button
               onClick={() => {
                 this.props.onPaymentConfirm(item);
+                this.props.updatePaymentStatus(123457);
                 //alert(`Confirm item ${item.paymentId}`);
               }}
             >

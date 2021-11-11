@@ -11,6 +11,8 @@ import Payments from "./pages/Payments";
 import OrdersList from "./pages/OrdersList";
 import PaymentsList from "./pages/PaymentsList";
 
+import Axios from 'axios';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -29,25 +31,25 @@ class App extends Component {
     // axios return value
     let ordersList = [
       {
-        orderId: "OD123456",
+        orderId: "123456",
         tableId: "Table 1",
         datetime: "2021-09-25 14:54:32",
         totalCost: 119,
       },
       {
-        orderId: "OD123457",
+        orderId: "123457",
         tableId: "Table 2",
         datetime: "2021-09-25 15:54:32",
         totalCost: 119,
       },
       {
-        orderId: "OD123458",
+        orderId: "123458",
         tableId: "Table 3",
         datetime: "2021-09-25 16:54:32",
         totalCost: 119,
       },
       {
-        orderId: "OD123459",
+        orderId: "123459",
         tableId: "Table 3",
         datetime: "2021-09-25 16:54:32",
         totalCost: 119,
@@ -83,6 +85,7 @@ class App extends Component {
         totalCost: 119,
       },
     ];
+
     let paymentsList = [
       {
         paymentId: "PM123456",
@@ -161,6 +164,7 @@ class App extends Component {
       isOrders: true,
       isPayments: false,
     });
+    this.getOrderList();
   }
 
   changeToPayments() {
@@ -168,6 +172,7 @@ class App extends Component {
       isOrders: false,
       isPayments: true,
     });
+    this.getPaymentList();
   }
 
   handleConfirmOrder = (item) => {
@@ -203,6 +208,40 @@ class App extends Component {
     console.log(page);
     this.setState({ currentPaymentPage: page });
   };
+
+  // retrieve data from server
+  
+  updateOrderStatus = (orderId) => {
+    Axios.post('http://localhost:3001/updateorder', {orderId: orderId}).then(() => {
+      console.log("Update order success");
+    });
+  };
+
+  updatePaymentStatus = (paymentId) => {
+    Axios.post('http://localhost:3001/updatepayment', {paymentId: paymentId}).then(() => {
+      console.log("Update payment success");
+    });
+  };
+
+  getOrderList = () => {
+    Axios.get('http://localhost:3001/orders').then((response) => {
+      this.setOrderList(response.data);
+    });
+  }
+
+  getPaymentList = () => {
+    Axios.get('http://localhost:3001/payment').then((response) => {
+      this.setPaymentList(response.data);
+    });
+  }
+
+  setOrderList = (orderList) => {
+    this.setState({ordersList : orderList});
+  }
+
+  setPaymentList = (paymentList) => {
+    this.setState({paymentsList : paymentList});
+  }
 
   render() {
     return (
@@ -257,6 +296,7 @@ class App extends Component {
                   ordersList={this.state.ordersList}
                   onPageChange={this.handleOrderPageChange}
                   pageSize={this.state.pageSize}
+                  updateOrderStatus={this.updateOrderStatus}
                   {...props}
                 />
               )}
@@ -271,6 +311,7 @@ class App extends Component {
                   paymentsList={this.state.paymentsList}
                   onPageChange={this.handlePaymentPageChange}
                   pageSize={this.state.pageSize}
+                  updatePaymentStatus={this.updatePaymentStatus}
                   {...props}
                 />
               )}

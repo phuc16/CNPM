@@ -16,6 +16,7 @@ class OrdersList extends React.Component {
             <button
               onClick={() => {
                 this.props.onOrderConfirm(item);
+                this.props.updateOrderStatus(123457);
                 //alert(`Confirm item ${item.orderId}`);
               }}
             >
@@ -46,7 +47,7 @@ class OrdersList extends React.Component {
   ];
 
   render() {
-    let { ordersList, onOrderConfirm, currentPage, pageSize, onPageChange } =
+    let { ordersList, onOrderConfirm, currentPage, pageSize, onPageChange, updateOrderStatus } =
       this.props;
 
     ordersList = paginate(ordersList, currentPage, pageSize);

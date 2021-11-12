@@ -5,46 +5,35 @@
     background-color: #F1F8F5;
 }
 
-button:focus {
-    outline: none;
-}
-
-.order-header .detail {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.order-header .detail button {
-    height: 46px;
-    width: 14vw;
-    background-color: #EBB011;
-    border-radius: 10px;
-    border: 1px solid #EBB115;
-    color: #FFFFFF;
-    font-size: larger;
-    text-align: center;
-    font-weight: bold;
+.order-header .info {
+    display: grid;
+    margin: 20px 3vw;
+    grid-template-columns: 40% 60%;
 }
 
 .order-header .info {
     display: grid;
-    margin: 20px 6vw;
-    grid-template-columns: 33% 34% 33%;
+    margin: 20px 3vw;
+    grid-template-columns: 40% 60%;
 }
 
 .order-header .info h1 {
     color: #000000;
     background-color: inherit;
     font-size: larger;
+    font-weight: bold;
 }
 
-.order-header>h1 {
-    margin: 40px 6vw 5px;
-    color: #000000;
-    background-color: inherit;
+.order-header .info button {
+    height: 45px;
+    width: 80px;
+    background-color: #0EB062;
+    border-radius: 10px;
+    border: 1px solid #0AAF60;
+    color: #FFFFFF;
     font-size: larger;
+    text-align: center;
+    font-weight: bold;
 }
 
 .order-header .attribute {
@@ -53,10 +42,11 @@ button:focus {
     grid-template-columns: 33% 34% 33%;
 }
 
-.order-header .info h1 {
+.order-header .attribute span {
     color: #000000;
     background-color: inherit;
     font-size: larger;
+    font-weight: bold;
 }
 
 @media only screen and (max-width: 991px) {
@@ -71,14 +61,6 @@ button:focus {
 }
 
 @media only screen and (max-width: 575px) {
-    .order-header .info {
-        grid-template-columns: 100%;
-    }
-    .order-header .detail button {
-        width: 30vw;
-        height: 36px;
-        font-size: small;
-    }
     .order-header h1 {
         font-size: medium;
     }

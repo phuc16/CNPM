@@ -4,13 +4,15 @@
   margin: 10px 3vw 5px;
   height: 75px;
   display: grid;
-  grid-template-columns: 33% 34% 33%;
+  grid-template-columns: 35% 35% 32%;
   background-color: white;
 }
 
 .bill-item > span {
-  margin: 10px 3vw 5px;
+  margin: 10px 3vw 7px 0px;
   background-color: white;
+    font-weight: bold;
+    align-items: center;
 }
 
 .bill-item > span:last-child {

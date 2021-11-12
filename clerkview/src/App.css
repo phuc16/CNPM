@@ -1,9 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
-* {
-  margin: 0;
-  font-family: "Quicksand";
-  background-color: #f1f8f5;
-}
+
 
 .clerk-tabs {
   margin: 0 auto;
@@ -17,30 +12,33 @@
 .App .select-bar .option {
   padding: 10px 10px 10px 10px;
   align-items: center;
-  margin: 5px 40px 10px;
-  background-color: white;
+  justify-content: center !important;
+  margin: 10px 40px 5px;
+  background-color: #F1F8F5;
   border-radius: 10px;
-  border: 1px solid #353535;
-  text-decoration: none;
+  font-size: larger;
+  border-radius: 20px;
+    border-style: groove;
+    border-color: #0AA85C;
 }
 
 .App .select-bar .option:hover {
-  background-color: #ededed;
+  background-color: #F1F8F5;
 }
 
 .App .select-bar .option:active {
-  background-color: #969696;
+  background-color: #F1F8F5;
 }
 
 .App .select-bar .option h1 {
   color: #000000;
-  background-color: inherit;
   font-size: larger;
   text-align: center;
+  font-weight: bold;
 }
 
 .App .select-bar .option.grey {
-  background-color: #ededed;
+  background-color: #F1F8F5;
 }
 
 @media only screen and (max-width: 991px) {

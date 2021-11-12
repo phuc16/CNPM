@@ -29,20 +29,19 @@ app.post('/post/order', function (req, res) {
     dbConn.query(`INSERT INTO ROrder(TableNo, OrderStatus) values(${items.tableId}, 1);`);  
     dbConn.query(`call countOrder();`, function (error, results, fields){
         for (product of items.cartItems){
-            dbConn.query(`INSERT INTO cart (OrderID, id, quantity, pricePU) values (${results[0][0].count}, ${product.id}, ${product.quantity}, ${product.pricePU});`);
+            dbConn.query(`INSERT INTO cart (OrderID, id, quantity, priceThisTimePU) values (${results[0][0].count}, ${product.id}, ${product.quantity}, ${product.pricePU});`);
         }
         if (error) throw error;
         return res.send({results: results[0][0].count});
     });
 });
 
-app.post('/post/payment'), function (req, res) {
+app.post('/post/payment', function (req, res) {
     const items = req.body.items;
-    consle.log(items);
-    dbConn.query(`INSERT INTO RPayment(OrderID, TotalCost, PaymentStatus, PaymentType) values (${items.id}, ${items.totalCost}, ${items.PaymentMethod}, 1);`, function (error, results, fields){
+    dbConn.query(`INSERT INTO RPayment(OrderID, TotalCost, PaymentStatus, PaymentType, DateTimeInit) values (${items.id}, ${items.totalCost}, 1, ${items.PaymentMethod}, '${items.dateTimeInit}');`, function (error, results, fields){
         return res.send({results: results});
-    })
-}
+    });
+});
 
 app.listen(3001, function () {
     console.log('Node app is running on port 3001');

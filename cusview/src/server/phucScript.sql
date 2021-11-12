@@ -27,7 +27,7 @@ CREATE TABLE if not exists Cart (
     OrderID 		int 			NOT NULL,
     id 				int 			NOT NULL,
     quantity		int 			NOT NULL,
-    pricePU			float(10)		NOT NULL,
+    priceThisTimePU	float(10)		NOT NULL,
     check (quantity > 0),
     constraint PPK PRIMARY KEY (OrderID, id)
 );
@@ -38,6 +38,7 @@ CREATE TABLE if not exists RPayment (
     TotalCost 		float(10),
     PaymentStatus 	int,
     PaymentType 	int,
+    DateTimeInit    datetime        NOT NULL,
     PRIMARY KEY (PaymentID)
 );
 
@@ -85,6 +86,5 @@ insert into RProduct(name, pricePU, category, imgUrl) values('FARMER BREAKFAST W
 insert into RProduct(name, pricePU, category, imgUrl) values('FARMER BREAKFAST WRAP', 4.8, 'Breakfast', 'https://www.timhortons.ph/upload/assets/XL7wKHalJnyIGEiGiyf1a1Q3ITkhddIX9ZaHb5fywgt992VjEA.jpg');
 insert into RProduct(name, pricePU, category, imgUrl) values('FARMER BREAKFAST WRAP', 4.8, 'Breakfast', 'https://www.timhortons.ph/upload/assets/XL7wKHalJnyIGEiGiyf1a1Q3ITkhddIX9ZaHb5fywgt992VjEA.jpg');
 insert into RProduct(name, pricePU, category, imgUrl) values('FARMER BREAKFAST WRAP', 4.8, 'Breakfast', 'https://www.timhortons.ph/upload/assets/XL7wKHalJnyIGEiGiyf1a1Q3ITkhddIX9ZaHb5fywgt992VjEA.jpg');
-
 
 call countOrder();

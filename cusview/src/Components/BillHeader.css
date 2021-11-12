@@ -10,7 +10,6 @@
   color: #000000;
   background-color: inherit;
   font-size: 20px;
-  font-family: nunito;
     font-weight: bold;
     align-items: center;
 }
@@ -32,7 +31,6 @@
 
 .bill-header .bill-list .attribute > span {
   background-color: white;
-  font-family: nunito;
     font-weight: bold;
     align-items: center;
 }
@@ -49,7 +47,6 @@
 .bill-header .sub-total > span:first-child {
   background-color: white;
   margin-left: 2.5vw;
-  font-family: nunito;
     font-weight: bold;
     align-items: center;
 }
@@ -57,7 +54,6 @@
 .bill-header .sub-total > span:last-child {
   background-color: white;
   margin-right: 2vw;
-  font-family: nunito;
     font-weight: bold;
     align-items: center;
 }
@@ -93,7 +89,6 @@
 .bill-header .total > span:first-child {
   background-color: white;
   margin-left: 2.5vw;
-  font-family: nunito;
   font-weight: bold;
   align-items: center;
 }
@@ -101,7 +96,6 @@
 .bill-header .total > span:last-child {
   background-color: white;
   margin-right: 2vw;
-  font-family: nunito;
   font-weight: bold;
   align-items: center;
 }

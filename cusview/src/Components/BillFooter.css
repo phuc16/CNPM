@@ -8,7 +8,6 @@
   grid-template-columns: 19% 31% 30%;
   display: grid;
   margin: 20px 3vw;
-  font-family: nunito;
   font-weight: bold;
   align-items: center;
 }

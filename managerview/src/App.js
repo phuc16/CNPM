@@ -1,11 +1,10 @@
-import React, { useState, useEffect, Component} from 'react';
+import React, { useState, useEffect} from 'react';
 import './App.css';
 import { TabName } from './components/Header';
 import DataTable from './components/DataTable';
 import Pagination from './components/Paginition';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-// import { Data } from './data/data';
 import { FilterContainer, FilterElementContainer, FilterBtn } from './components/FilterElement';
 import Axios from "axios";
 
@@ -14,20 +13,18 @@ var CurDate = null;
 var CurType = null;
 var Data = null;
 function App() {
-
   useEffect(() => {
     getData();
-    console.log(Data)
   }, [])
 
   const getData = () => {
-    Axios.get("http://localhost:3001/statistics").then((response) => {
+    Axios.get("http://localhost:3001/api/statistics").then((response) => {
       
       Data = response.data;
       CurData = Data;
       setCurArray(Data.slice(0,6));
       setIsloading(true);
-      console.log(response.data);
+      
     })
   }
 
@@ -43,7 +40,6 @@ function App() {
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber)
-
     const first_item_of_page = (pageNumber-1) * items_per_page;
     const last_item_of_page = first_item_of_page + items_per_page;
     setCurArray(CurData.slice(first_item_of_page, last_item_of_page));
@@ -60,9 +56,14 @@ function App() {
   }
 
   function parseDate(date) {
-    let parse_date = date.getDate().toString() + '/';
-    parse_date += (date.getMonth() + 1).toString() + '/';
-    parse_date += date.getFullYear().toString();
+    let parse_date = date.getFullYear().toString() + '-';
+    let month = date.getMonth();
+
+    if (month < 9){
+      parse_date += '0';
+    }
+    parse_date += (date.getMonth() + 1).toString() + '-';
+    parse_date += date.getDate().toString();
 
     return parse_date;
   }
@@ -83,15 +84,14 @@ function App() {
   }
 
   function handleFilter(){
-
     if (isSelectBoth) {
-      CurData = Data.filter((record) => record.payment === CurType);
-      CurData = CurData.filter((record) => record.date === CurDate);
+      CurData = Data.filter((record) => record.PaymentType === CurType);
+      CurData = CurData.filter((record) => record.PaymentDate === CurDate);
     }
     else {
       if (isSelectDate) {
 
-        CurData = Data.filter((record) => record.date === CurDate);
+        CurData = Data.filter((record) => record.PaymentDate === CurDate);
       }
       else if (isSelectType) {
             if (CurType === 'all') {
@@ -99,7 +99,7 @@ function App() {
             CurData = Data;
             return;
             }
-        CurData = Data.filter((record) => record.payment === CurType);
+        CurData = Data.filter((record) => record.PaymentType === CurType);
       }
     }
     setCurrentPage(1);
@@ -124,7 +124,7 @@ function App() {
           <DatePicker
             selected={selectedDate}
             onChange={(date) => handleDate(date)}
-            dateFormat='dd/MM/yyyy'
+            dateFormat='yyyy/MM/dd'
           />
         </FilterElementContainer>
         

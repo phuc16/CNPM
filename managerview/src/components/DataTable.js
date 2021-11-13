@@ -1,23 +1,31 @@
 import React, { useState } from 'react';
 import { Cell, Title, Row, Container } from './DataTableElement';
 import PopUp from './PopUp.js';
+import Axios from "axios";
 
 function OneRow(props){
-  const {id_order, table_num, payment, total, order_date} = props.rowInfo;
+  const {OrderID, TableNo, PaymentType, TotalCost, PaymentDate} = props.rowInfo;
   const [PopUpState, setPopUpState] = useState(false);
+  const [detailData, setDetailData] = useState([]);
+
   function handleClick(){
-    setPopUpState(true);
+    Axios.get('http://localhost:3001/api/details', {
+      params: {
+        OrderID: OrderID}
+      }).then((response) => {
+      setDetailData(response.data);
+    }).then(() => setPopUpState(true));
   }
   return(
     <>
     <Row onClick = {handleClick}>
-      <Cell>{id_order}</Cell>
-      <Cell>{table_num}</Cell>
-      <Cell>{payment}</Cell>
-      <Cell>{total}</Cell>
-      <Cell>{order_date}</Cell>
+      <Cell>{OrderID}</Cell>
+      <Cell>{TableNo}</Cell>
+      <Cell>{PaymentType}</Cell>
+      <Cell>{TotalCost}</Cell>
+      <Cell>{PaymentDate}</Cell>
     </Row>
-      <PopUp trigger={PopUpState} setTrigger={setPopUpState} id={id_order} />  
+      <PopUp trigger={PopUpState} setTrigger={setPopUpState} detail_data={detailData} />  
     </>
 
   );

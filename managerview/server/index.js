@@ -2,31 +2,48 @@ const express = require("express");
 const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
-
 app.use(cors());
-app.use(express.json());
+app.use(express.json({extended: true}));
 
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
     password: "password",
-    database: "restaurant_statistics",
+    database: "db",
+    dateStrings: true
   });
 
 app.get('/', (req, res)=>{
     res.send('manager view page');
 })
 
-app.get('/statistics', (req, res) => {
-    db.query("SELECT * FROM statistics", (err, result) => {
+app.get('/api/statistics', (req, res) => {
+    const query = `SELECT p.OrderID,  o.TableNo, p.PaymentType, p.TotalCost, p.PaymentDate
+                   FROM rpayment as p, rorder as o`
+    db.query(query, (err, result) => {
       if (err) {
         console.log(err);
       } else {
         res.send(result);
-        console.log('Send response');
+        console.log('Send all statistics');
       }
     });
   });
+
+app.get('/api/details', (req,res ) => {
+  const id_order = req.query.OrderID;
+  const query = `SELECT p.Name, c.Quantity, FORMAT((p.Price * c.Quantity),2) AS Cost
+                FROM rproduct as p, cart as c
+                WHERE p.ProductID = c.ProductID AND OrderID = ?; `
+  db.query(query, [id_order], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log('Send detail information');
+    }
+  });
+})
 
 const port = 3001;
 

@@ -121,7 +121,7 @@ function App() {
       <TabName> Restaurant Statistic</TabName>
       <FilterContainer>
         <FilterElementContainer>
-          <div> Payment Type Filter </div>
+          <div style={{marginBottom: '8px'}}> Payment Type Filter </div>
           <select onChange={handleType}>
             <option value='all'>All</option>
             <option value='online'>Online</option>
@@ -130,7 +130,7 @@ function App() {
         </FilterElementContainer>
 
         <FilterElementContainer>
-          <div> Date Filter </div>
+          <div style={{marginBottom: '8px'}}> Date Filter </div>
           <DatePicker
             selected={selectedDate}
             onChange={(date) => handleDate(date)}
@@ -140,7 +140,7 @@ function App() {
         
         <FilterElementContainer>
             <input type='checkbox' id='both' name='both' value='both' onChange={handleSelectBoth}/>
-            <label for='both'> Filter Both</label>
+            <label for='both' style={{marginLeft: '3px'}}> Filter Both</label>
         </FilterElementContainer>
 
         <FilterBtn onClick={handleFilter}> Filter </FilterBtn>

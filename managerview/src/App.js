@@ -21,6 +21,16 @@ function App() {
     Axios.get("http://localhost:3001/api/statistics").then((response) => {
       
       Data = response.data;
+
+      Data.map((item) => {
+        if (item.PaymentType === 1){
+          item.PaymentType = 'online';
+        }
+        else{
+          item.PaymentType = 'physical'
+        }
+      })
+
       CurData = Data;
       setCurArray(Data.slice(0,6));
       setIsloading(true);

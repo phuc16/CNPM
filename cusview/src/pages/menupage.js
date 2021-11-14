@@ -14,7 +14,7 @@ const menuItems = [];
 
 export default function MenuPage() {
   const [curMenu, setCurMenu] = useState(menuItems);
-
+  
   useEffect(() => {
     axios.get('http://localhost:3001/customer/get/products')
     .then(response => {
@@ -28,29 +28,59 @@ export default function MenuPage() {
 
   function reset(event){
     event.preventDefault();
-    setCurMenu(menuItems);
+    axios.get('http://localhost:3001/customer/get/products')
+    .then(response => {
+      // console.log(response.data.results);
+      setCurMenu(response.data.results);
+    })
+    .catch((error) => {
+        console.log(error);
+      })
   }
 
   function filterPizza(event){
     event.preventDefault();
-    setCurMenu(menuItems.filter((product) => product.Category === "Breakfast"));
+    axios.get('http://localhost:3001/customer/get/products')
+    .then(response => {
+      setCurMenu(response.data.results.filter((product) => product.Category === 'Breakfast'));
+    })
+    .catch((error) => {
+        console.log(error);
+      })
   }
 
   function filterBurger(event){
     event.preventDefault();
-    setCurMenu(menuItems.filter((product) => product.Category === "Lunch"));
+    axios.get('http://localhost:3001/customer/get/products')
+    .then(response => {
+      setCurMenu(response.data.results.filter((product) => product.Category === 'Lunch'));
+    })
+    .catch((error) => {
+        console.log(error);
+      })
   }
 
   function filterSoup(event){
     event.preventDefault();
-    setCurMenu(menuItems.filter((product) => product.Category === "Sweet"));
+    axios.get('http://localhost:3001/customer/get/products')
+    .then(response => {
+      setCurMenu(response.data.results.filter((product) => product.Category === 'Sweet'));
+    })
+    .catch((error) => {
+        console.log(error);
+      })
   }
 
   function filterTea(event){
     event.preventDefault();
-    setCurMenu(menuItems.filter((product) => product.Category === "Drink"));
+    axios.get('http://localhost:3001/customer/get/products')
+    .then(response => {
+      setCurMenu(response.data.results.filter((product) => product.Category === 'Drink'));
+    })
+    .catch((error) => {
+        console.log(error);
+      })
   }
-
 
   return (
     <div className="App">

@@ -11,6 +11,7 @@ class ItemsList extends React.Component {
         <span className="item-info-cell" key={column.path || column.key}>
           <h2>
             {column.name}: {item[column.path]}
+            {column.path === "TotalCost" ? "$" : null}
           </h2>
         </span>
       );

@@ -1,23 +1,31 @@
 import React, { useState } from 'react';
 import { Cell, Title, Row, Container } from './DataTableElement';
 import PopUp from './PopUp.js';
+import Axios from "axios";
 
 function OneRow(props){
-  const {id, table, payment, total, date} = props.rowInfo;
+  const {OrderID, TableNo, PaymentType, TotalCost, PaymentDate} = props.rowInfo;
   const [PopUpState, setPopUpState] = useState(false);
+  const [detailData, setDetailData] = useState([]);
+
   function handleClick(){
-    setPopUpState(true);
+    Axios.get('http://localhost:3001/api/details', {
+      params: {
+        OrderID: OrderID}
+      }).then((response) => {
+      setDetailData(response.data);
+    }).then(() => setPopUpState(true));
   }
   return(
     <>
     <Row onClick = {handleClick}>
-      <Cell>{id}</Cell>
-      <Cell>{table}</Cell>
-      <Cell>{payment}</Cell>
-      <Cell>{total}</Cell>
-      <Cell>{date}</Cell>
+      <Cell>{OrderID}</Cell>
+      <Cell>{TableNo}</Cell>
+      <Cell>{PaymentType}</Cell>
+      <Cell>{TotalCost}</Cell>
+      <Cell>{PaymentDate}</Cell>
     </Row>
-      <PopUp trigger={PopUpState} setTrigger={setPopUpState} id={id} />  
+      <PopUp trigger={PopUpState} setTrigger={setPopUpState} detail_data={detailData} />  
     </>
 
   );
@@ -26,10 +34,10 @@ function OneRow(props){
 function TitleRow(){
   return (
     <Row>
-      <Title>ID</Title>
+      <Title>ORDER ID</Title>
       <Title>Table</Title>
       <Title>Payment</Title>
-      <Title>Total</Title>
+      <Title>Total (USD)</Title>
       <Title>Date</Title>
     </Row>
   );
@@ -41,7 +49,7 @@ export default function DataTable(props) {
       <TitleRow />
       {props.data.map((item) => {
         return <OneRow
-        key = {item.id}
+        key = {item.id_order}
         rowInfo = {item}
         />
       })}

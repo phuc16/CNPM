@@ -9,9 +9,9 @@ export class CartProvider extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      orderId: null,
-      tableId: 1,
-      dateTime: new Date(),
+      OrderID: null,
+      TableNo: 1,
+      PaymentDate: new Date(),
       date: new Date().toLocaleDateString(),
       time: new Date().toLocaleTimeString(),
       cartItems: [],
@@ -29,7 +29,7 @@ export class CartProvider extends Component {
 
   reset(){
     this.setState({
-      tableId: 1,
+      TableNo: 1,
       // date: new Date().toLocaleDateString(),
       // time: new Date().toLocaleTimeString(),
       cartItems: [],
@@ -42,7 +42,7 @@ export class CartProvider extends Component {
     let index = -1;
 
     for (const i in cartItems) {
-      if (cartItems[i].id === item.id) {
+      if (cartItems[i].ProductID === item.ProductID) {
         index = i;
       }
     }
@@ -65,7 +65,7 @@ export class CartProvider extends Component {
 
   getTotalCost() {
     let total = this.state.cartItems.reduce(
-      (sum, item) => sum + item.pricePU * item.quantity, 0
+      (sum, item) => sum + item.Price * item.quantity, 0
     );
     total = total.toFixed(2);
     return total;
@@ -79,12 +79,12 @@ export class CartProvider extends Component {
     let now = new Date();
     // console.log(now);
     const items = {
-      id: this.state.orderId,
+      OrderID: this.state.OrderID,
       totalCost : this.getTotalCost(),
       PaymentMethod: 1,
-      dateTimeInit: moment(now).format('YYYY-MM-DD h:mm:ss')
+      PaymentDate: moment(now).format('YYYY-MM-DD')
     }
-    axios.post('http://localhost:3001/post/payment', { items })
+    axios.post('http://localhost:3001/customer/post/payment', { items })
     .then((response) => {
       // console.log(response.data.results);
     })
@@ -93,7 +93,7 @@ export class CartProvider extends Component {
       });
     this.setState({
       PaymentMethod: 1,
-      dateTime: now,
+      PaymentDate: now,
       date: now.toLocaleDateString(),
       time: now.toLocaleTimeString(),
     });
@@ -103,12 +103,12 @@ export class CartProvider extends Component {
     let now = new Date();
     // console.log(now);
     const items = {
-      id: this.state.orderId,
+      OrderID: this.state.OrderID,
       totalCost : this.getTotalCost(),
       PaymentMethod: 2,
-      dateTimeInit: moment(now).format('YYYY-MM-DD h:mm:ss')
+      PaymentDate: moment(now).format('YYYY-MM-DD')
     }
-    axios.post('http://localhost:3001/post/payment', { items })
+    axios.post('http://localhost:3001/customer/post/payment', { items })
     .then((response) => {
       // console.log(response.data.results);
     })
@@ -117,7 +117,7 @@ export class CartProvider extends Component {
       });
     this.setState({
       PaymentMethod: 2,
-      dateTime: now,
+      PaymentDate: now,
       date: now.toLocaleDateString(),
       time: now.toLocaleTimeString(),
     });
@@ -149,13 +149,14 @@ export class CartProvider extends Component {
     //   `Product: ${this.state.cartItems.length}, quantity: ${this.getTotalQuantity()}. View console 4 detail`
     // );  
     const items = {
-      tableId: this.state.tableId,
-      cartItems: this.state.cartItems
+      TableNo: this.state.TableNo,
+      cartItems: this.state.cartItems,
+      totalCost : this.getTotalCost()
     };
-    axios.post('http://localhost:3001/post/order', { items })
+    axios.post('http://localhost:3001/customer/post/order', { items })
     .then((response) => {
       // console.log(response.data.results);
-      this.setState({orderId: response.data.results});
+      this.setState({OrderID: response.data.results});
     })
     .catch((error) => {
         console.log(error);
@@ -166,8 +167,8 @@ export class CartProvider extends Component {
     return (
       <CartContext.Provider
         value={{
-          tableId: this.state.tableId,
-          orderId: this.state.orderId,
+          TableNo: this.state.TableNo,
+          OrderID: this.state.OrderID,
           cartItems: this.state.cartItems,
           date: this.state.date,
           time: this.state.time,

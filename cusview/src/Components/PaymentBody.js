@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function PaymentBody(props) {
   function PhysicalMethodClick() {
     props.handlePhysical();
-    alert("Physical Method Clicked");
+    // alert("Physical Method Clicked");
   }
 
   function OnlineMethodClick() {

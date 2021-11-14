@@ -15,9 +15,9 @@ class CartPage extends Component {
 
         <div className="content">
           <CartContext.Consumer>
-            {({ tableId, cartItems }) => (
+            {({ TableNo, cartItems }) => (
               <OrderHeader
-                tableId={tableId}
+                TableNo ={TableNo}
                 productQuantity={cartItems.length}
               />
             )}
@@ -28,11 +28,11 @@ class CartPage extends Component {
               {({ cartItems, removeProduct, changeQuantity }) =>
                 cartItems.map((item) => (
                   <OrderItem
-                    key={item.id}
-                    imgUrl={item.imgUrl}
-                    name={item.name}
+                    key={item.ProductID}
+                    ImgLink={item.ImgLink}
+                    Name={item.Name}
                     quantity={item.quantity}
-                    pricePU={item.pricePU.toFixed(2)}
+                    Price={item.Price.toFixed(2)}
                     removeProduct={() => removeProduct(item)}
                     minusQuantity={() => changeQuantity(item, "minus")}
                     addQuantity={() => changeQuantity(item, "add")}

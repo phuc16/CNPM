@@ -43,10 +43,10 @@ class Payment extends Component {
         <div className="content">
         
           <CartContext.Consumer>
-            {({ tableId, orderId, date, time, totalCost }) => (
+            {({ TableNo, OrderID, date, time, totalCost }) => (
               <PaymentHeader
-                tableId={tableId}
-                orderId={orderId}
+                TableNo={TableNo}
+                OrderID={OrderID}
                 date={date}
                 time={time}
                 totalCost={totalCost}

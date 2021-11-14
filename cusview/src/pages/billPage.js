@@ -11,9 +11,9 @@ class BillPage extends Component {
         <NavBar Title="BILL" />
         <div className="content">
           <CartContext.Consumer>
-            {({ tableId, PaymentMethod, reset, date, time, cartItems, totalCost }) => (
+            {({ TableNo, PaymentMethod, reset, date, time, cartItems, totalCost }) => (
               <BillHeader
-                tableId={tableId}
+                TableNo={TableNo}
                 date={date}
                 time={time}
                 productQuantity={cartItems.length}

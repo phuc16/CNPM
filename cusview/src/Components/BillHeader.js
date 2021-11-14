@@ -22,7 +22,7 @@ export default function BillHeader(props) {
         
         <h1 style={{ textAlign: "center" }}>Date: {props.date}</h1>
         <h1 style={{ textAlign: "center" }}>Time: {props.time}</h1>
-        <h1 style={{ textAlign: "center" }}>Table No: {props.tableId}</h1>
+        <h1 style={{ textAlign: "center" }}>Table No: {props.TableNo}</h1>
         <h1 style={{ textAlign: "center" }}>Payment Method: {paymentMethod(props.PaymentMethod)}</h1>
       </div>
       <div className="bill-list">
@@ -37,10 +37,10 @@ export default function BillHeader(props) {
         </div>
         {props.products.map((product) => (
           <BillItem
-            key={product.id}
-            name={product.name}
+            key={product.ProductID}
+            Name={product.Name}
             quantity={product.quantity}
-            price={(product.pricePU * product.quantity).toFixed(2)}
+            Price={(product.Price * product.quantity).toFixed(2)}
           />
         ))}
         <div>

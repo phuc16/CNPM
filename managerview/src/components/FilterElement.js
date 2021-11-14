@@ -10,7 +10,8 @@ export const FilterElementContainer = styled.div`
     margin-right: 50px;
 `
 export const FilterBtn = styled.button`
-    width: 80px;
+    width: 90px;
+    height: 30px;
     background-color: #C4EBD8;
     border: 1px solid #0aaf60;
     &:hover {

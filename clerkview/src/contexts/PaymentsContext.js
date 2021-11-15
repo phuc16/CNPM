@@ -44,6 +44,17 @@ class PaymentProvider extends React.Component {
     this.updatePaymentStatus(item.PaymentID);
   };
 
+  getPaymentDetail = async (paymentId) => {
+    const response = await Axios.post("http://localhost:3001/payment/detail", {
+      paymentId: paymentId,
+    });
+    // .then((response) => {
+    //     console.log("Payment detail get: ", response.data);
+    //     return response.data;
+    //   });
+    return response.data;
+  };
+
   render() {
     return (
       <PaymentContext.Provider
@@ -51,6 +62,8 @@ class PaymentProvider extends React.Component {
           paymentsList: this.state.paymentsList,
           getPaymentList: this.getPaymentList,
           handleConfirmPayment: this.handleConfirmPayment,
+          getPaymentDetail: this.getPaymentDetail,
+          updatePaymentStatus: this.updatePaymentStatus,
         }}
       >
         {this.props.children}

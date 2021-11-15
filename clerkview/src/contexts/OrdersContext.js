@@ -24,8 +24,8 @@ class OrderProvider extends React.Component {
 
   updateOrderStatus = (orderId) => {
     Axios.post("http://localhost:3001/updateorder", { orderId: orderId }).then(
-      () => {
-        alert("Update order success");
+      (res) => {
+        console.log("Update order success", res);
       }
     );
   };
@@ -42,6 +42,17 @@ class OrderProvider extends React.Component {
     this.updateOrderStatus(item.OrderID);
   };
 
+  getOrderDetail = async (orderId) => {
+    const response = await Axios.post("http://localhost:3001/orders/detail", {
+      orderId: orderId,
+    });
+    // .then((response) => {
+    //   console.log("Order detail get: ", response.data);
+    //   return response.data;
+    // });
+    return response.data;
+  };
+
   render() {
     return (
       <OrderContext.Provider
@@ -49,6 +60,8 @@ class OrderProvider extends React.Component {
           ordersList: this.state.ordersList,
           getOrderList: this.getOrderList,
           handleConfirmOrder: this.handleConfirmOrder,
+          getOrderDetail: this.getOrderDetail,
+          updateOrderStatus: this.updateOrderStatus,
         }}
       >
         {this.props.children}

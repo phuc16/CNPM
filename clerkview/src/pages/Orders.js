@@ -8,67 +8,36 @@ class Orders extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tableId: -1,
-      orderId: "",
-      datetime: "",
+      TableNo: -1,
+      OrderID: "",
+      Date: "",
       productItem: [],
     };
   }
 
-  componentDidMount = () => {
-    let orderId = this.props.match.params.id;
-    // axios query ?id=orderId
+  componentDidMount = async () => {
+    let OrderID = this.props.match.params.id;
+    let OrderDetail = await this.props.getOrderDetail(OrderID);
+    console.log("Order Detail Page: ", OrderDetail, OrderID);
 
     let state = {
-      tableId: 1,
-      orderId: orderId,
-      datetime: "2021-09-25 14:54:32",
-      productItem: [
-        {
-          id: 1,
-          imgUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
-          name: "Spicey meatballs",
-          quantity: 1,
-          pricePU: 19.99,
-        },
-        {
-          id: 2,
-          imgUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
-          name: "Spicey meatballs",
-          quantity: 1,
-          pricePU: 19.99,
-        },
-        {
-          id: 3,
-          imgUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
-          name: "Spicey meatballs",
-          quantity: 4,
-          pricePU: 19.99,
-        },
-        {
-          id: 4,
-          imgUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
-          name: "Spicey meatballs",
-          quantity: 1,
-          pricePU: 19.99,
-        },
-      ],
+      TableNo: OrderDetail[0].TableNo,
+      OrderID: OrderDetail[0].OrderID,
+      Date: OrderDetail[0].OrderDate,
+      productItem: OrderDetail,
     };
+
     this.setState({
-      tableId: state.tableId,
-      orderId: state.orderId,
-      datetime: state.datetime,
+      TableNo: state.TableNo,
+      OrderID: state.OrderID,
+      Date: state.Date,
       productItem: state.productItem,
     });
   };
 
   getTotalCost() {
     let total = this.state.productItem.reduce(
-      (sum, product) => sum + product.pricePU * product.quantity,
+      (sum, product) => sum + product.PricePerUnit * product.Quantity,
       0
     );
     total = total.toFixed(2);
@@ -76,24 +45,24 @@ class Orders extends Component {
   }
 
   render() {
-    const { onConfirm } = this.props;
+    const { onConfirm, getOrderDetail } = this.props;
 
     const totalCost = this.getTotalCost();
     return (
       <div className="content">
         <OrderHeader
-          tableId={this.state.tableId}
-          orderId={this.state.orderId}
-          datetime={this.state.datetime}
+          tableId={this.state.TableNo}
+          orderId={this.state.OrderID}
+          date={this.state.Date}
         />
         <div className="product-list">
           {this.state.productItem.map((product) => (
             <OrderItem
-              key={product.id}
-              imgUrl={product.imgUrl}
-              name={product.name}
-              quantity={product.quantity}
-              pricePU={product.pricePU}
+              key={product.Name}
+              imgUrl={product.ImgLink}
+              name={product.Name}
+              quantity={product.Quantity}
+              pricePU={product.PricePerUnit}
             />
           ))}
         </div>

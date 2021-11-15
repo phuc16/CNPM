@@ -16,7 +16,6 @@ class OrdersList extends React.Component {
             <button
               onClick={() => {
                 this.props.onOrderConfirm(item);
-                //alert(`Confirm item ${item.orderId}`);
               }}
             >
               Confirm

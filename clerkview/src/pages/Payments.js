@@ -7,70 +7,38 @@ class Payments extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tableId: -1,
-      paymentId: "",
-      type: "Direct",
-      datetime: "",
+      TableNo: -1,
+      PaymentID: "",
+      Date: "",
       productItem: [],
     };
   }
 
-  componentDidMount = () => {
-    let paymentId = this.props.match.params.id;
-    // axios query ?id=paymentId
+  componentDidMount = async () => {
+    let PaymentID = this.props.match.params.id;
+    let PaymentDetail = await this.props.getPaymentDetail(PaymentID);
+    console.log(PaymentDetail);
 
     let state = {
-      tableId: 1,
-      paymentId: paymentId,
-      datetime: "2021-09-25 14:54:32",
-      type: "Direct",
-      productItem: [
-        {
-          id: 1,
-          imgUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
-          name: "Spicey meatballs",
-          quantity: 1,
-          pricePU: 19.99,
-        },
-        {
-          id: 2,
-          imgUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
-          name: "Spicey meatballs",
-          quantity: 1,
-          pricePU: 19.99,
-        },
-        {
-          id: 3,
-          imgUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
-          name: "Spicey meatballs",
-          quantity: 4,
-          pricePU: 19.99,
-        },
-        {
-          id: 4,
-          imgUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/b/bb/Pizza_Vi%E1%BB%87t_Nam_%C4%91%E1%BA%BF_d%C3%A0y%2C_x%C3%BAc_x%C3%ADch_%28SNaT_2018%29_%287%29.jpg",
-          name: "Spicey meatballs",
-          quantity: 1,
-          pricePU: 19.99,
-        },
-      ],
+      TableNo: PaymentDetail[0].TableNo,
+      PaymentID: PaymentID,
+      Date: PaymentDetail[0].PaymentDate,
+      productItem: PaymentDetail,
     };
+
+    console.log("Payment Detail state: ", state);
+
     this.setState({
-      tableId: state.tableId,
-      paymentId: state.paymentId,
-      datetime: state.datetime,
-      type: state.type,
+      TableNo: state.TableNo,
+      PaymentID: state.PaymentID,
+      Date: state.Date,
       productItem: state.productItem,
     });
   };
 
   getTotalCost() {
     let total = this.state.productItem.reduce(
-      (sum, product) => sum + product.pricePU * product.quantity,
+      (sum, product) => sum + product.Price,
       0
     );
     total = total.toFixed(2);
@@ -78,11 +46,7 @@ class Payments extends Component {
   }
 
   render() {
-    return <h2>Payments Pages</h2>;
-  }
-
-  render() {
-    const { onConfirm } = this.props;
+    const { onConfirm, getPaymentDetail } = this.props;
 
     const totalCost = this.getTotalCost();
 
@@ -90,14 +54,14 @@ class Payments extends Component {
       <div className="App">
         <div className="content">
           <PaymentHeader
-            paymentId={this.state.paymentId}
-            tableId={this.state.tableId}
-            datetime={this.state.datetime}
+            paymentId={this.state.PaymentID}
+            tableId={this.state.TableNo}
+            datetime={this.state.Date}
           />
           <BillHeader
-            tableId={this.state.tableId}
-            paymentId={this.state.paymentId}
-            datetime={this.state.datetime}
+            tableId={this.state.TableNo}
+            paymentId={this.state.PaymentID}
+            datetime={this.state.Date}
             productQuantity={this.state.productItem.length}
             products={this.state.productItem}
             totalCost={totalCost}

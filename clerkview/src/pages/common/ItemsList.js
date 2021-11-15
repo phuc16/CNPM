@@ -26,7 +26,7 @@ class ItemsList extends React.Component {
     return (
       <div className="items-list-container">
         {items.map((item) => (
-          <div className="item-list" key={item.orderId}>
+          <div className="item-list" key={item.OrderID || item.PaymentID}>
             {columns.map((column) => this.renderCell(item, column))}
           </div>
         ))}

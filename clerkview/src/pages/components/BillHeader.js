@@ -17,10 +17,10 @@ export default function BillHeader(props) {
         </div>
         {props.products.map((product) => (
           <BillItem
-            key={product.id}
-            name={product.name}
-            quantity={product.quantity}
-            price={product.pricePU * product.quantity}
+            key={product.Name}
+            name={product.Name}
+            quantity={product.Quantity}
+            price={product.Price}
           />
         ))}
         <div>

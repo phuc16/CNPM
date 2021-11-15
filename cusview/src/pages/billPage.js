@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-
-import NavBar from "../Components/NavBar";
+import NavBar from "../component/NavBar";
 import BillHeader from "../Components/BillHeader";
 import { CartContext } from "../contexts/Cart";
 

@@ -8,7 +8,7 @@ export default function BillHeader(props) {
 
   function handleReturnMenu(){
     props.reset();
-    history.push(`/${props.TableNo}/`);
+    history.push(`/${props.TableNo}`);
   }
 
   function paymentMethod(pmID){

@@ -1,13 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, useParams } from "react-router-dom";
 import MenuPage from "./pages/menupage";
-
 import CartPage from "./pages/CartPage";
-
 import BillPage from "./pages/billPage";
-
 import Payment from "./pages/Payment";
-
 import { CartProvider } from "./contexts/Cart";
 
 import "./App.css";
@@ -18,7 +14,7 @@ function App() {
     <CartProvider TableNo={TableNo}>
       <Router>
         <Switch>
-          <Route exact path={`/${TableNo}/`}>
+          <Route exact path={`/${TableNo}`}>
             <MenuPage />
           </Route>
           <Route exact path={`/${TableNo}/cart`} component={CartPage}>

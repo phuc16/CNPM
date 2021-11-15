@@ -4,7 +4,6 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 
 const MyNavbar = (props) => {
-
     return (
         <div>
             <div className="header" >

@@ -1,10 +1,8 @@
 import React, { useState, useEffect  } from 'react';
 import Slide from '../component/slide';
 import MyNavbar from '../component/MyNavbar';
-import Category from '../component/Category';
-
+import Category from '../component/category';
 import Menu from "../component/menu";
-
 import { CartContext } from "../contexts/Cart";
 
 import axios from 'axios';

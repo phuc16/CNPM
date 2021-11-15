@@ -118,15 +118,15 @@ class App extends Component {
   };
 
   getOrderDetail = (orderId) => {
-    Axios.get("http://localhost:3001/orders/detail", { orderId: orderId }).then(
-      (response) => {
-        console.log(response.data);
-      }
-    );
+    Axios.post("http://localhost:3001/orders/detail", {
+      orderId: orderId,
+    }).then((response) => {
+      console.log(response.data);
+    });
   };
 
   getPaymentDetail = (paymentId) => {
-    Axios.get("http://localhost:3001/payment/detail", {
+    Axios.post("http://localhost:3001/payment/detail", {
       paymentId: paymentId,
     }).then((response) => {
       console.log(response.data);

@@ -41,6 +41,7 @@ class App extends Component {
       isPayments: false,
     });
     // this.getOrderList();
+    this.getOrderDetail(1);
   }
 
   changeToPayments() {
@@ -49,6 +50,7 @@ class App extends Component {
       isPayments: true,
     });
     // this.getPaymentList();
+    this.getPaymentDetail(1);
   }
 
   // handleConfirmOrder = (item) => {
@@ -87,43 +89,59 @@ class App extends Component {
 
   // retrieve data from server
 
-  // updateOrderStatus = (orderId) => {
-  //   Axios.post("http://localhost:3001/updateorder", { orderId: orderId }).then(
-  //     () => {
-  //       console.log("Update order success");
-  //     }
-  //   );
-  // };
+  updateOrderStatus = (orderId) => {
+    Axios.post("http://localhost:3001/updateorder", { orderId: orderId }).then(
+      () => {
+        console.log("Update order success");
+      }
+    );
+  };
 
-  // updatePaymentStatus = (paymentId) => {
-  //   Axios.post("http://localhost:3001/updatepayment", {
-  //     paymentId: paymentId,
-  //   }).then(() => {
-  //     console.log("Update payment success");
-  //   });
-  // };
+  updatePaymentStatus = (paymentId) => {
+    Axios.post("http://localhost:3001/updatepayment", {
+      paymentId: paymentId,
+    }).then(() => {
+      console.log("Update payment success");
+    });
+  };
 
-  // getOrderList = () => {
-  //   Axios.get("http://localhost:3001/orders").then((response) => {
-  //     this.setOrderList(response.data);
-  //   });
-  // };
+  getOrderList = () => {
+    Axios.get("http://localhost:3001/orders").then((response) => {
+      this.setOrderList(response.data);
+    });
+  };
 
-  // getPaymentList = () => {
-  //   Axios.get("http://localhost:3001/payment").then((response) => {
-  //     this.setPaymentList(response.data);
-  //   });
-  // };
+  getPaymentList = () => {
+    Axios.get("http://localhost:3001/payment").then((response) => {
+      this.setPaymentList(response.data);
+    });
+  };
 
-  // setOrderList = (orderList) => {
-  //   console.log(orderList);
-  //   this.setState({ ordersList: orderList });
-  // };
+  getOrderDetail = (orderId) => {
+    Axios.get("http://localhost:3001/orders/detail", { orderId: orderId }).then(
+      (response) => {
+        console.log(response.data);
+      }
+    );
+  };
 
-  // setPaymentList = (paymentsList) => {
-  //   console.log(paymentsList);
-  //   this.setState({ paymentsList: paymentsList });
-  // };
+  getPaymentDetail = (paymentId) => {
+    Axios.get("http://localhost:3001/payment/detail", {
+      paymentId: paymentId,
+    }).then((response) => {
+      console.log(response.data);
+    });
+  };
+
+  setOrderList = (orderList) => {
+    console.log(orderList);
+    // this.setState({ ordersList: orderList });
+  };
+
+  setPaymentList = (paymentsList) => {
+    console.log(paymentsList);
+    // this.setState({ paymentsList: paymentsList });
+  };
 
   render() {
     return (

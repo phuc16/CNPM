@@ -76,9 +76,11 @@ export class CartProvider extends Component {
   }
 
   changeToPhysical(){
-    let now = new Date();
+    const now = new Date();
     // console.log(now);
     const items = {
+      TableNo: this.state.TableNo,
+      cartItems: this.state.cartItems,
       OrderID: this.state.OrderID,
       totalCost : this.getTotalCost(),
       PaymentMethod: 1,
@@ -100,9 +102,11 @@ export class CartProvider extends Component {
   }
 
   changeToOnline(){
-    let now = new Date();
+    const now = new Date();
     // console.log(now);
     const items = {
+      TableNo: this.state.TableNo,
+      cartItems: this.state.cartItems,
       OrderID: this.state.OrderID,
       totalCost : this.getTotalCost(),
       PaymentMethod: 2,
@@ -124,7 +128,7 @@ export class CartProvider extends Component {
   }
 
   changeQuantity(item, change) {
-    const quantity = change === "add" ? item.quantity + 1 : item.quantity <= 1 ? 1 : item.quantity - 1;
+    const quantity = change === 'add' ? item.quantity + 1 : item.quantity <= 1 ? 1 : item.quantity - 1;
     const { cartItems } = this.state;
     const index = cartItems.indexOf(item);
     this.setState({
@@ -148,19 +152,19 @@ export class CartProvider extends Component {
     // alert(
     //   `Product: ${this.state.cartItems.length}, quantity: ${this.getTotalQuantity()}. View console 4 detail`
     // );  
-    const items = {
-      TableNo: this.state.TableNo,
-      cartItems: this.state.cartItems,
-      totalCost : this.getTotalCost()
-    };
-    axios.post('http://localhost:3001/customer/post/order', { items })
-    .then((response) => {
-      // console.log(response.data.results);
-      this.setState({OrderID: response.data.results});
-    })
-    .catch((error) => {
-        console.log(error);
-      });
+    // const items = {
+    //   TableNo: this.state.TableNo,
+    //   cartItems: this.state.cartItems,
+    //   totalCost : this.getTotalCost()
+    // };
+    // axios.post('http://localhost:3001/customer/post/order', { items })
+    // .then((response) => {
+    //   // console.log(response.data.results);
+    //   this.setState({OrderID: response.data.results});
+    // })
+    // .catch((error) => {
+    //     console.log(error);
+    //   });
   }
 
   render() {

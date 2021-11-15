@@ -21,32 +21,42 @@ app.get('/customer/get/products', (req, res) => {
         dbConn.query('SELECT * FROM RProduct', (error, results, fields) => res.send({ results: results }));
     });
 
-app.post('/customer/post/order', (req, res) => {
+// app.post('/customer/post/order', (req, res) => {
+//         const items = req.body.items;
+//         dbConn.query(`INSERT INTO rorder 
+//                     SET TableNo = (SELECT TableNo FROM rtable WHERE TableNo = ${items.TableNo}),
+//                         OrderStatus = 1,
+//                         TotalCost = ${items.totalCost};`);
+//         for (product of items.cartItems) {
+//             dbConn.query(`INSERT INTO cart  
+//                         SET ProductID = (SELECT ProductID FROM rproduct WHERE ProductID = ${product.ProductID}),
+//                             OrderID = LAST_INSERT_ID(),
+//                             Price = ${product.Price},
+//                             Quantity = ${product.quantity};`);
+//         }
+//         dbConn.query(`SELECT LAST_INSERT_ID() as OrderID;`, (error, results, fields) => res.send({ results: results[0].OrderID }));
+//     });
+
+app.post('/customer/post/payment', (req, res) => {
         const items = req.body.items;
+        // console.log(items);
         dbConn.query(`INSERT INTO rorder 
                     SET TableNo = (SELECT TableNo FROM rtable WHERE TableNo = ${items.TableNo}),
                         OrderStatus = 1,
                         TotalCost = ${items.totalCost};`);
-        for (product of items.cartItems) {
+        for (product of items.cartItems){
             dbConn.query(`INSERT INTO cart  
                         SET ProductID = (SELECT ProductID FROM rproduct WHERE ProductID = ${product.ProductID}),
                             OrderID = LAST_INSERT_ID(),
                             Price = ${product.Price},
                             Quantity = ${product.quantity};`);
         }
-        dbConn.query(`SELECT LAST_INSERT_ID() as OrderID;`, (error, results, fields) => res.send({ results: results[0].OrderID }));
-    });
-
-app.post('/customer/post/payment', (req, res) => {
-        const items = req.body.items;
-        // console.log(items);
         dbConn.query(`INSERT INTO rpayment 
-                    SET OrderID = (SELECT OrderID FROM rorder WHERE OrderID = ${items.OrderID}),
+                    SET OrderID = (SELECT OrderID FROM rorder WHERE OrderID = LAST_INSERT_ID()),
                         TotalCost = ${items.totalCost},
                         PaymentStatus = 1,
                         PaymentType = ${items.PaymentMethod},
-                        PaymentDate = '${items.PaymentDate}';`,
-        (error, results, fields) => res.send({ results: results }));
+                        PaymentDate = '${items.PaymentDate}';`);
     });
 
 app.listen(3001, () => {

@@ -38,7 +38,7 @@ class Payments extends Component {
 
   getTotalCost() {
     let total = this.state.productItem.reduce(
-      (sum, product) => sum + product.Price,
+      (sum, product) => sum + product.PricePerUnit * product.Quantity,
       0
     );
     total = total.toFixed(2);

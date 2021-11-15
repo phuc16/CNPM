@@ -20,7 +20,7 @@ export default function BillHeader(props) {
             key={product.Name}
             name={product.Name}
             quantity={product.Quantity}
-            price={product.Price}
+            price={product.PricePerUnit * product.Quantity}
           />
         ))}
         <div>

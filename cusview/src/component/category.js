@@ -1,4 +1,4 @@
-import "./Category.css"
+import "./category.css"
 
 export default function Category (props) {
   return (

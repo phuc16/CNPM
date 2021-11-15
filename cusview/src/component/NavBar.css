@@ -7,6 +7,17 @@
     border-color: #0AA85C;
     margin: 20px 45px 0px;
 }
+
+.navbar {
+    padding: 10px 10px 10px 10px;
+    justify-content: center !important;
+    align-items: center;
+    margin: 10px 40px 5px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
 .header >* >*{
     padding: 0 15px;
 }
@@ -22,7 +33,6 @@
     align-items: center;
 }
 
-
 .header-mobile{
     display: none;
     z-index: 2;
@@ -30,7 +40,6 @@
 @media only screen and (max-width: 468px) {
     .header-transparent{
         background-color: rgba(0, 0, 0, 0.1);
-        /* opacity: 0.2; */
         min-height: 100vh;
         min-width: 100vw;
         z-index: 1;

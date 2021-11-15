@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-
-import NavBar from "../Components/NavBar";
+import NavBar from "../component/NavBar";
 import OrderHeader from "../Components/OrderHeader";
 import OrderItem from "../Components/OrderItem";
 import OrderFooter from "../Components/OrderFooter";
@@ -11,8 +10,7 @@ class CartPage extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar Title="MY ORDER" />
-
+        <NavBar Title="MY ORDER"/>
         <div className="content">
           <CartContext.Consumer>
             {({ TableNo, cartItems }) => (

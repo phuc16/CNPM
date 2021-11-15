@@ -1,7 +1,7 @@
 import { Component } from "react";
 import PaymentHeader from "../Components/PaymentHeader";
 import PaymentBody from "../Components/PaymentBody";
-import NavBar from "../Components/NavBar";
+import NavBar from "../component/NavBar";
 import { CartContext } from "../contexts/Cart";
 import PaymentModal from "../Modal/PaymentModal";
 
@@ -41,7 +41,6 @@ class Payment extends Component {
       <div>
         <NavBar Title="PAYMENT" />
         <div className="content">
-        
           <CartContext.Consumer>
             {({ TableNo, OrderID, date, time, totalCost }) => (
               <PaymentHeader

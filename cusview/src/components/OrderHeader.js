@@ -5,7 +5,7 @@ export default function OrderHeader(props){
     return(
         <div className="order-header">
             <div className="info">
-                <Link to={`/${props.TableNo}/`}>
+                <Link to={`/${props.TableNo}`}>
                 <button type="button">
                     BACK
                 </button>

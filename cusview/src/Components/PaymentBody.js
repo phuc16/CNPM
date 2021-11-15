@@ -17,7 +17,7 @@ export default function PaymentBody(props) {
       <div className="cash_confirm">
         <h2>Physical Payment</h2>
         
-        <Link to="/cart/payment/bill">
+        <Link to={`/${props.TableNo}/cart/payment/bill`}>
           <button onClick={() => PhysicalMethodClick()}>Confirm</button>
         </Link>
       </div>

@@ -53,10 +53,23 @@ class Payment extends Component {
               />
             )}
           </CartContext.Consumer>
-          <PaymentModal show={this.state.check} invalid={this.decline} valid={this.proceed}/>
           <CartContext.Consumer>
-            {({ changeToOnline, changeToPhysical }) => (
-                <PaymentBody handleOnline={changeToOnline} handlePhysical={changeToPhysical} openModal={this.handleOpen}/>
+          {({ TableNo }) =>(
+            <PaymentModal
+              TableNo = {TableNo}
+              show={this.state.check} 
+              invalid={this.decline} 
+              valid={this.proceed}/>
+          )}
+          
+          </CartContext.Consumer>
+          <CartContext.Consumer>
+            {({ TableNo, changeToOnline, changeToPhysical }) => (
+                <PaymentBody 
+                  TableNo={TableNo}
+                  handleOnline={changeToOnline} 
+                  handlePhysical={changeToPhysical} 
+                  openModal={this.handleOpen}/>
             )}
           </CartContext.Consumer>
           

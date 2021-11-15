@@ -40,6 +40,15 @@ app.get('/customer/get/products', (req, res) => {
 app.post('/customer/post/payment', (req, res) => {
         const items = req.body.items;
         // console.log(items);
+        let count = 0;
+        dbConn.query(`SELECT count(TableNo) as count FROM rtable;`, (error, results, fields) => {
+            count = results[0].count;
+        });
+
+        if (items.TableNo > count){
+            return res.send('Invalid Table');
+        }
+        
         dbConn.query(`INSERT INTO rorder 
                     SET TableNo = (SELECT TableNo FROM rtable WHERE TableNo = ${items.TableNo}),
                         OrderStatus = 1,

@@ -42,12 +42,13 @@ class CartPage extends Component {
             </CartContext.Consumer>
           </div>
           <CartContext.Consumer>
-            {({ totalCost, totalQuantity, submit }) => (
+            {({ TableNo, totalCost, totalQuantity, submit }) => (
               <div>
                 {totalQuantity > 0 && (
                   <OrderFooter
                     totalCost={totalCost}
                     totalQuantity={totalQuantity}
+                    TableNo = {TableNo}
                     submit={() => submit()}
                   />
                 )}

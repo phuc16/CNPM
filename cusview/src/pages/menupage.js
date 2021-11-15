@@ -84,7 +84,9 @@ export default function MenuPage() {
 
   return (
     <div className="App">
-      <MyNavbar />
+    <CartContext.Consumer>
+      {({ TableNo }) => <MyNavbar TableNo = {TableNo}/>}
+      </CartContext.Consumer>
       <Slide />
       <Category reset={reset} pizza={filterPizza} burger={filterBurger} soup={filterSoup} tea={filterTea}  />
       <div className="content">

@@ -3,7 +3,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 import { Link } from 'react-router-dom';
 
-const MyNavbar = () => {
+const MyNavbar = (props) => {
 
     return (
         <div>
@@ -13,7 +13,7 @@ const MyNavbar = () => {
                 </div>
 
                 <div className="header-right">
-                    <Link to='/cart'>
+                    <Link to={`/${props.TableNo}/cart`}>
                         <div><AiOutlineShoppingCart size={30} style={{marginRight: "5px"}}/></div>
                     </Link>
                 </div>

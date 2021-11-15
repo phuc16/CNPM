@@ -22,7 +22,7 @@ export default function PaymentModal (props) {
                     </Textfield>
                 </div>
                 <div className="button-div">
-                    <Link to="/cart/payment/bill">
+                    <Link to={`/${props.TableNo}/cart/payment/bill`}>
                     <button className="BlueButton" onClick={props.valid}> Valid </button>
                     </Link>
                     

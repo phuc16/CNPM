@@ -10,7 +10,7 @@ export class CartProvider extends Component {
     super(props);
     this.state = {
       OrderID: null,
-      TableNo: 1,
+      TableNo: props.TableNo,
       PaymentDate: new Date(),
       date: new Date().toLocaleDateString(),
       time: new Date().toLocaleTimeString(),
@@ -29,7 +29,7 @@ export class CartProvider extends Component {
 
   reset(){
     this.setState({
-      TableNo: 1,
+      // TableNo: 1,
       // date: new Date().toLocaleDateString(),
       // time: new Date().toLocaleTimeString(),
       cartItems: [],
@@ -88,7 +88,7 @@ export class CartProvider extends Component {
     }
     axios.post('http://localhost:3001/customer/post/payment', { items })
     .then((response) => {
-      // console.log(response.data.results);
+      console.log(response.data);
     })
     .catch((error) => {
         console.log(error);
@@ -114,7 +114,7 @@ export class CartProvider extends Component {
     }
     axios.post('http://localhost:3001/customer/post/payment', { items })
     .then((response) => {
-      // console.log(response.data.results);
+      console.log(response.data);
     })
     .catch((error) => {
         console.log(error);

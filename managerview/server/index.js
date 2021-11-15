@@ -33,7 +33,7 @@ app.get('/api/statistics', (req, res) => {
 
 app.get('/api/details', (req,res ) => {
   const id_order = req.query.OrderID;
-  const query = `SELECT p.Name, c.Quantity, FORMAT((p.Price * c.Quantity),2) AS Cost
+  const query = `SELECT p.Name, c.Quantity, FORMAT((c.Price * c.Quantity),2) AS Cost
                 FROM rproduct as p, cart as c
                 WHERE p.ProductID = c.ProductID AND OrderID = ?; `
   db.query(query, [id_order], (err, result) => {

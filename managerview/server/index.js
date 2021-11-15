@@ -19,7 +19,8 @@ app.get('/', (req, res)=>{
 
 app.get('/api/statistics', (req, res) => {
     const query = `SELECT p.OrderID,  o.TableNo, p.PaymentType, p.TotalCost, p.PaymentDate
-                   FROM rpayment as p, rorder as o`
+                   FROM rpayment as p, rorder as o
+                   WHERE p.OrderID = o.OrderID`
     db.query(query, (err, result) => {
       if (err) {
         console.log(err);

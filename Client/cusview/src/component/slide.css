@@ -1,0 +1,19 @@
+#over img {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.container{
+	display: block;
+    border-radius: 40px;
+}
+@media only screen and (max-width: 468px) {
+    .container{
+    }
+    #over img{
+        display: none;
+    }
+    
+   
+}

@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+.bill-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  grid-template-columns: 19% 31% 30%;
+  display: grid;
+  margin: 20px 3vw;
+  font-family: nunito;
+  font-weight: bold;
+  align-items: center;
+}
+
+.bill-footer button {
+  height: 46px;
+  width: 200px;
+  background-color: #ffad33;
+  border-radius: 10px;
+  border: 1px solid #ffad33;
+  color: #ffffff;
+  font-size: larger;
+  text-align: center;
+  font-weight: bold;
+}

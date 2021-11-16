@@ -7,7 +7,7 @@ function PopUp(props) {
         <Window>
             <Content>
                 <ClosedBtn onClick={() => props.setTrigger(false)}>Close</ClosedBtn>
-                <h3>Thông tin chi tiết</h3>
+                <h3>Order Details</h3>
                 <Container>
                         <TitleCell> Product </TitleCell>
                         <TitleCell> Quantity </TitleCell>

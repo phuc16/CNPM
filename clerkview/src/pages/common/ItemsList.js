@@ -10,7 +10,11 @@ class ItemsList extends React.Component {
       return (
         <span className="item-info-cell" key={column.path || column.key}>
           <h2>
-            {column.name}: {item[column.path]}
+            {column.name}:{" "}
+            {column.path === "OrderDate" || column.path === "PaymentDate"
+              ? item[column.path].split(/[T]/)[0]
+              : item[column.path]}
+            {column.path === "TotalCost" ? "$" : null}
           </h2>
         </span>
       );
@@ -25,7 +29,7 @@ class ItemsList extends React.Component {
     return (
       <div className="items-list-container">
         {items.map((item) => (
-          <div className="item-list" key={item.orderId}>
+          <div className="item-list" key={item.OrderID || item.PaymentID}>
             {columns.map((column) => this.renderCell(item, column))}
           </div>
         ))}

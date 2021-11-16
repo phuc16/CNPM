@@ -3,6 +3,9 @@ import Pagination from "./pages/common/Pagination";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import classNames from "classnames";
 
+import { OrderContext } from "./contexts/OrdersContext";
+import { PaymentContext } from "./contexts/PaymentsContext";
+
 import "./App.css";
 
 import NavBar from "./components/NavBar";
@@ -10,6 +13,8 @@ import Orders from "./pages/Orders";
 import Payments from "./pages/Payments";
 import OrdersList from "./pages/OrdersList";
 import PaymentsList from "./pages/PaymentsList";
+
+import Axios from "axios";
 
 class App extends Component {
   constructor(props) {
@@ -19,141 +24,8 @@ class App extends Component {
       currentPaymentPage: 1,
       isOrders: false,
       isPayments: false,
-      ordersList: [],
-      paymentsList: [],
       pageSize: 4,
     };
-  }
-
-  componentDidMount() {
-    // axios return value
-    let ordersList = [
-      {
-        orderId: "OD123456",
-        tableId: "Table 1",
-        datetime: "2021-09-25 14:54:32",
-        totalCost: 119,
-      },
-      {
-        orderId: "OD123457",
-        tableId: "Table 2",
-        datetime: "2021-09-25 15:54:32",
-        totalCost: 119,
-      },
-      {
-        orderId: "OD123458",
-        tableId: "Table 3",
-        datetime: "2021-09-25 16:54:32",
-        totalCost: 119,
-      },
-      {
-        orderId: "OD123459",
-        tableId: "Table 3",
-        datetime: "2021-09-25 16:54:32",
-        totalCost: 119,
-      },
-      {
-        orderId: "OD123460",
-        tableId: "Table 3",
-        datetime: "2021-09-25 16:54:32",
-        totalCost: 119,
-      },
-      {
-        orderId: "OD123461",
-        tableId: "Table 3",
-        datetime: "2021-09-25 16:54:32",
-        totalCost: 119,
-      },
-      {
-        orderId: "OD123462",
-        tableId: "Table 3",
-        datetime: "2021-09-25 16:54:32",
-        totalCost: 119,
-      },
-      {
-        orderId: "OD123463",
-        tableId: "Table 3",
-        datetime: "2021-09-25 16:54:32",
-        totalCost: 119,
-      },
-      {
-        orderId: "OD123464",
-        tableId: "Table 3",
-        datetime: "2021-09-25 16:54:32",
-        totalCost: 119,
-      },
-    ];
-    let paymentsList = [
-      {
-        paymentId: "PM123456",
-        type: "Direct",
-        datetime: "2021-09-25 14:54:32",
-        totalCost: 119,
-      },
-      {
-        paymentId: "PM123457",
-        type: "Online",
-        datetime: "2021-09-25 15:54:32",
-        totalCost: 119,
-      },
-      {
-        paymentId: "PM123458",
-        type: "Direct",
-        datetime: "2021-09-25 16:54:32",
-        totalCost: 119,
-      },
-      {
-        paymentId: "PM123458",
-        type: "Direct",
-        datetime: "2021-09-25 17:54:32",
-        totalCost: 119,
-      },
-      {
-        paymentId: "PM123459",
-        type: "Direct",
-        datetime: "2021-09-25 17:54:32",
-        totalCost: 119,
-      },
-      {
-        paymentId: "PM1234560",
-        type: "Direct",
-        datetime: "2021-09-25 17:54:32",
-        totalCost: 119,
-      },
-      {
-        paymentId: "PM1234561",
-        type: "Direct",
-        datetime: "2021-09-25 17:54:32",
-        totalCost: 119,
-      },
-      {
-        paymentId: "PM1234562",
-        type: "Direct",
-        datetime: "2021-09-25 17:54:32",
-        totalCost: 119,
-      },
-      {
-        paymentId: "PM1234563",
-        type: "Direct",
-        datetime: "2021-09-25 17:54:32",
-        totalCost: 119,
-      },
-      {
-        paymentId: "PM1234564",
-        type: "Direct",
-        datetime: "2021-09-25 17:54:32",
-        totalCost: 119,
-      },
-      {
-        paymentId: "PM1234565",
-        type: "Direct",
-        datetime: "2021-09-25 17:54:32",
-        totalCost: 119,
-      },
-    ];
-
-    this.setState({ ordersList });
-    this.setState({ paymentsList });
   }
 
   changeToOrders() {
@@ -161,6 +33,7 @@ class App extends Component {
       isOrders: true,
       isPayments: false,
     });
+    this.getOrderDetail(20);
   }
 
   changeToPayments() {
@@ -168,31 +41,8 @@ class App extends Component {
       isOrders: false,
       isPayments: true,
     });
+    this.getPaymentDetail(22);
   }
-
-  handleConfirmOrder = (item) => {
-    alert(`Confirm order ${item.orderId}`);
-    const newOrdersList = this.state.ordersList;
-    const index = newOrdersList.findIndex(
-      (order) => order.orderId === item.orderId
-    );
-    newOrdersList.splice(index, 1);
-    this.setState({ ordersList: newOrdersList });
-
-    // axios send post update order to accept
-  };
-
-  handleConfirmPayment = (item) => {
-    alert(`Confirm payment ${item.paymentId}`);
-    const newPaymentsList = this.state.paymentsList;
-    const index = newPaymentsList.findIndex(
-      (payment) => payment.paymentId === item.paymentId
-    );
-    newPaymentsList.splice(index, 1);
-    this.setState({ paymentsList: newPaymentsList });
-
-    // axios send post update payment to accept
-  };
 
   handleOrderPageChange = (page) => {
     console.log(page);
@@ -202,6 +52,62 @@ class App extends Component {
   handlePaymentPageChange = (page) => {
     console.log(page);
     this.setState({ currentPaymentPage: page });
+  };
+
+  // retrieve data from server
+
+  // updateOrderStatus = (orderId) => {
+  //   Axios.post("http://localhost:3001/updateorder", { orderId: orderId }).then(
+  //     () => {
+  //       console.log("Update order success");
+  //     }
+  //   );
+  // };
+
+  // updatePaymentStatus = (paymentId) => {
+  //   Axios.post("http://localhost:3001/updatepayment", {
+  //     paymentId: paymentId,
+  //   }).then(() => {
+  //     console.log("Update payment success");
+  //   });
+  // };
+
+  // getOrderList = () => {
+  //   Axios.get("http://localhost:3001/orders").then((response) => {
+  //     this.setOrderList(response.data);
+  //   });
+  // };
+
+  // getPaymentList = () => {
+  //   Axios.get("http://localhost:3001/payment").then((response) => {
+  //     this.setPaymentList(response.data);
+  //   });
+  // };
+
+  // setOrderList = (orderList) => {
+  //   console.log(orderList);
+  //   // this.setState({ ordersList: orderList });
+  // };
+
+  // setPaymentList = (paymentsList) => {
+  //   console.log(paymentsList);
+  //   // this.setState({ paymentsList: paymentsList });
+  // };
+
+  getOrderDetail = (orderId) => {
+    Axios.post("http://localhost:3001/orders/detail", {
+      orderId: orderId,
+    }).then((response) => {
+      console.log("Order detail get: ", response.data);
+    });
+  };
+
+  getPaymentDetail = (paymentId) => {
+    Axios.post("http://localhost:3001/payment/detail", {
+      paymentId: paymentId,
+    }).then((response) => {
+      console.log("Payment detail get: ", response.data);
+    });
   };
 
   render() {
@@ -233,46 +139,79 @@ class App extends Component {
             <Route
               exact
               path="/orders/:id"
-              /**
-               * props contain router object: history, location, params
-               */
               render={(props) => (
-                <Orders onConfirm={this.handleConfirmOrder} {...props} />
+                <OrderContext.Consumer>
+                  {({ updateOrderStatus, getOrderDetail }) => {
+                    return (
+                      <Orders
+                        onConfirm={updateOrderStatus}
+                        getOrderDetail={getOrderDetail}
+                        {...props}
+                      />
+                    );
+                  }}
+                </OrderContext.Consumer>
               )}
             />
             <Route
               exact
               path="/payments/:id"
               render={(props) => (
-                <Payments onConfirm={this.handleConfirmPayment} {...props} />
+                <PaymentContext.Consumer>
+                  {({ updatePaymentStatus, getPaymentDetail }) => {
+                    return (
+                      <Payments
+                        onConfirm={updatePaymentStatus}
+                        getPaymentDetail={getPaymentDetail}
+                        {...props}
+                      />
+                    );
+                  }}
+                </PaymentContext.Consumer>
               )}
             />
             <Route
               exact
               path="/orders"
               render={(props) => (
-                <OrdersList
-                  currentPage={this.state.currentOrderPage}
-                  onOrderConfirm={this.handleConfirmOrder}
-                  ordersList={this.state.ordersList}
-                  onPageChange={this.handleOrderPageChange}
-                  pageSize={this.state.pageSize}
-                  {...props}
-                />
+                <OrderContext.Consumer>
+                  {({ ordersList, getOrderList, handleConfirmOrder }) => {
+                    return (
+                      <OrdersList
+                        currentPage={this.state.currentOrderPage}
+                        onOrderConfirm={handleConfirmOrder}
+                        ordersList={ordersList}
+                        onPageChange={this.handleOrderPageChange}
+                        pageSize={this.state.pageSize}
+                        getOrderList={getOrderList}
+                        // updateOrderStatus={this.updateOrderStatus}
+                        {...props}
+                      />
+                    );
+                  }}
+                </OrderContext.Consumer>
               )}
             />
             <Route
               exact
               path="/payments"
               render={(props) => (
-                <PaymentsList
-                  currentPage={this.state.currentPaymentPage}
-                  onPaymentConfirm={this.handleConfirmPayment}
-                  paymentsList={this.state.paymentsList}
-                  onPageChange={this.handlePaymentPageChange}
-                  pageSize={this.state.pageSize}
-                  {...props}
-                />
+                <PaymentContext.Consumer>
+                  {({ paymentsList, getPaymentList, handleConfirmPayment }) => {
+                    return (
+                      <PaymentsList
+                        currentPage={this.state.currentPaymentPage}
+                        onPaymentConfirm={handleConfirmPayment}
+                        paymentsList={paymentsList}
+                        onPageChange={this.handlePaymentPageChange}
+                        pageSize={this.state.pageSize}
+                        getPaymentList={getPaymentList}
+                        // updatePaymentStatus={this.updatePaymentStatus}
+                        {...props}
+                      />
+                    );
+                  }}
+                </PaymentContext.Consumer>
               )}
             />
           </Switch>

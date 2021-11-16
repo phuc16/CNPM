@@ -3,9 +3,9 @@ import { Redirect } from "react-router-dom";
 
 export default function OrderFooter(props) {
   function comfirmClick(item) {
-    props.onConfirm(item);
+    props.onConfirm(item.PaymentID);
+    alert(`Comfirm payment ${item.PaymentID}`);
     props.history.replace("/payments");
-    //alert("Comfirm clicked");
   }
 
   const { item, onConfirm, totalCost, history } = props;

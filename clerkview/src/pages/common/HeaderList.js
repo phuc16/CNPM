@@ -2,10 +2,11 @@ import "./HeaderList.css";
 
 export default function HeaderList(props) {
   function detailClick() {
-    alert(`${props.title} Header Clicked`);
+    alert(`${props.title} List Refresh`);
+    props.getList();
   }
 
-  const { title } = props;
+  const { title, getList } = props;
   return (
     <div className="order-header">
       <div className="detail">

@@ -6,8 +6,8 @@ import { paginate } from "../utils/paginate";
 
 class OrdersList extends React.Component {
   columns = [
-    { path: "orderId", name: "ORDER ID" },
-    { path: "tableId", name: "TABLE ID" },
+    { path: "OrderID", name: "ORDER ID" },
+    { path: "TableNo", name: "TABLE NO" },
     {
       key: "confirm",
       content: (item) => (
@@ -16,7 +16,6 @@ class OrdersList extends React.Component {
             <button
               onClick={() => {
                 this.props.onOrderConfirm(item);
-                //alert(`Confirm item ${item.orderId}`);
               }}
             >
               Confirm
@@ -25,8 +24,8 @@ class OrdersList extends React.Component {
         </div>
       ),
     },
-    { path: "datetime", name: "DateTime" },
-    { path: "totalCost", name: "Total Cost" },
+    { path: "OrderDate", name: "Date" },
+    { path: "TotalCost", name: "Total Cost" },
     {
       key: "detail",
       content: (item) => (
@@ -34,7 +33,7 @@ class OrdersList extends React.Component {
           <div className="detail">
             <button
               onClick={() => {
-                this.props.history.push(`/orders/${item.orderId}`);
+                this.props.history.push(`/orders/${item.OrderID}`);
               }}
             >
               Details
@@ -45,15 +44,25 @@ class OrdersList extends React.Component {
     },
   ];
 
+  componentDidMount = () => {
+    this.props.getOrderList();
+  };
+
   render() {
-    let { ordersList, onOrderConfirm, currentPage, pageSize, onPageChange } =
-      this.props;
+    let {
+      ordersList,
+      onOrderConfirm,
+      currentPage,
+      pageSize,
+      onPageChange,
+      getOrderList,
+    } = this.props;
 
     ordersList = paginate(ordersList, currentPage, pageSize);
 
     return (
       <div>
-        <HeaderList title="Orders List" />
+        <HeaderList getList={getOrderList} title="Orders List" />
         <ItemsList items={ordersList} columns={this.columns} />
         <Pagination
           itemsCount={ordersList.length}

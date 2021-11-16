@@ -29,7 +29,7 @@ export const ClosedBtn = styled.button`
 
 export const Container = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 300px 200px 100px;
 `
 
 export const Cell = styled.div`

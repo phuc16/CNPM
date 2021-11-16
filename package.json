@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
+  "dependencies": {
+    "react-router-dom": "^5.3.0"
+=======
   "devDependencies": {
     "eslint-plugin-react": "^7.26.1"
   },

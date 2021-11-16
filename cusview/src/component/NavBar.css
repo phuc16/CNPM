@@ -5,7 +5,7 @@
     border-radius: 10px;
     border-style: groove;
     border-color: #0AA85C;
-    margin: 20px 45px 0px;
+    margin: 20px 15px 0px;
 }
 
 .navbar {
@@ -22,7 +22,6 @@
     padding: 0 15px;
 }
 .header-left{
-    font-family: nunito;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -37,11 +36,14 @@
     display: none;
     z-index: 2;
 }
-@media only screen and (max-width: 468px) {
+@media only screen and (max-width: 375px) {
     .header-transparent{
         background-color: rgba(0, 0, 0, 0.1);
         min-height: 100vh;
         min-width: 100vw;
+        /* opacity: 0.2; */
+        height: 100vh;
+        width: 400px;
         z-index: 1;
         position: fixed;
         left: 0;

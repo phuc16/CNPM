@@ -13,7 +13,6 @@
 .payment-info {
     display: flex;
     margin: 20px 3vw;
-    font-family: nunito;
     font-weight: bold;
 }
 
@@ -22,7 +21,6 @@
     flex: 1 0 21%; 
     font-size: 24px;
     margin-left: 5px;
-    font-family: nunito;
     font-weight: bold;
 }
 

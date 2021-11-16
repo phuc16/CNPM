@@ -18,7 +18,7 @@ export default function Menu(props){
                   <div class="price">
                       <span class="money">{Price}$</span>
                   </div>
-                  <button type="button" class="btn btn-cart" onClick={addItemToCart}>Add to Cart</button>
+                  <button type="button" class="btn btn-cart" onClick={addItemToCart}>Add</button>
               </div>
           </div>
         </li>

@@ -28,7 +28,6 @@
 .cash_confirm button {
     margin: 32px 90px;
     float: right;
-    font-family: nunito;
     font-weight: bold;
     align-items: center;
 }
@@ -69,7 +68,6 @@
     background-color: white;
     margin: 10px;
     padding: 30px 0px 0px 50px;
-    font-family: nunito;
     font-weight: bold;
     align-items: center;
     font-size: 25px;

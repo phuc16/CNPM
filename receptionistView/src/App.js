@@ -33,7 +33,7 @@ export default function App() {
 
   return (
       <div className="App">
-        <NavBar Title = "Receptionist View"/>
+        <NavBar Title = "RECEPTIONIST VIEW"/>
         {isLoading ? <div>Loading...</div> : <TableTab data={tableData} updateFunc={updateTable}/> }
       </div>
   );

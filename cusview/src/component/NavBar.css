@@ -1,7 +1,6 @@
 .header{
     display: flex;
     justify-content: space-between;
-    font-size: 0.8em;
     border-radius: 10px;
     border-style: groove;
     border-color: #0AA85C;
@@ -16,7 +15,6 @@
     background-color: white;
     border-radius: 10px;
 }
-
 
 .header >* >*{
     padding: 0 15px;

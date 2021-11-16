@@ -1,33 +1,13 @@
 .navbar {
     padding: 10px 10px 10px 10px;
     align-items: center;
+    border-radius: 10px;
     margin: 10px 40px 5px;
     background-color: white;
-    border-radius: 10px;
+    
 }
 
-.select-bar-container{
-    display: flex;
-}
-  
-.select-bar-container a{
-    flex: 50%;
-    margin: 5px 40px 10px;
-    text-decoration: none;
-}
-  
-.otheroption{
-    align-items: center;
-    padding: 10px 10px 10px 10px;
-    background-color: #EDEDED;
-    border-radius: 10px;
-    text-align: center;
-}
-  
-.currentoption{
-    align-items: center;
-    padding: 10px 10px 10px 10px;
-    background-color: white;
-    border-radius: 10px;
-    text-align: center;
+.navbar h1{
+    font-weight: 500;
+    font-size: calc(1.375rem + 1.0vw);
 }

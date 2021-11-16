@@ -12,8 +12,8 @@ export default function BillHeader(props) {
   }
 
   function paymentMethod(pmID){
-    if(pmID === 1) return "Physical";
-    if(pmID === 2) return "Online";
+    if(pmID === 0) return "Physical";
+    if(pmID === 1) return "Online";
   }
 
   return (

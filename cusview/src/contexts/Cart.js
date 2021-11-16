@@ -83,7 +83,7 @@ export class CartProvider extends Component {
       cartItems: this.state.cartItems,
       OrderID: this.state.OrderID,
       totalCost : this.getTotalCost(),
-      PaymentMethod: 1,
+      PaymentMethod: 0,
       PaymentDate: moment(now).format('YYYY-MM-DD')
     }
     axios.post('http://localhost:3001/customer/post/payment', { items })
@@ -97,7 +97,7 @@ export class CartProvider extends Component {
         console.log(error);
       });
     this.setState({
-      PaymentMethod: 1,
+      PaymentMethod: 0,
       PaymentDate: now,
       date: now.toLocaleDateString(),
       time: now.toLocaleTimeString(),
@@ -112,7 +112,7 @@ export class CartProvider extends Component {
       cartItems: this.state.cartItems,
       OrderID: this.state.OrderID,
       totalCost : this.getTotalCost(),
-      PaymentMethod: 2,
+      PaymentMethod: 1,
       PaymentDate: moment(now).format('YYYY-MM-DD')
     }
     axios.post('http://localhost:3001/customer/post/payment', { items })
@@ -126,7 +126,7 @@ export class CartProvider extends Component {
         console.log(error);
       });
     this.setState({
-      PaymentMethod: 2,
+      PaymentMethod: 1,
       PaymentDate: now,
       date: now.toLocaleDateString(),
       time: now.toLocaleTimeString(),

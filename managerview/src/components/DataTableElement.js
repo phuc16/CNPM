@@ -7,7 +7,6 @@ export const Cell = styled.div`
     text-align: center;
     
 `
-
 export const Title = styled.div`
     background-color: orange;
     font-weight: bold;
@@ -30,4 +29,5 @@ export const Container = styled.div`
     margin: auto;
     margin-top: 20px;
     padding: 8px 10px;
+    align-content: baseline;
 `

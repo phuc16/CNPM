@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-
 var dbConn = require('./dbConn')
 
 var allowCrossDomain = (req, res, next) => {
@@ -57,12 +56,26 @@ app.post('/customer/post/payment', async (req, res) => {
                   Price = ${product.Price},
                   Quantity = ${product.quantity};`);
   }
-  dbConn.query(`INSERT INTO rpayment 
+  console.log(items.PaymentMethod);
+  // Physical
+  if(items.PaymentMethod === 0){
+    dbConn.query(`INSERT INTO rpayment 
                 SET OrderID = (SELECT OrderID FROM rorder WHERE OrderID = LAST_INSERT_ID()),
                 TotalCost = ${items.totalCost},
                 PaymentStatus = 1,
                 PaymentType = ${items.PaymentMethod},
                 PaymentDate = '${items.PaymentDate}';`);
+  }
+  // Online
+  else{
+    dbConn.query(`INSERT INTO rpayment 
+                SET OrderID = (SELECT OrderID FROM rorder WHERE OrderID = LAST_INSERT_ID()),
+                TotalCost = ${items.totalCost},
+                PaymentStatus = 0,
+                PaymentType = ${items.PaymentMethod},
+                PaymentDate = '${items.PaymentDate}';`);
+  }
+  
 });
 
 // Receptionist Query

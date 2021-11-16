@@ -10,7 +10,10 @@ class ItemsList extends React.Component {
       return (
         <span className="item-info-cell" key={column.path || column.key}>
           <h2>
-            {column.name}: {item[column.path]}
+            {column.name}:{" "}
+            {column.path === "OrderDate" || column.path === "PaymentDate"
+              ? item[column.path].split(/[T]/)[0]
+              : item[column.path]}
             {column.path === "TotalCost" ? "$" : null}
           </h2>
         </span>

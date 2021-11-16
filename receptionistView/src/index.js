@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-document.title = "Table Management";
+document.title = "Receptionist View";
 
 ReactDOM.render(
     <App />,

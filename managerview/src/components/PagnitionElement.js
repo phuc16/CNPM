@@ -8,5 +8,5 @@ export const Container = styled.div`
     justify-items: center;
     align-items: center;
     padding: 10px;
-
+    align-content: baseline;
 `

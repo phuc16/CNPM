@@ -24,10 +24,10 @@ function App() {
 
       Data.map((item) => {
         if (item.PaymentType === 1){
-          item.PaymentType = 'online';
+          item.PaymentType = 'Online';
         }
         else{
-          item.PaymentType = 'physical'
+          item.PaymentType = 'Physical';
         }
       })
 

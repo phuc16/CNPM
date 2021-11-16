@@ -170,6 +170,36 @@ app.post("/payment/detail", (req, res) => {
   );
 });
 
+// Manager Query
+app.get('/api/statistics', (req, res) => {
+  const query = `SELECT p.OrderID,  o.TableNo, p.PaymentType, p.TotalCost, p.PaymentDate
+                 FROM rpayment as p, rorder as o
+                 WHERE p.OrderID = o.OrderID`
+  dbConn.query(query, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log('Send all statistics');
+    }
+  });
+});
+
+app.get('/api/details', (req,res ) => {
+  const id_order = req.query.OrderID;
+  const query = `SELECT p.Name, c.Quantity, FORMAT((c.Price * c.Quantity),2) AS Cost
+              FROM rproduct as p, cart as c
+              WHERE p.ProductID = c.ProductID AND OrderID = ?; `
+  dbConn.query(query, [id_order], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+      console.log('Send detail information');
+    }
+  });
+})
+
 app.listen(3001, () => {
   console.log('Node app is running on port 3001');
 });

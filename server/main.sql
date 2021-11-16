@@ -101,7 +101,6 @@ INSERT INTO rtable VALUES (25, 0);
 -- SELECT * FROM db.rtable;
 -- UPDATE db.rtable SET TableStatus = 1 WHERE TableNo = 1;
 
-
 -- sample data for product
 
 INSERT INTO rproduct VALUES (1, 'BAGEL B.E.L.T.', 4.8, 'Breakfast', 'https://www.timhortons.ph/upload/assets/XL7wKHalJnyIGEiGiyf1a1Q3ITkhddIX9ZaHb5fywgt992VjEA.jpg');

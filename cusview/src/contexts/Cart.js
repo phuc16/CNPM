@@ -88,7 +88,10 @@ export class CartProvider extends Component {
     }
     axios.post('http://localhost:3001/customer/post/payment', { items })
     .then((response) => {
-      console.log(response.data);
+      if (response){
+        this.reset();
+        alert(response.data)
+      }
     })
     .catch((error) => {
         console.log(error);
@@ -114,7 +117,10 @@ export class CartProvider extends Component {
     }
     axios.post('http://localhost:3001/customer/post/payment', { items })
     .then((response) => {
-      console.log(response.data);
+      if (response){
+        this.reset();
+        alert(response.data)
+      }
     })
     .catch((error) => {
         console.log(error);

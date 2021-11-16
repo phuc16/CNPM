@@ -1,15 +1,25 @@
-#over img {
+.cara img {
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
 }
 
-.container{
+.cara .container{
 	display: block;
     border-radius: 40px;
 }
+
+.my__carousel_main div ol li {
+    background-color: red;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+}
+
 @media only screen and (max-width: 468px) {
-    .container{
+    .cara .container{
+        display: block;
+        border-radius: 40px;
     }
     #over img{
         display: none;

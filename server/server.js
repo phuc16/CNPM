@@ -17,9 +17,10 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+// Customer Query
 app.get('/customer/get/products', (req, res) => {
-        dbConn.query('SELECT * FROM RProduct', (error, results, fields) => res.send({ results: results }));
-    });
+    dbConn.query('SELECT * FROM RProduct', (error, results, fields) => res.send({ results: results }));
+});
 
 // app.post('/customer/post/order', (req, res) => {
 //         const items = req.body.items;
@@ -38,33 +39,51 @@ app.get('/customer/get/products', (req, res) => {
 //     });
 
 app.post('/customer/post/payment', async (req, res) => {
-        const items = req.body.items;
+    const items = req.body.items;
         // console.log(items);
-        try{
-            await dbConn.promise().query(`INSERT INTO rorder 
+    try{
+        await dbConn.promise().query(`INSERT INTO rorder 
                         SET TableNo = (SELECT TableNo FROM rtable WHERE TableNo = ${items.TableNo}),
                             OrderStatus = 1,
                             TotalCost = ${items.totalCost};`);
-        }
-        catch(error){
-            return res.send('Invalid Table');
-        }
-        for (product of items.cartItems){
-            dbConn.query(`INSERT INTO cart  
+    }
+    catch(error){
+        return res.send('Invalid Table');
+    }
+    for (product of items.cartItems){
+        dbConn.query(`INSERT INTO cart  
                         SET ProductID = (SELECT ProductID FROM rproduct WHERE ProductID = ${product.ProductID}),
                             OrderID = LAST_INSERT_ID(),
                             Price = ${product.Price},
                             Quantity = ${product.quantity};`);
         }
-        dbConn.query(`INSERT INTO rpayment 
+    dbConn.query(`INSERT INTO rpayment 
                     SET OrderID = (SELECT OrderID FROM rorder WHERE OrderID = LAST_INSERT_ID()),
                         TotalCost = ${items.totalCost},
                         PaymentStatus = 1,
                         PaymentType = ${items.PaymentMethod},
                         PaymentDate = '${items.PaymentDate}';`);
-    });
+});
+
+// Receptionist Query
+app.get("/api/get", (req,res) => {
+    const sqlSelect = "SELECT * FROM rtable ORDER BY TableNo";
+    dbConn.query(sqlSelect, (err, result) => {
+        if(err) console.log(err);
+        else res.send(result);
+    })
+  });
+  
+app.put("/api/update", (req,res) => {
+    const tableNo = req.body.TableNo;
+    const tableStatus = req.body.TableStatus;
+    const sqlUpdate = "UPDATE rtable SET TableStatus = ? WHERE TableNo = ?";
+    dbConn.query(sqlUpdate, [tableStatus, tableNo], (err, result) => {
+        if(err) console.log(err);
+    })
+});
 
 app.listen(3001, () => {
         console.log('Node app is running on port 3001');
-    });
+});
 module.exports = app;

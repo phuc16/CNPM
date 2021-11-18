@@ -13,7 +13,7 @@ export default function OrderHeader(props) {
         <button onClick={() => detailClick()}>Order Detail</button>
       </div>
       <div className="info">
-        <h1 style={{ textAlign: "left" }}>TABLE ID: {props.tableId}</h1>
+        <h1 style={{ textAlign: "left" }}>TABLE NO: {props.tableId}</h1>
         <h1 style={{ textAlign: "center" }}>ORDER ID: {props.orderId}</h1>
         <h1 style={{ textAlign: "right" }}>
           Date: {props.date.split(/[T]/)[0]}

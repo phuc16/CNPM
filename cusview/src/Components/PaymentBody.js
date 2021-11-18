@@ -18,13 +18,13 @@ export default function PaymentBody(props) {
         <h2>Physical Payment</h2>
         
         <Link to={`/${props.TableNo}/cart/payment/bill`}>
-          <button onClick={() => PhysicalMethodClick()}>Confirm</button>
+          <button onClick={() => PhysicalMethodClick()}>Pay Later</button>
         </Link>
       </div>
 
       <div className="cash_confirm">
         <h2>Online Payment</h2>
-          <button onClick={() => OnlineMethodClick()}>Confirm</button>
+          <button onClick={() => OnlineMethodClick()}>Pay Now</button>
       </div>
     </div>
   );

@@ -21,22 +21,6 @@ app.get('/customer/get/products', (req, res) => {
     dbConn.query('SELECT * FROM RProduct', (error, results, fields) => res.send({ results: results }));
 });
 
-// app.post('/customer/post/order', (req, res) => {
-//         const items = req.body.items;
-//         dbConn.query(`INSERT INTO rorder 
-//                     SET TableNo = (SELECT TableNo FROM rtable WHERE TableNo = ${items.TableNo}),
-//                         OrderStatus = 1,
-//                         TotalCost = ${items.totalCost};`);
-//         for (product of items.cartItems) {
-//             dbConn.query(`INSERT INTO cart  
-//                         SET ProductID = (SELECT ProductID FROM rproduct WHERE ProductID = ${product.ProductID}),
-//                             OrderID = LAST_INSERT_ID(),
-//                             Price = ${product.Price},
-//                             Quantity = ${product.quantity};`);
-//         }
-//         dbConn.query(`SELECT LAST_INSERT_ID() as OrderID;`, (error, results, fields) => res.send({ results: results[0].OrderID }));
-//     });
-
 app.post('/customer/post/payment', async (req, res) => {
   const items = req.body.items;
   try{

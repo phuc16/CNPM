@@ -8,14 +8,15 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { FilterContainer, FilterElementContainer, FilterBtn } from './components/FilterElement';
 import Axios from "axios";
 
-var CurData = null;
 var CurDate = null;
 var CurType = null;
 var Data = null;
 function App() {
+  const [CurData, setCurData] = useState([]);
   useEffect(() => {
     getData();
   }, [])
+
 
   const getData = () => {
     Axios.get("http://localhost:3001/manager/statistics").then((response) => {
@@ -30,11 +31,9 @@ function App() {
           item.PaymentType = 'Physical';
         }
       })
-
-      CurData = Data;
+      setCurData(Data);
       setCurArray(Data.slice(0,6));
       setIsloading(true);
-      
     })
   }
 
@@ -90,30 +89,33 @@ function App() {
 
   function handleSelectBoth() {
     isSelectBoth ? setIsSelectBoth(false) : setIsSelectBoth(true);
-    CurData = Data;
+    setCurData(Data);
   }
 
   function handleFilter(){
     if (isSelectBoth) {
-      CurData = Data.filter((record) => record.PaymentType === CurType);
-      CurData = CurData.filter((record) => record.PaymentDate === CurDate);
+      setCurData(Data.filter((record) => record.PaymentType === CurType));
+      setCurData(CurData.filter((record) => record.PaymentDate === CurDate));
     }
     else {
       if (isSelectDate) {
-
-        CurData = Data.filter((record) => record.PaymentDate === CurDate);
+        setCurData(Data.filter((record) => record.PaymentDate === CurDate));
       }
       else if (isSelectType) {
             if (CurType === 'all') {
             setCurArray(Data.slice(0,6));
-            CurData = Data;
+            setCurData(Data);
             return;
             }
-        CurData = Data.filter((record) => record.PaymentType === CurType);
+        setCurData(Data.filter((record) => record.PaymentType === CurType));
       }
     }
     setCurrentPage(1);
     paginate(currentPage);
+  }
+
+  function handleReset(){
+    setCurData(Data);
   }
 
   return (

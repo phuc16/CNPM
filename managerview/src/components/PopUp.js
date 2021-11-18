@@ -19,8 +19,6 @@ function PopUp(props) {
                                  <Cell>{item.Cost}</Cell>
                             </>
                         })}
-                       
-                    
                 </Container>
             </Content>       
         </Window>

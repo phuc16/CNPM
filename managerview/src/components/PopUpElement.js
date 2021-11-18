@@ -6,11 +6,13 @@ export const Window = styled.div`
     left: 0;
     width: 100%;
     height: 100vh;
+    
     background-color: rgba(0,0,0, 0.2);
 
     display: flex;
     justify-content: center;
     align-items: center;
+    
 `
 
 export const Content = styled.div`
@@ -19,6 +21,7 @@ export const Content = styled.div`
     width: 100%;
     max-width: 640px;
     background-color: white;
+    border-radius: 10px;
 `
 
 export const ClosedBtn = styled.button`

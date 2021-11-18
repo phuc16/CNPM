@@ -11,7 +11,7 @@ export default function App() {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const result = await axios("http://localhost:3001/api/get");
+      const result = await axios("http://localhost:3001/receptionist/get");
       setTD(result.data);
       setIsLoading(false);
     };
@@ -25,7 +25,7 @@ export default function App() {
   }
 
   async function updateTable(No){
-    await axios.put("http://localhost:3001/api/update",{
+    await axios.put("http://localhost:3001/receptionist/update",{
       TableNo: No,
       TableStatus: toggle(tableData[No - 1].TableStatus),
     });

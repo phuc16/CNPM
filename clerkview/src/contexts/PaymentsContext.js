@@ -12,7 +12,7 @@ class PaymentProvider extends React.Component {
   }
 
   getPaymentList = () => {
-    Axios.get("http://localhost:3001/payment").then((response) => {
+    Axios.get("http://localhost:3001/clerk/payment").then((response) => {
       this.setPaymentList(response.data);
     });
   };
@@ -23,7 +23,7 @@ class PaymentProvider extends React.Component {
   };
 
   updatePaymentStatus = (paymentId) => {
-    Axios.post("http://localhost:3001/updatepayment", {
+    Axios.post("http://localhost:3001/clerk/updatepayment", {
       paymentId: paymentId,
     })
       .then((res) => {
@@ -45,7 +45,7 @@ class PaymentProvider extends React.Component {
   };
 
   getPaymentDetail = async (paymentId) => {
-    const response = await Axios.post("http://localhost:3001/payment/detail", {
+    const response = await Axios.post("http://localhost:3001/clerk/payment/detail", {
       paymentId: paymentId,
     });
     // .then((response) => {

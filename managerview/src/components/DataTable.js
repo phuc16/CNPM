@@ -9,7 +9,7 @@ function OneRow(props){
   const [detailData, setDetailData] = useState([]);
 
   function handleClick(){
-    Axios.get('http://localhost:3001/api/details', {
+    Axios.get('http://localhost:3001/manager/statistics/details', {
       params: {
         OrderID: OrderID}
       }).then((response) => {

@@ -75,11 +75,10 @@ app.post('/customer/post/payment', async (req, res) => {
                 PaymentType = ${items.PaymentMethod},
                 PaymentDate = '${items.PaymentDate}';`);
   }
-  
 });
 
 // Receptionist Query
-app.get("/api/get", (req,res) => {
+app.get("/receptionist/get", (req,res) => {
   const sqlSelect = "SELECT * FROM rtable ORDER BY TableNo";
   dbConn.query(sqlSelect, (err, result) => {
       if(err) console.log(err);
@@ -87,7 +86,7 @@ app.get("/api/get", (req,res) => {
   })
 });
   
-app.put("/api/update", (req,res) => {
+app.put("/receptionist/update", (req,res) => {
     const tableNo = req.body.TableNo;
     const tableStatus = req.body.TableStatus;
     const sqlUpdate = "UPDATE rtable SET TableStatus = ? WHERE TableNo = ?";
@@ -97,7 +96,7 @@ app.put("/api/update", (req,res) => {
 });
 
 //Clerk Query
-app.post("/updateorder", (req, res) => {
+app.post("/clerk/updateorder", (req, res) => {
   const orderId = req.body.orderId;
   dbConn.query(
     "UPDATE rorder SET OrderStatus = 0 WHERE OrderID = ?",
@@ -112,7 +111,7 @@ app.post("/updateorder", (req, res) => {
   );
 });
   
-app.post("/updatepayment", (req, res) => {
+app.post("/clerk/updatepayment", (req, res) => {
     const paymentId = req.body.paymentId;
     dbConn.query(
         "UPDATE rpayment SET PaymentStatus = 0 WHERE OrderID = ?",
@@ -127,7 +126,7 @@ app.post("/updatepayment", (req, res) => {
     );
 });
   
-app.get("/orders", (req, res) => {
+app.get("/clerk/order", (req, res) => {
     dbConn.query(
       "SELECT db.rorder.OrderID, TableNo, PaymentDate AS OrderDate, db.rorder.TotalCost FROM (db.rorder JOIN db.rpayment ON db.rorder.OrderID = db.rpayment.OrderID) WHERE OrderStatus = 1",
       (err, result) => {
@@ -140,7 +139,7 @@ app.get("/orders", (req, res) => {
     );
 });
   
-app.get("/payment", (req, res) => {
+app.get("/clerk/payment", (req, res) => {
   dbConn.query(
     "SELECT db.rpayment.PaymentID, TableNo, PaymentDate, db.rpayment.TotalCost FROM (db.rorder JOIN db.rpayment ON db.rorder.OrderID = db.rpayment.OrderID) WHERE PaymentStatus = 1",
     (err, result) => {
@@ -153,7 +152,7 @@ app.get("/payment", (req, res) => {
   );
 });
   
-app.post("/orders/detail", (req, res) => {
+app.post("/clerk/order/detail", (req, res) => {
   const orderId = req.body.orderId;
   dbConn.query(
     "SELECT db.rorder.OrderID, TableNo, PaymentDate AS OrderDate, db.rproduct.Name, ImgLink, db.rproduct.Price AS PricePerUnit, Quantity FROM (((db.rorder JOIN db.rpayment ON db.rorder.OrderID = db.rpayment.OrderID) JOIN db.cart ON db.rorder.OrderID = db.cart.OrderID) JOIN db.rproduct ON db.cart.ProductID = db.rproduct.ProductID) WHERE db.rorder.OrderID = ?",
@@ -168,7 +167,7 @@ app.post("/orders/detail", (req, res) => {
   );
 });
   
-app.post("/payment/detail", (req, res) => {
+app.post("/clerk/payment/detail", (req, res) => {
   const paymentId = req.body.paymentId;
   dbConn.query(
     "SELECT db.rpayment.PaymentID, TableNo, PaymentDate, db.rproduct.Name, db.rproduct.Price AS PricePerUnit, Quantity FROM (((db.rorder JOIN db.rpayment ON db.rorder.OrderID = db.rpayment.OrderID) JOIN db.cart ON db.rorder.OrderID = db.cart.OrderID) JOIN db.rproduct ON db.cart.ProductID = db.rproduct.ProductID) WHERE db.rpayment.PaymentID = ?",
@@ -184,7 +183,7 @@ app.post("/payment/detail", (req, res) => {
 });
 
 // Manager Query
-app.get('/api/statistics', (req, res) => {
+app.get('/manager/statistics', (req, res) => {
   const query = `SELECT p.OrderID,  o.TableNo, p.PaymentType, p.TotalCost, p.PaymentDate
                  FROM rpayment as p, rorder as o
                  WHERE p.OrderID = o.OrderID`
@@ -198,7 +197,7 @@ app.get('/api/statistics', (req, res) => {
   });
 });
 
-app.get('/api/details', (req,res ) => {
+app.get('/manager/statistics/details', (req,res) => {
   const id_order = req.query.OrderID;
   const query = `SELECT p.Name, c.Quantity, FORMAT((c.Price * c.Quantity),2) AS Cost
               FROM rproduct as p, cart as c

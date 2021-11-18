@@ -18,7 +18,7 @@ function App() {
   }, [])
 
   const getData = () => {
-    Axios.get("http://localhost:3001/api/statistics").then((response) => {
+    Axios.get("http://localhost:3001/manager/statistics").then((response) => {
       
       Data = response.data;
 

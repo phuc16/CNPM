@@ -10,25 +10,33 @@ import "./App.css";
 
 function App() {
   const { TableNo } = useParams();
-  return (
+  if(TableNo < 1 || TableNo > 25) return(
+    <div className="not-found">
+      <img
+        src="https://www.pngitem.com/pimgs/m/561-5616833_image-not-found-png-not-found-404-png.png"
+        alt="not-found"
+      />
+    </div>
+  );
+  else return (
     <CartProvider TableNo={TableNo}>
-      <Router>
-        <Switch>
-          <Route exact path={`/${TableNo}`}>
-            <MenuPage />
-          </Route>
-          <Route exact path={`/${TableNo}/cart`} component={CartPage}>
-            {/* <CartPage /> */}
-          </Route>
-          <Route exact path={`/${TableNo}/cart/payment`}>
-            <Payment />
-          </Route>
-          <Route exact path={`/${TableNo}/cart/payment/bill`}>
-            <BillPage />
-          </Route>
-        </Switch>
-      </Router>
-    </CartProvider>
+    <Router>
+      <Switch>
+        <Route exact path={`/${TableNo}`}>
+          <MenuPage />
+        </Route>
+        <Route exact path={`/${TableNo}/cart`} component={CartPage}>
+          {/* <CartPage /> */}
+        </Route>
+        <Route exact path={`/${TableNo}/cart/payment`}>
+          <Payment />
+        </Route>
+        <Route exact path={`/${TableNo}/cart/payment/bill`}>
+          <BillPage />
+        </Route>
+      </Switch>
+    </Router>
+    </CartProvider>    
   );
 }
 

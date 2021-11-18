@@ -39,12 +39,11 @@ app.get('/customer/get/products', (req, res) => {
 
 app.post('/customer/post/payment', async (req, res) => {
   const items = req.body.items;
-      // console.log(items);
   try{
-      await dbConn.promise().query(`INSERT INTO rorder 
-                      SET TableNo = (SELECT TableNo FROM rtable WHERE TableNo = ${items.TableNo}),
-                          OrderStatus = 1,
-                          TotalCost = ${items.totalCost};`);
+    await dbConn.promise().query(`INSERT INTO rorder 
+                    SET TableNo = (SELECT TableNo FROM rtable WHERE TableNo = ${items.TableNo}),
+                        OrderStatus = 1,
+                        TotalCost = ${items.totalCost};`);
   }
   catch(error){
       return res.send('Invalid Table');

@@ -11,6 +11,7 @@ import Axios from "axios";
 var CurDate = null;
 var CurType = null;
 var Data = null;
+
 function App() {
   const [CurData, setCurData] = useState([]);
   useEffect(() => {
@@ -56,7 +57,9 @@ function App() {
 
 
   function handleType(e) {
+    
     const type = e.target.value;
+    console.log(type);
     CurType = type;
     setIsSelectType(true);
     if (!isSelectBoth){
@@ -93,21 +96,25 @@ function App() {
   }
 
   function handleFilter(){
+    console.log(CurType);
+    console.log(CurDate);
+    console.log(isSelectType);
+    console.log(isSelectDate);
     if (isSelectBoth) {
       setCurData(Data.filter((record) => record.PaymentType === CurType));
       setCurData(CurData.filter((record) => record.PaymentDate === CurDate));
     }
     else {
       if (isSelectDate) {
+        console.log(isSelectDate);
         setCurData(Data.filter((record) => record.PaymentDate === CurDate));
       }
       else if (isSelectType) {
-            if (CurType === 'all') {
-            setCurArray(Data.slice(0,6));
-            setCurData(Data);
-            return;
-            }
+        console.log('select type');
+        console.log(CurData);
+        console.log(Data.filter((record) => record.PaymentType === CurType));
         setCurData(Data.filter((record) => record.PaymentType === CurType));
+        console.log(CurData);
       }
     }
     setCurrentPage(1);
@@ -115,6 +122,7 @@ function App() {
   }
 
   function handleReset(){
+    setCurArray(Data.slice(0,6));
     setCurData(Data);
   }
 
@@ -125,9 +133,8 @@ function App() {
         <FilterElementContainer>
           <div style={{marginBottom: '8px'}}> Payment Type Filter </div>
           <select onChange={handleType}>
-            <option value='all'>All</option>
-            <option value='online'>Online</option>
-            <option value='physical'>Physical</option>
+            <option value='Online'>Online</option>
+            <option value='Physical'>Physical</option>
           </select>
         </FilterElementContainer>
 
@@ -146,6 +153,7 @@ function App() {
         </FilterElementContainer>
 
         <FilterBtn onClick={handleFilter}> Filter </FilterBtn>
+        <FilterBtn onClick={handleReset}> Reset </FilterBtn>
       </FilterContainer>
      
       <DataTable data={CurArray} />

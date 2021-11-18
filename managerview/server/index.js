@@ -17,9 +17,10 @@ app.get('/', (req, res)=>{
     res.send('manager view page');
 })
 
-app.get('/api/statistics', (req, res) => {
+app.get('/manager/statistics', (req, res) => {
     const query = `SELECT p.OrderID,  o.TableNo, p.PaymentType, p.TotalCost, p.PaymentDate
-                   FROM rpayment as p, rorder as o`
+                   FROM rpayment as p, rorder as o
+                   WHERE p.OrderID = o.OrderID`
     db.query(query, (err, result) => {
       if (err) {
         console.log(err);
@@ -30,7 +31,7 @@ app.get('/api/statistics', (req, res) => {
     });
   });
 
-app.get('/api/details', (req,res ) => {
+app.get('/manager/statistics/details', (req,res ) => {
   const id_order = req.query.OrderID;
   const query = `SELECT p.Name, c.Quantity, FORMAT((p.Price * c.Quantity),2) AS Cost
                 FROM rproduct as p, cart as c

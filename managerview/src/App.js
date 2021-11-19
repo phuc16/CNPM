@@ -11,13 +11,13 @@ import Axios from "axios";
 var CurDate = null;
 var CurType = null;
 var Data = null;
+var CurData = null;
 
 function App() {
-  const [CurData, setCurData] = useState([]);
+
   useEffect(() => {
     getData();
   }, [])
-
 
   const getData = () => {
     Axios.get("http://localhost:3001/manager/statistics").then((response) => {
@@ -32,7 +32,7 @@ function App() {
           item.PaymentType = 'Physical';
         }
       })
-      setCurData(Data);
+      
       setCurArray(Data.slice(0,6));
       setIsloading(true);
     })
@@ -57,9 +57,7 @@ function App() {
 
 
   function handleType(e) {
-    
     const type = e.target.value;
-    console.log(type);
     CurType = type;
     setIsSelectType(true);
     if (!isSelectBoth){
@@ -92,29 +90,26 @@ function App() {
 
   function handleSelectBoth() {
     isSelectBoth ? setIsSelectBoth(false) : setIsSelectBoth(true);
-    setCurData(Data);
+    CurData = Data;
   }
 
   function handleFilter(){
-    console.log(CurType);
-    console.log(CurDate);
-    console.log(isSelectType);
-    console.log(isSelectDate);
     if (isSelectBoth) {
-      setCurData(Data.filter((record) => record.PaymentType === CurType));
-      setCurData(CurData.filter((record) => record.PaymentDate === CurDate));
+      CurData = Data.filter((record) => record.PaymentType === CurType);
+      CurData = CurData.filter((record) => record.PaymentDate === CurDate);
     }
     else {
       if (isSelectDate) {
-        console.log(isSelectDate);
-        setCurData(Data.filter((record) => record.PaymentDate === CurDate));
+
+        CurData = Data.filter((record) => record.PaymentDate === CurDate);
       }
       else if (isSelectType) {
-        console.log('select type');
-        console.log(CurData);
-        console.log(Data.filter((record) => record.PaymentType === CurType));
-        setCurData(Data.filter((record) => record.PaymentType === CurType));
-        console.log(CurData);
+            if (CurType === 'all') {
+            setCurArray(Data.slice(0,6));
+            CurData = Data;
+            return;
+            }
+        CurData = Data.filter((record) => record.PaymentType === CurType);
       }
     }
     setCurrentPage(1);
@@ -122,8 +117,9 @@ function App() {
   }
 
   function handleReset(){
-    setCurArray(Data.slice(0,6));
-    setCurData(Data);
+    CurData = Data;
+    setCurrentPage(1);
+    paginate(currentPage);
   }
 
   return (

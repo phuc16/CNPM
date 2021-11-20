@@ -97,7 +97,7 @@ export default function MenuPage() {
                   ImgLink={item.ImgLink}
                   Name={item.Name}
                   Category={item.Category}
-                  Price={item.Price}
+                  Price={item.Price.toFixed(2)}
                   addItemToCart={() => addItemToCart(item)}
                 />
               ))

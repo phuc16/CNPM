@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const TabName = styled.h1`
-    background-color: #C4EBD8;
     padding: 20px 50px;
-    font-size: 30px;
+    font-size: 35px;
     font-style: bold;
+    text-align: center;
 `

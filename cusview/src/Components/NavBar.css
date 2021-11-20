@@ -8,23 +8,15 @@
 .navbar {
   padding: 10px 10px 10px 10px;
   align-items: center;
-  justify-content: center !important;
-  margin: 10px 40px 5px;
-  background-color: #F1F8F5;
-  border-radius: 10px;
-  font-size: larger;
-  border-radius: 20px;
-    border-style: groove;
-    border-color: #0AA85C;
+  display: flex;
+  justify-content: center;
 }
 
-.insidetext{
+.navbar h1 {
   color: #000000;
   background-color: inherit;
-  font-size: larger;
-  align-items: center;
-  font-weight: bold;
   text-align: center;
+  font-size: 35px;
+  font-weight: bold;
 }
-
 

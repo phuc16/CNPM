@@ -32,7 +32,7 @@ function App() {
           item.PaymentType = 'Physical';
         }
       })
-      
+      CurData = Data;
       setCurArray(Data.slice(0,6));
       setIsloading(true);
     })

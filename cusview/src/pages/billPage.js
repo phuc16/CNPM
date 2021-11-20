@@ -11,7 +11,9 @@ class BillPage extends Component {
         <div className="content">
           <CartContext.Consumer>
             {({ TableNo, PaymentMethod, reset, date, time, cartItems, totalCost }) => (
-              <BillHeader
+              <div>
+              {cartItems.length > 0 && (
+                <BillHeader
                 TableNo={TableNo}
                 date={date}
                 time={time}
@@ -20,7 +22,11 @@ class BillPage extends Component {
                 totalCost={totalCost}
                 PaymentMethod = {PaymentMethod}
                 reset = {reset}
-              />
+                />
+              )}
+              
+              {cartItems.length === 0 && <h4>Please place your order</h4>}
+              </div>
             )}
           </CartContext.Consumer>
         </div>

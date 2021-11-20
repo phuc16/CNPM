@@ -42,8 +42,8 @@ class Payment extends Component {
         <NavBar Title="PAYMENT" />
         <div className="content">
           <CartContext.Consumer>
-            {({ TableNo, OrderID, date, time, totalCost }) => (
-              <PaymentHeader
+            {({ TableNo, OrderID, date, time, totalCost, cartItems }) => (
+              cartItems.length > 0 && <PaymentHeader
                 TableNo={TableNo}
                 OrderID={OrderID}
                 date={date}
@@ -53,22 +53,26 @@ class Payment extends Component {
             )}
           </CartContext.Consumer>
           <CartContext.Consumer>
-          {({ TableNo }) =>(
-            <PaymentModal
-              TableNo = {TableNo}
-              show={this.state.check} 
-              invalid={this.decline} 
-              valid={this.proceed}/>
+          {({ TableNo, totalCost, cartItems }) =>(
+              cartItems.length > 0 && <PaymentModal
+                TableNo = {TableNo}
+                show={this.state.check} 
+                invalid={this.decline} 
+                valid={this.proceed}
+              />
           )}
           
           </CartContext.Consumer>
           <CartContext.Consumer>
-            {({ TableNo, changeToOnline, changeToPhysical }) => (
-                <PaymentBody 
+            {({ TableNo, totalCost, changeToOnline, changeToPhysical, cartItems }) => (
+              <div>
+                {cartItems.length > 0 && <PaymentBody 
                   TableNo={TableNo}
                   handleOnline={changeToOnline} 
                   handlePhysical={changeToPhysical} 
-                  openModal={this.handleOpen}/>
+                  openModal={this.handleOpen}/>}
+                {cartItems.length === 0 && <h4 className="empty">Please place your order</h4>}
+              </div>
             )}
           </CartContext.Consumer>
           

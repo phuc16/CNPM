@@ -23,6 +23,11 @@ app.get('/customer/get/products', (req, res) => {
 
 app.post('/customer/post/payment', async (req, res) => {
   const items = req.body.items;
+
+  if (items.cartItems.length === 0) {
+    return res.send('Please place your order');
+  }
+
   try{
     await dbConn.promise().query(`INSERT INTO rorder 
                     SET TableNo = (SELECT TableNo FROM rtable WHERE TableNo = ${items.TableNo}),
@@ -32,6 +37,7 @@ app.post('/customer/post/payment', async (req, res) => {
   catch(error){
       return res.send('Invalid Table');
   }
+  
   for (product of items.cartItems){
     dbConn.query(`INSERT INTO cart  
                   SET ProductID = (SELECT ProductID FROM rproduct WHERE ProductID = ${product.ProductID}),

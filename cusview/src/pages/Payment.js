@@ -32,8 +32,9 @@ class Payment extends Component {
     
   }
 
-  proceed(){
+  proceed(changeToOnline){
     this.setState({ check: false });
+    changeToOnline();
   }
 
   render() {
@@ -53,16 +54,16 @@ class Payment extends Component {
             )}
           </CartContext.Consumer>
           <CartContext.Consumer>
-          {({ TableNo, totalCost, cartItems }) =>(
+          {({ TableNo, cartItems, changeToOnline }) =>(
               cartItems.length > 0 && <PaymentModal
                 TableNo = {TableNo}
                 show={this.state.check} 
                 invalid={this.decline} 
-                valid={this.proceed}
+                valid={() => {this.proceed(changeToOnline)}}
               />
           )}
-          
           </CartContext.Consumer>
+
           <CartContext.Consumer>
             {({ TableNo, totalCost, changeToOnline, changeToPhysical, cartItems }) => (
               <div>

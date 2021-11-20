@@ -45,7 +45,6 @@ app.post('/customer/post/payment', async (req, res) => {
                   Price = ${product.Price},
                   Quantity = ${product.quantity};`);
   }
-  console.log(items.PaymentMethod);
   // Physical
   if(items.PaymentMethod === 0){
     dbConn.query(`INSERT INTO rpayment 
@@ -181,7 +180,6 @@ app.get('/manager/statistics', (req, res) => {
       console.log(err);
     } else {
       res.send(result);
-      console.log('Send all statistics');
     }
   });
 });
@@ -196,7 +194,6 @@ app.get('/manager/statistics/details', (req,res) => {
       console.log(err);
     } else {
       res.send(result);
-      console.log('Send detail information');
     }
   });
 })

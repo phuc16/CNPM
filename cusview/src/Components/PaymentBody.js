@@ -9,7 +9,6 @@ export default function PaymentBody(props) {
 
   function OnlineMethodClick() {
     props.openModal();
-    props.handleOnline();
   }
 
   return (

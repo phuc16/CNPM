@@ -11,12 +11,13 @@ import Axios from "axios";
 var CurDate = null;
 var CurType = null;
 var Data = null;
+var CurData = null;
+
 function App() {
-  const [CurData, setCurData] = useState([]);
+
   useEffect(() => {
     getData();
   }, [])
-
 
   const getData = () => {
     Axios.get("http://localhost:3001/manager/statistics").then((response) => {
@@ -31,7 +32,7 @@ function App() {
           item.PaymentType = 'Physical';
         }
       })
-      setCurData(Data);
+      
       setCurArray(Data.slice(0,6));
       setIsloading(true);
     })
@@ -89,25 +90,26 @@ function App() {
 
   function handleSelectBoth() {
     isSelectBoth ? setIsSelectBoth(false) : setIsSelectBoth(true);
-    setCurData(Data);
+    CurData = Data;
   }
 
   function handleFilter(){
     if (isSelectBoth) {
-      setCurData(Data.filter((record) => record.PaymentType === CurType));
-      setCurData(CurData.filter((record) => record.PaymentDate === CurDate));
+      CurData = Data.filter((record) => record.PaymentType === CurType);
+      CurData = CurData.filter((record) => record.PaymentDate === CurDate);
     }
     else {
       if (isSelectDate) {
-        setCurData(Data.filter((record) => record.PaymentDate === CurDate));
+
+        CurData = Data.filter((record) => record.PaymentDate === CurDate);
       }
       else if (isSelectType) {
             if (CurType === 'all') {
             setCurArray(Data.slice(0,6));
-            setCurData(Data);
+            CurData = Data;
             return;
             }
-        setCurData(Data.filter((record) => record.PaymentType === CurType));
+        CurData = Data.filter((record) => record.PaymentType === CurType);
       }
     }
     setCurrentPage(1);
@@ -115,7 +117,9 @@ function App() {
   }
 
   function handleReset(){
-    setCurData(Data);
+    CurData = Data;
+    setCurrentPage(1);
+    paginate(currentPage);
   }
 
   return (
@@ -125,9 +129,8 @@ function App() {
         <FilterElementContainer>
           <div style={{marginBottom: '8px'}}> Payment Type Filter </div>
           <select onChange={handleType}>
-            <option value='all'>All</option>
-            <option value='online'>Online</option>
-            <option value='physical'>Physical</option>
+            <option value='Online'>Online</option>
+            <option value='Physical'>Physical</option>
           </select>
         </FilterElementContainer>
 
@@ -146,6 +149,7 @@ function App() {
         </FilterElementContainer>
 
         <FilterBtn onClick={handleFilter}> Filter </FilterBtn>
+        <FilterBtn onClick={handleReset}> Reset </FilterBtn>
       </FilterContainer>
      
       <DataTable data={CurArray} />

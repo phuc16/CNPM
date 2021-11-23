@@ -2,7 +2,6 @@ import "./HeaderList.css";
 
 export default function HeaderList(props) {
   function detailClick() {
-    alert(`${props.title} List Refresh`);
     props.getList();
   }
 

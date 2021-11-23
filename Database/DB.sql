@@ -106,36 +106,40 @@ INSERT INTO rtable VALUES (25, 0);
 
 -- sample data for product
 
-INSERT INTO rproduct VALUES (1, 'BAGEL B.E.L.T.', 5.19, 'Breakfast', 'https://www.timhortons.ph/upload/assets/XL7wKHalJnyIGEiGiyf1a1Q3ITkhddIX9ZaHb5fywgt992VjEA.jpg');
-INSERT INTO rproduct VALUES (2, 'FARMER BREAKFAST WRAP', 5.49, 'Breakfast', 'https://www.timhortons.ph/upload/assets/uq7HpA0wwr8Krxgba6Haj0NFhR8aVkW384LgTVAHiqum7xD9lA.png');
-INSERT INTO rproduct VALUES (3, 'HAM AND CHEESE CROSSIANT', 4.79, 'Breakfast', 'https://www.timhortons.ph/upload/assets/DrZwQsSdWQeuqwFSb393Oezkm5qg20R8UoNuaBYUzzc69FnZWv.jpg');
-INSERT INTO rproduct VALUES (4, 'SAUSAGE EGG & CHEESE MUFFIN', 5.99, 'Breakfast', 'https://www.timhortons.ph/upload/assets/oDJSHJgjY5wJ98Y39NOWoUCfvjtFE6Y2tLjG6N8OqTGzlgmF0k.jpg');
-INSERT INTO rproduct VALUES (5, 'BACON EGG & CHEESE MUFFIN', 5.79, 'Breakfast', 'https://www.timhortons.ph/upload/assets/CtiaJbs6dSya7xVehaavX8iuYpoh9PZGQDF5Mpr2WUVmskFM8m.jpg');
-INSERT INTO rproduct VALUES (6, 'SAUSAGE & CHEESE MUFFIN', 5.59, 'Breakfast', 'https://www.timhortons.ph/upload/assets/LiP4I7rrZKD7hzf9JJa60DSMsbLKdAlxWM7QPIlxn72mIHRr4y.jpg');
-INSERT INTO rproduct VALUES (7, 'HASH BROWN', 6.99, 'Breakfast', 'https://www.timhortons.ph/upload/assets/YkIkPNbguPzNEYPrUfTPFvz0MI2HnemuRWz7dWYMlnutfy5JKk.jpg');
-INSERT INTO rproduct VALUES (8, 'ITALIANO GRILLED BAGEL', 7.19, 'Lunch', 'https://www.timhortons.ph/upload/assets/sYEacQcraFMEynXsykmPrGphjFApY7czbas3XiEAO1TIeeUQAY.jpg');
-INSERT INTO rproduct VALUES (9, 'TUSCAN CHICKEN PANINI', 7.79, 'Lunch', 'https://www.timhortons.ph/upload/assets/aX3HKWg9lUWbR53eQDTolEPy2IBTY4bcbpJNGDfdRbZaqJHycq.jpg');
-INSERT INTO rproduct VALUES (10, 'CHIPOTLE CHICKEN WRAP', 3.59, 'Lunch', 'https://www.timhortons.ph/upload/assets/cZx4pfT1T16SSOBZHdjyUz1xtQ47GU9AbNfzidXReTc2MA5DWv.jpg');
-INSERT INTO rproduct VALUES (11, 'STEAK & CHEESE PANINI', 3.99, 'Lunch', 'https://www.timhortons.ph/upload/assets/Qj0joZa35pR4ZisAakrq0AH67XaMdcMd7LYEA4SGUX0PTdewQA.jpg');
-INSERT INTO rproduct VALUES (12, 'TUNA MELT', 4.49, 'Lunch', 'https://www.timhortons.ph/upload/assets/Pl6sQxm9zQpR9iA2bBKRQXgxZy2czKS6aeYNu19g6DJzWScSlc.jpg');
-INSERT INTO rproduct VALUES (13, 'ARTISAN GRILLED CHEESE', 4.99, 'Lunch', 'https://www.timhortons.ph/upload/assets/VbbAbNb8Fjb8ZuyzcG693OSY2WseGQdYwGoBfYl91deeut2HPR.jpg');
-INSERT INTO rproduct VALUES (14, 'CHICKEN BACON RANCH WRAP', 5.59, 'Lunch', 'https://www.timhortons.ph/upload/assets/0gZ69YA6OSGU2u8jwm2OqufWQjQw5NjdkABdimRFv6I0JUnuhw.jpg');
-INSERT INTO rproduct VALUES (15, 'CHOCOLATE DIP', 5.99, 'Sweet', 'https://www.timhortons.ph/upload/assets/8i4G0WlZshMNYHrGeuzPdaE1L6qnOtuDS9xV0sA2f5E00aOWhQ.jpg');
-INSERT INTO rproduct VALUES (16, 'BOSTON CREAM', 5.49, 'Sweet', 'https://www.timhortons.ph/upload/assets/XuJutewnGfL5nJ47fqBZlNKw2vILb74GOtxJL58ht7zCnIy3di.jpg');
-INSERT INTO rproduct VALUES (17, 'CHOCOLATE GLAZED', 7.49, 'Sweet', 'https://www.timhortons.ph/upload/assets/eAxrmYSLFqxiPtqufq7jNmG4pOHB3MiBlXrCqbMEaLCqhgUaEf.jpg');
-INSERT INTO rproduct VALUES (18, 'DOUBLE CHOCOLATE FUDGE', 3.79, 'Sweet', 'https://www.timhortons.ph/upload/assets/r898kCI5JVtYwPaMHzmGVNI8DBAVlRTuQ4QU6vupe4krOx4B8U.jpg');
-INSERT INTO rproduct VALUES (19, 'CHOCOLATE ECLAIR', 7.99, 'Sweet', 'https://www.timhortons.ph/upload/assets/GCmcrVJwZAtVBbU2ujt75qhxDRtL6drEHYRqSMuQxBTrxNrQY0.jpg');
-INSERT INTO rproduct VALUES (20, 'HONEY CRULLER', 7.49, 'Sweet', 'https://www.timhortons.ph/upload/assets/YG9n7xIN5u0TROAgk3oFtN83UrEpsie3lnuPqR9MQGof2vLBqu.jpg');
-INSERT INTO rproduct VALUES (21, 'BDAY CAKE TIMBIT', 7.39, 'Sweet', 'https://www.timhortons.ph/upload/assets/GVnpESyvl9VWs3ZS7kZgWyfq9jE8AuYPSeUNkl7gy6DK1Tl8k7.jpg');
-INSERT INTO rproduct VALUES (22, 'CHOCOLATE GLAZED TIMBIT', 4.39, 'Sweet', 'https://www.timhortons.ph/upload/assets/MBBDviVe8zP76EvMaLHl9YcxkaoPT7cxUTKisQqp5TER5DOuTv.jpg');
-INSERT INTO rproduct VALUES (23, 'CHOCOLATE FILLED TIMBIT', 5.99, 'Sweet', 'https://www.timhortons.ph/upload/assets/SiHBbWkZRzroBte8ZufuPbnmmqo6sZ3cwedweP9dM3RdhI3wiS.png');
-INSERT INTO rproduct VALUES (24, 'DOUBLE DOUBLE', 4.99, 'Drink', 'https://www.timhortons.ph/upload/assets/2yQdfgNRyMxNMwDleZ3aDaHnWi3aWxDbcdojUiWqwWHsfLvFQg.jpg');
-INSERT INTO rproduct VALUES (25, 'CAPPUCINO', 5.49, 'Drink', 'https://www.timhortons.ph/upload/assets/2WiUpAIDBBB28QaCPY3vs7bcQAPGTiv0alREjkxoBh7gclBjrl.jpg');
-INSERT INTO rproduct VALUES (26, 'FRENCH VANILA CAPPUCINO', 6.19, 'Drink', 'https://www.timhortons.ph/upload/assets/ed9T95qJ9ieWEheeKMCnKtzgreVtf6AySM4KgGZWm2YXtuLBtw.jpg');
-INSERT INTO rproduct VALUES (27, 'LATTE', 4.79, 'Drink', 'https://www.timhortons.ph/upload/assets/XR1g0PBfrBkDpky0fmoLgaEzaWz2t3JFSOvLrgWtFgTtvdJsLp.jpg');
-INSERT INTO rproduct VALUES (28, 'HOT CHOCOLATE', 4.39, 'Drink', 'https://www.timhortons.ph/upload/assets/MwrVM4uMgq8OJaZ1hvN58wzElaYm7kBbUwdOQxZaqH9HlZOWa1.jpg');
-INSERT INTO rproduct VALUES (29, 'CAFE MOCHA', 3.49, 'Drink', 'https://www.timhortons.ph/upload/assets/02yN12IfyTI6Ol7PdSkdN0TJvfuYXopRWis5GtqQcwx25EaohP.jpg');
-INSERT INTO rproduct VALUES (30, 'SPECIALITY TEA', 4.79, 'Drink', 'https://www.timhortons.ph/upload/assets/V5NSSRhu9bM4YqwV9boqNhrUTgny8DLVaNSw2JYqEk1ovvHuzF.jpg');
+INSERT INTO rproduct VALUES (1, 'BAGEL B.E.L.T.', 5.19, 'Breakfast', 'Bagel-BELT.jpg');
+INSERT INTO rproduct VALUES (2, 'FARMERS BREAKFAST WRAP', 5.49, 'Breakfast', 'Farmers-Breakfast-Wrap.jpg');
+INSERT INTO rproduct VALUES (3, 'HAM AND CHEESE CROSSIANT', 4.79, 'Breakfast', 'Ham-and-Cheese-Croissant.jpg');
+INSERT INTO rproduct VALUES (4, 'SAUSAGE EGG & CHEESE MUFFIN', 5.99, 'Breakfast', 'Sausage-Egg-and-Cheese-Muffin.jpg');
+INSERT INTO rproduct VALUES (5, 'BACON EGG & CHEESE MUFFIN', 5.79, 'Breakfast', 'Bacon-Egg-and-Cheese-Muffin.jpg');
+INSERT INTO rproduct VALUES (6, 'BACON & CHEESE MUFFIN', 5.59, 'Breakfast', 'Bacon-and-Cheese-Muffin.jpg');
+INSERT INTO rproduct VALUES (7, 'HASH BROWN', 6.99, 'Breakfast', 'Hashbrown.jpg');
+
+INSERT INTO rproduct VALUES (8, 'ITALIANO GRILLED BAGEL', 7.19, 'Lunch', 'Italiano-Grilled-Bagel.jpg');
+INSERT INTO rproduct VALUES (9, 'TUSCAN CHICKEN PANINI', 7.79, 'Lunch', 'Tuscan-Chicken-Panini.jpg');
+INSERT INTO rproduct VALUES (10, 'CHIPOTLE CHICKEN WRAP', 3.59, 'Lunch', 'Chipotle-Chicken-Wrap.jpg');
+INSERT INTO rproduct VALUES (11, 'GRILLED CHEESE PANINI', 3.99, 'Lunch', 'Grilled-Cheese-Panini.jpg');
+INSERT INTO rproduct VALUES (12, 'TUNA & CHEESE MELT', 4.49, 'Lunch', 'Tuna-and-Cheese-Melt.jpg');
+INSERT INTO rproduct VALUES (13, 'CHICKEN CORDON BLEU', 4.99, 'Lunch', 'Chicken-Cordon-Bleu.jpg');
+INSERT INTO rproduct VALUES (14, 'TURKEY BACON CLUB WRAP', 5.59, 'Lunch', 'Turkey-Bacon-Club-Wrap.jpg');
+
+INSERT INTO rproduct VALUES (15, 'CHOCOLATE DIP DONUT', 5.99, 'Sweet', 'Chocolate Dip Donut.jpg');
+INSERT INTO rproduct VALUES (16, 'BOSTON CREAM', 5.49, 'Sweet', 'Boston-Cream.jpg');
+INSERT INTO rproduct VALUES (17, 'CHOCOLATE GLAZED DONUT', 5.49, 'Sweet', 'Chocolate-Glazed-Donut.jpg');
+INSERT INTO rproduct VALUES (18, 'COOKIE DOUGH DONUT', 6.79, 'Sweet', 'Cookie-Dough-Donut.jpg');
+INSERT INTO rproduct VALUES (19, 'CHOCOLATE ECLAIR', 7.99, 'Sweet', 'Chocolate-Eclair.jpg');
+INSERT INTO rproduct VALUES (20, 'HONEY CRULLER', 7.49, 'Sweet', 'Honey-Cruller.jpg');
+INSERT INTO rproduct VALUES (21, 'BDAY CAKE TIMBIT', 4.39, 'Sweet', 'BDay-Cake-Timbit.jpg');
+INSERT INTO rproduct VALUES (22, 'STRAWBERRY FILLED TIMBIT', 4.39, 'Sweet', 'Strawberry-Filled-Timbit.jpg');
+INSERT INTO rproduct VALUES (23, 'CHOCOLATE GLAZED TIMBIT', 4.39, 'Sweet', 'Chocolate-Glazed-Timbit.jpg');
+INSERT INTO rproduct VALUES (24, 'SNOWBALL SURPRISE', 7.99, 'Sweet', 'Snowball-Surprise.jpg');
+
+INSERT INTO rproduct VALUES (25, 'DOUBLE DOUBLE', 4.99, 'Drink', 'Double-Double.jpg');
+INSERT INTO rproduct VALUES (26, 'CAPPUCINO', 5.49, 'Drink', 'Cappuccino.jpg');
+INSERT INTO rproduct VALUES (27, 'FRENCH VANILA LATTE', 6.19, 'Drink', 'French-Vanilla-Latte.jpg');
+INSERT INTO rproduct VALUES (28, 'LATTE', 4.79, 'Drink', 'Latte.jpg');
+INSERT INTO rproduct VALUES (29, 'HOT CHOCOLATE', 4.39, 'Drink', 'Hot-Chocolate.jpg');
+INSERT INTO rproduct VALUES (30, 'CAFE MOCHA', 3.49, 'Drink', 'Cafe-Mocha.jpg');
+INSERT INTO rproduct VALUES (31, 'SPECIALITY TEA', 4.79, 'Drink', 'Specialty-Tea.jpg');
 -- SELECT * FROM db.rproduct;
 
 -- sample data for cart and order

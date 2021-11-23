@@ -14,11 +14,18 @@
 
 .item-info-cell {
   width: 40%;
+  background-color: #fff;
+}
+
+.item-info-cell h2{
+  background-color: #fff;
 }
 
 .item-btn-cell {
   width: 20%;
+  background-color: #fff;
 }
+
 
 .items-list-container-grid {
   width: 100%;
@@ -38,6 +45,7 @@
   margin: 20px;
   display: flex;
   flex-wrap: wrap;
+  background-color: #fff;
 }
 
 button:focus {
@@ -49,6 +57,7 @@ button:focus {
   justify-content: center;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
 }
 
 .item-btn.item-btn-confirm .detail button {

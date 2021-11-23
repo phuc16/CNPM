@@ -14,12 +14,13 @@
   align-items: center;
   justify-content: center !important;
   margin: 10px 40px 5px;
-  background-color: #F1F8F5;
+  background-color: #FFF;
   border-radius: 10px;
   font-size: larger;
   border-radius: 20px;
-    border-style: groove;
-    border-color: #0AA85C;
+  border-style: groove;
+  border-color: #0AA85C;
+  text-decoration: none;
 }
 
 .App .select-bar .option:hover {
@@ -35,6 +36,7 @@
   font-size: larger;
   text-align: center;
   font-weight: bold;
+  background-color: #FFF;
 }
 
 .App .select-bar .option.grey {

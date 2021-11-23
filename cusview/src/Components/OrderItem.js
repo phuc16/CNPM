@@ -9,7 +9,7 @@ export default function OrderItem(props){
 
     return(
         <div className="orderItem">
-            <img src= {ImgLink} alt=''/>
+            <img src= {window.location.origin + '/img/' + ImgLink} alt=''/>
             <span className="name">{Name}</span>
             <span className="quantity" style={{textAlign: 'center'}}>
                 <img src= {minus} onClick={minusQuantity} alt=''/>

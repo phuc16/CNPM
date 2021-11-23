@@ -5,7 +5,7 @@ export default function OrderItem(props){
 
     return(
         <div className="orderItem">
-            <img src= {imgUrl} alt=''/>
+            <img src= {window.location.origin + '/img/' + imgUrl}  alt=''/>
             <span className="name">{name}</span>
             <span style={{textAlign: 'center'}}>{quantity}</span>
             <span style={{textAlign: 'right'}}>{pricePU}$</span>

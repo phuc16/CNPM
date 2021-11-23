@@ -8,7 +8,7 @@ export default function Menu(props){
       <div>
         <li class="main-product">
           <div class="img-product">
-          <img class="card-img-top" src= {ImgLink} alt=''/>
+          <img class="card-img-top" src= {window.location.origin + '/img/' + ImgLink} alt=''/>
           </div>
           <div class="content-product">
               <h3 class="content-product-h3">{Name}</h3>

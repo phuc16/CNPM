@@ -1,17 +1,11 @@
 import "./OrderHeader.css";
 
 export default function OrderHeader(props) {
-  function detailClick() {
-    alert("Order Detail Clicked");
-  }
 
   const { tableId, orderId, date } = props;
 
   return (
     <div className="order-header">
-      <div className="detail">
-        <button onClick={() => detailClick()}>Order Detail</button>
-      </div>
       <div className="info">
         <h1 style={{ textAlign: "left" }}>TABLE NO: {props.tableId}</h1>
         <h1 style={{ textAlign: "center" }}>ORDER ID: {props.orderId}</h1>

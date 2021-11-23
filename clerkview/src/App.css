@@ -1,5 +1,3 @@
-
-
 .clerk-tabs {
   margin: 0 auto;
 }
@@ -19,7 +17,7 @@
   font-size: larger;
   border-radius: 20px;
   border-style: groove;
-  border-color: #0AA85C;
+  border-color: #FFF;
   text-decoration: none;
 }
 
@@ -28,7 +26,7 @@
 }
 
 .App .select-bar .option:active {
-  background-color: #F1F8F5;
+  background-color: #Fff;
 }
 
 .App .select-bar .option h1 {
@@ -36,11 +34,11 @@
   font-size: larger;
   text-align: center;
   font-weight: bold;
-  background-color: #FFF;
+  background-color: inherit;
 }
 
 .App .select-bar .option.grey {
-  background-color: #F1F8F5;
+  background-color: #C5C5C5;
 }
 
 @media only screen and (max-width: 991px) {

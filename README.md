@@ -1,5 +1,5 @@
 # POS SYSTEM
-Software Engineering(CO3001)-DH_HK211 assignment project
+Software Engineering (CO3001)-DH_HK211 assignment project
 
 
 Author: Nguyễn Diệu Ái, Nguyễn Kế Đạt, Trương Hoàng Phúc, Đặng Quốc Thanh, Huỳnh Đức Thịnh, Nguyễn Phúc Thịnh, Nguyễn Ngô Thanh Trúc.
@@ -10,7 +10,7 @@ We build this system to help restaurant calculates the amount owed by the custom
 
 ## Instruction
 
-### First import database from ./Database/DB.sql
+### Import database from ./Database/DB.sql
 
 ### Run server
 

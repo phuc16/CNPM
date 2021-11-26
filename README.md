@@ -22,6 +22,8 @@ Server will run at [http://localhost:3001](http://localhost:3001).
 ### Run app
 App has 4 views: Customer-view, Clerk-view, Receptionist-view and Manager-view.
 
+In the project directory, you can:
+
 #### Run Customer-view mode:
 
     cd cusview
@@ -29,17 +31,17 @@ App has 4 views: Customer-view, Clerk-view, Receptionist-view and Manager-view.
 
 #### Run Clerk-view mode:
 
-    cd cusview
+    cd clerkview
     npm start
 
 #### Run Receptionist-view mode:
 
-    cd cusview
+    cd receptionistView
     npm start
 
 #### Run Manager-view mode:
 
-    cd cusview
+    cd managerview
     npm start
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

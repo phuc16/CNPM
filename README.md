@@ -19,8 +19,9 @@ Each actor has a corresponding interface that performs different functions.
 
 ### Import database from `./Database/DB.sql`
 
-### Change database connection informations
+### Change database connection's informations
 Update informations (host, user, password, database, port) of your connection in `server/dbConn.js`
+
 ```javascript
 var dbConn = mysql.createConnection({
     host: "127.0.0.1",

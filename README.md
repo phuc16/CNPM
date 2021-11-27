@@ -13,6 +13,8 @@ This app can be use by 4 user:
 * Clerk
 * Manager
 
+Each actor has a corresponding interface that performs different functions.
+
 ## Instruction
 
 ### Import database from ./Database/DB.sql

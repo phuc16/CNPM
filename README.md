@@ -5,7 +5,7 @@ Software Engineering (CO3001)-DH_HK211 assignment project
 Author: Nguyễn Diệu Ái, Nguyễn Kế Đạt, Trương Hoàng Phúc, Đặng Quốc Thanh, Huỳnh Đức Thịnh, Nguyễn Phúc Thịnh, Nguyễn Ngô Thanh Trúc.
 
 ## Project target
-We build this system to make it easier for customers to use the restaurant's services and also help the restaurant manage data. This system includes managing tables, ordering food, alerts, billing, credit card processing and customer management.
+We build this system to make it easier for customers to use the restaurant's services and also help the restaurant manage data. This system includes managing tables, ordering food, alerts, billing, credit card processing and viewing order records.
 
 This app can be use by 4 user:
 * Customer

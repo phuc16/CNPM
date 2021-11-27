@@ -69,4 +69,10 @@
         margin: 20px 3vw;
         grid-template-columns: 33% 34% 33%;
     }
+    .order-header .attribute span {
+        color: #000000;
+        background-color: inherit;
+        font-size: 15px;
+        font-weight: bold;
+    }
 }

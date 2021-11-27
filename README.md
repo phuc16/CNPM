@@ -5,8 +5,13 @@ Software Engineering (CO3001)-DH_HK211 assignment project
 Author: Nguyễn Diệu Ái, Nguyễn Kế Đạt, Trương Hoàng Phúc, Đặng Quốc Thanh, Huỳnh Đức Thịnh, Nguyễn Phúc Thịnh, Nguyễn Ngô Thanh Trúc.
 
 ## Project target
-We build this system to help restaurant calculates the amount owed by the customer, indicates that amount, may prepare an invoice for the customer, and indicates the options for the customer to make payment. This system includes table reservation, ordering food, alerts, billing, credit card processing and customer management.
+We build this system to make it easier for customers to use the restaurant's services and also help the restaurant manage data. This system includes managing tables, ordering food, alerts, billing, credit card processing and customer management.
 
+This app can be use by 4 user:
+..* Customer
+..* Receptionist
+..* Clerk
+..* Manager
 
 ## Instruction
 
@@ -15,6 +20,7 @@ We build this system to help restaurant calculates the amount owed by the custom
 ### Run server
 
     cd server
+    npm install (to install all dependencies required if necessary)
     node server
 
 Server will run at [http://localhost:3001](http://localhost:3001).
@@ -27,21 +33,25 @@ In the project directory, you can:
 #### Run Customer-view mode:
 
     cd cusview
+    npm install (to install all dependencies required if necessary)
     npm start
 
 #### Run Clerk-view mode:
 
     cd clerkview
+    npm install (to install all dependencies required if necessary)
     npm start
 
 #### Run Receptionist-view mode:
 
     cd receptionistView
+    npm install (to install all dependencies required if necessary)
     npm start
 
 #### Run Manager-view mode:
 
     cd managerview
+    npm install (to install all dependencies required if necessary)
     npm start
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

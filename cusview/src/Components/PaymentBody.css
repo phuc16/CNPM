@@ -92,9 +92,9 @@
 
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 800px) {
     .PaymentBody .online_confirm button {
-        margin: 0px 40px 15px -60px;
+        margin: 0px 30px 15px -60px;
     }
 
     .cash_confirm h2 {
@@ -103,7 +103,7 @@
 
     .cash_confirm {
         width: 93%;
-        margin: 0;
+        margin-left: 25px;
         background-color: white;
         height: 100px;
         display: inline-block;

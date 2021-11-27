@@ -64,9 +64,9 @@
 }
 
 
-@media only screen and (max-width: 468px) {
+@media only screen and (max-width: 800px) {
   .main-product {
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 0px;
     margin-bottom: 30px;
     
@@ -76,7 +76,7 @@
     border-radius: 10px;
     border-style: groove;
     border-color: #0AA85C;
-    height: 270px;
+    height: 400px
   }
     
   .no-margin {
@@ -92,9 +92,11 @@
   }
   
   .content-product-h3 {
-    font-size: 11px;
+    font-size: 18px;
     text-align: center;
     font-weight: bold;
+    padding: 10px;
+
   }
   .content-product-deltals {
     display: flex;
@@ -120,7 +122,7 @@
     border-radius: 5px;
     background-color: #000;
     font-weight: 500;
-    font-size: 15px !important;
+    font-size: 20px !important;
     margin-right: 10px;
     padding-left: 5px !important;
     padding-right: 5px !important;
@@ -133,13 +135,13 @@
 
 @media only screen and (max-width: 380px) {
   .main-product {
-    margin-left: 10px;
+    margin-left: 30px;
     margin-right: 0px;
     margin-bottom: 30px;
     
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 40%;
     border-radius: 10px;
     border-style: groove;
     border-color: #0AA85C;

@@ -10,7 +10,7 @@ class Payment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        check: false
+      check: false
     };
     this.handleOpen = this.handleOpen.bind(this);
     this.decline = this.decline.bind(this);

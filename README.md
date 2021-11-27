@@ -8,10 +8,10 @@ Author: Nguyễn Diệu Ái, Nguyễn Kế Đạt, Trương Hoàng Phúc, Đặn
 We build this system to make it easier for customers to use the restaurant's services and also help the restaurant manage data. This system includes managing tables, ordering food, alerts, billing, credit card processing and customer management.
 
 This app can be use by 4 user:
-..* Customer
-..* Receptionist
-..* Clerk
-..* Manager
+* Customer
+* Receptionist
+* Clerk
+* Manager
 
 ## Instruction
 

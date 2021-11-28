@@ -27,7 +27,7 @@
 }
 
 .content-product-h3 {
-    padding: .5rem 0;
+    padding: 10px;
     font-size: 16px;
     margin: 0 0 5px;
     font-size: 20px;
@@ -95,7 +95,6 @@
     text-align: center;
     font-weight: bold;
     padding: 10px;
-
   }
   .content-product-deltals {
     display: flex;

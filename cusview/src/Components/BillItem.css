@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+.bill-item {
+  margin: 10px 3vw 5px;
+  height: 75px;
+  display: grid;
+  grid-template-columns: 35% 35% 32%;
+  background-color: white;
+}
+
+.bill-item > span {
+  margin: 10px 3vw 7px 0px;
+  background-color: white;
+    font-weight: bold;
+    align-items: center;
+}
+
+.bill-item > span:last-child {
+  margin-right: 4.55vw;
+}
+
+@media only screen and (max-width: 991px) {
+  .bill-item {
+    grid-template-columns: 33% 34% 33%;
+  }
+  .bill-item > span:last-child {
+    margin-right: 5.5vw;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .bill-item {
+    grid-template-columns: 33% 34% 33%;
+    height: 65px;
+    font-size: small;
+  }
+  .bill-item .name {
+    margin: auto 2vw;
+  }
+  .bill-item > span:last-child {
+    margin-right: 3vw;
+  }
+}

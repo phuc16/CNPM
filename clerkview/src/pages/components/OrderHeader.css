@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    font-family: "Quicksand";
+    background-color: #F1F8F5;
+}
+
+button:focus {
+    outline: none;
+}
+
+.order-header .detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.order-header .detail button {
+    height: 46px;
+    width: 14vw;
+    background-color: #EBB011;
+    border-radius: 10px;
+    border: 1px solid #EBB115;
+    color: #FFFFFF;
+    font-size: larger;
+    text-align: center;
+    font-weight: bold;
+}
+
+.order-header .info {
+    display: grid;
+    margin: 20px 6vw;
+    grid-template-columns: 33% 34% 33%;
+}
+
+.order-header .info h1 {
+    color: #000000;
+    background-color: inherit;
+    font-size: larger;
+}
+
+.order-header>h1 {
+    margin: 40px 6vw 5px;
+    color: #000000;
+    background-color: inherit;
+    font-size: larger;
+}
+
+.order-header .attribute {
+    display: grid;
+    margin: 20px 6vw;
+    grid-template-columns: 33% 34% 33%;
+}
+
+.order-header .info h1 {
+    color: #000000;
+    background-color: inherit;
+    font-size: larger;
+}
+
+@media only screen and (max-width: 991px) {
+    .order-header .detail button {
+        width: 21.5vw;
+        height: 40px;
+        font-size: large;
+    }
+    .order-header .info h1 {
+        font-size: large;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .order-header .info {
+        grid-template-columns: 100%;
+    }
+    .order-header .detail button {
+        width: 30vw;
+        height: 36px;
+        font-size: small;
+    }
+    .order-header h1 {
+        font-size: medium;
+    }
+    .order-header .attribute {
+        display: grid;
+        margin: 20px 3vw;
+        grid-template-columns: 33% 34% 33%;
+    }
+}

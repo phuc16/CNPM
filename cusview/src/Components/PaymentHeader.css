@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    font-family: "Quicksand";
+    background-color: #F1F8F5;
+}
+
+.Payment-header {
+    margin: 50px 0px 0px; 
+    text-align: center;
+}
+
+.payment-info {
+    display: flex;
+    margin: 20px 3vw;
+    font-weight: bold;
+}
+
+.payment-info h4{
+    text-align: center;
+    flex: 1 0 21%; 
+    font-size: 24px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.sub_info h5{
+    padding: 5px 0px 30px 0px;  
+    display: block;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.sub_info {
+    width: 100%;
+    text-align: center;
+    font-size: 35px;
+}
+
+
+@media only screen and (max-width: 992px) {
+    .payment-info {
+        display: flex;
+        margin: 20px 3vw;
+    }
+
+    .payment-info h4 {
+        text-align: center;
+        flex: 1 0 21%; 
+        font-size: 15px;
+    }
+
+    .sub_info {
+        font-size: px;
+    }
+}
+  
+@media only screen and (max-width: 575px) {
+    .payment-info {
+        display: flex;
+        margin: 20px 3vw;
+    }
+    .payment-info h4 {
+        text-align: center;
+        flex: 1 0 21%; 
+        font-size: 10px;
+    }
+
+    .sub_info {
+        font-size: 24px;
+    }
+}
+

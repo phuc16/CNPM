@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+* {
+    font-family: "Quicksand";
+    background-color: #F1F8F5;
+}
+
+.cash_payment input {
+    float: right;
+    padding: 1;
+    margin: 7px 30px;
+}
+
+.cash_payment h2 {
+    float: left;
+    margin: 0;
+    padding: 10px 0px 0px 30px;
+}
+
+.cash_payment {
+    background-color: white;
+    margin: 20px;
+    border-radius: 25px;
+    height: 50px;
+}
+
+.cash_confirm button {
+    margin: 32px 90px;
+    float: right;
+    font-weight: bold;
+    align-items: center;
+}
+
+.cash_confirm {
+    width: 93%;
+    margin: 20px 0px 0px 45px;
+    background-color: white;
+    height: 100px;
+    display: inline-block;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.cash_confirm h1{
+    font-size: 20px;
+}
+
+.online_payment_title {
+    width: 30%;
+    float: left;
+    background-color: white;
+    margin: 35px auto;
+}
+
+.online_payment_title h2 {
+    padding-left: 60px;
+    background-color: white;
+}
+
+.cash_confirm h2 {
+    float: left;
+    background-color: white;
+    margin: 10px;
+    padding: 30px 0px 0px 50px;
+    font-weight: bold;
+    align-items: center;
+    font-size: 24px;
+}
+
+
+.PaymentBody .cash_confirm button {
+    height: 46px;
+    width: 240px;
+    background-color: #0EB062;
+    border-radius: 10px;
+    border: 1px solid #0AAF60;
+    color: #FFFFFF;
+    font-size: larger;
+    text-align: center;
+    font-weight: bold;
+}
+
+.PaymentBody .online_confirm button {
+    height: 46px;
+    width: 240px;
+    background-color: #0EB062;
+    border-radius: 10px;
+    border: 1px solid #0AAF60;
+    color: #FFFFFF;
+    font-size: larger;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+@media only screen and (max-width: 800px) {
+    .PaymentBody .online_confirm button {
+        margin: 0px 30px 15px -60px;
+    }
+
+    .cash_confirm h2 {
+        padding: 30px 0px 0px 20px;
+    }
+
+    .cash_confirm {
+        width: 93%;
+        margin-left: 25px;
+        background-color: white;
+        height: 100px;
+        display: inline-block;
+        border-radius: 20px;
+        border: 1px solid black;
+    }
+
+    .PaymentBody .cash_confirm button {
+        margin: 27px 45px;
+    }
+
+    .online_payment_title h2 {
+        padding-left: 30px;
+    }
+
+}
+  
+@media only screen and (max-width: 575px) {
+    .cash_confirm h2 {
+        margin: 5px 0px 0px 5px;
+        font-size: 12px;
+    }
+
+    .PaymentBody .cash_confirm button {
+        height: 30px;
+        width: 100px;
+        font-size: 15px !important;
+        margin-top: 20px ;
+        margin-left: 20px;
+        margin-bottom: 12px;
+    }
+
+    .cash_confirm {
+        width: 93%;
+        margin: 20px 20px;
+        background-color: white;
+        height: 80px;
+        display: inline-block;
+        border-radius: 20px;
+        border: 1px solid black;
+        align-items: center;
+    }
+
+    .cash_confirm h1{
+        font-size: 13px;
+        margin-bottom: 0;
+    }
+
+    .PaymentBody .online_confirm button {
+        height: 40px;
+        width: 180px;
+    }
+    
+    .online_payment_title h2 {
+        padding-left: 25px;
+        font-size: 19px;
+        width: 100%;
+    }
+
+}

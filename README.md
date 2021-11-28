@@ -1,2 +1,0 @@
-# CNPM
-Table: Table Management

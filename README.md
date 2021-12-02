@@ -51,7 +51,7 @@ In the project directory, you can:
     npm install (to install all dependencies required if necessary)
     npm start
 
-* After run the Customer-view project, add [/Table Number] after the link on the web like [http://localhost:3000] to [http://localhost:3000/1] to notify the POS system which table you are currently on and get access to the menu
+* After run the Customer-view project, add [/Table Number] after the link on the web like [http://localhost:3000] to [http://localhost:3000/1] to notify the POS system which table you are currently on and get access to the menu (Table Number ranges from 1 to 25, out of that range will cause error)
 
 #### Run Clerk-view mode:
 
